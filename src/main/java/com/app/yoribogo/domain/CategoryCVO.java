@@ -1,4 +1,4 @@
-package com.app.yoribogo.domain.vo;
+package com.app.yoribogo.domain;
 
 
 import lombok.Data;
