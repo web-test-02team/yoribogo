@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>yoribogo</title>
+  <link rel="icon" href="/images/mainFood/yoribogo_favicon.ico">
+  <link rel="stylesheet" href="/css/main/mainPost.css">
+</head>
+<body>
+<div class="postWrap" th:replace="~{/fix/main/introHeaderNoneLogin :: intro-login}"></div>
+<div>
+  <div class="navBigImg">
+      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+        <img src="/images/food/food19.png" sizes="100vw" decoding="async" data-nimg="fill" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;">
+      </span>
+    <div class="hiddenDiv"></div>
+  </div>
+  <div class="navMiddle">
+    <div>
+      <div class="pixel">
+        <div class="middleWrap">
+          <!-- 프로필 사진 경로도!! -->
+          <div class="middleImg" style="background: url(/images/food/food19.png) center center / cover no-repeat, rgb(255, 255, 255);">
+          </div>
+          <div class="middleContent">
+            <p class="bigGeul">생방송 요리보고!</p>
+            <div class="middleView">
+                <span class="viewCon">
+                  <strong class="viewNumber">346</strong>
+                  조회수
+                </span>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgTeum">
+                <circle cx="12" cy="12" r="4">
+                </circle>
+              </svg>
+              <span class="viewCon">
+                        <strong class="viewNumber">50</strong>
+                            포스트
+                    </span>
+            </div>
+            <p class="smallGeul">경계를 넘나드는 요리 사랑</p>
+          </div>
+          <div class="jjogjiWrap">
+            <div>
+              <button type="button" class="requestingButton">
+                <div class="requestingcontent">
+                  <div>쪽지로 거래 제안하기</div>
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" class="plus">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 0-1 1v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2h-7V4a1 1 0 0 0-1-1Z">
+                    </path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+            <button type="button" class="viewButton">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="dont">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6a3 3 0 0 1-5.022 2.216l-5.01 3.34c.018.127.029.255.031.385l4.84 2.978a3 3 0 1 1-.83 1.838l-4.672-2.876a3 3 0 1 1-.315-4.098l5.01-3.34A3 3 0 1 1 20 6Z">
+                </path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<main class="mainPost">
+  <div class="introPostTab">
+    <button value="" class="introButton">'오늘의 요리사' 소개
+    </button>
+    <button class="postButton">포스트
+      <span class="underScore"></span>
+    </button>
+  </div>
+  <div class="onePadding">
+    <div class="divNav">
+      <div class="postGap">포스트
+        <span>4</span>
+      </div>
+    </div>
+    <div>
+      <div class="postListFirst">
+        <div>
+          <div>
+            <div class="postListContent">
+              <div class="postTitleWrap">
+                <div class="postTitle">
+                  <div>
+                    <a href="">
+                      <div class="divImg" style="width: 34px;
+                        height: 34px;
+                        background: url(/images/mainFood/food19.png) center center / cover no-repeat, rgb(255, 255, 255);">
+                      </div>
+                    </a>
+                  </div>
+                  <div>
+                    <div>
+                      <a href="" class="postTitleFont">생방송 요리보고</a>
+                    </div>
+                    <div class="dateViewWrap">
+                      <a href="" class="fontgap">
+                        <span>2일전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="disabled">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <span>조회수 64</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="shareDiv">
+                  <div class="flexPosition">
+                    <div class="flexPosition">
+                      <button type="button" class="viweType" data-target="content1">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="quaternary">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2Zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z">
+                          </path></svg>
+                      </button>
+                      <!-- 클릭시 공유창 -->
+                      <div class="clickView" style="display: none;" id="content1">
+                        <ul class="ulView">
+                          <li tabindex="-1" data-option-value="" class="undefined">
+                            <button type="button" class="viewBtn" data-option-value="">공유
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- 여기까지 -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="blockButton">
+                <span class="blueFont">독점공개 에피소드</span>
+                <div style="height: 8px;"></div>
+                <h4 class="titleFont">히스테리 특집! (Feat. 나는솔로 16기 영숙 선배님) </h4>
+                <p class="hearts">
+                  16기 영숙을 알기 전까지 나는 여자를 몰랐다. 여성의 오랜 친구^^; 히스테리에 대해 이야기 나눴습니다. 순서는 다음과 같습니다. 히스테리를 어떻게 규정하고 있는가: 투엠씨의 의견 2. 본인의 히스테리 버튼 3. 나는솔로 16기 영숙 퀸~^^ 4. 히스테리를 안부리기 위해선? 5. 히스테리 몰래 부리기 (분명 부리는중인데 아무도 모르게 하기!!!!^^) 6. 히스테리의 좋은점 (맛집 정보처럼) 숨기려 해도 하품처럼 흘러나오는 나의 히스테리! 어떻게 다루며 살것인가^^ 본격 반성과 후회 방송... 재밌게 들어주세요. 생방여는 영숙님을 응원하고 지지합니다 -히스테리 반려인 일동-
+                </p>
+              </button>
+              <div class="flexMargin">
+                <div class="gapFlex">
+                  <button type="button" class="likeBTN" value="">
+                    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="likeImageNone" style="display: block; color: rgb(185, 185, 187); fill: rgb(185, 185, 187);">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.406 8.616 4.141c-1.383-1.266-3.682-.982-4.941.422-1.581 1.687-1.582 4.543.092 6.328l5.535 5.487a.988.988 0 0 0 1.396 0l5.535-5.487c1.674-1.785 1.674-4.64.092-6.328-1.259-1.404-3.558-1.688-4.941-.422L10 5.406Zm2.284-.281L10 7.214l-2.284-2.09c-.75-.685-2.203-.615-3.049.329l-.01.01-.01.011c-1.079 1.152-1.117 3.198.077 4.49L10 15.191l5.276-5.229c1.194-1.291 1.156-3.336.076-4.489l-.01-.01-.01-.011c-.846-.944-2.299-1.014-3.048-.328Z"></path>
+                    </svg>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="likeImageYes" style="display: none; color: rgb(91, 68, 234); fill: rgb(91, 68, 234);">
+                      <path d="M11.163 19.654a1.185 1.185 0 0 0 1.675 0l6.642-6.584c2.008-2.143 2.008-5.57.11-7.595-1.51-1.684-4.27-2.025-5.93-.506L12 6.488l-1.66-1.52c-1.66-1.518-4.42-1.177-5.93.507-1.898 2.025-1.898 5.452.11 7.595l6.643 6.584Z"></path>
+                    </svg>
+                    <!-- 이 글의 좋아요 받은 갯수 표시 -->
+                    <span class="likeCount">0</span>
+                  </button>
+                  <button type="button" class="replyBTN" value="">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="replyImege">
+                      <path clip-rule="evenodd" d="M8.144 13.563v2l2.543-2h2.396a2.74 2.74 0 0 0 2.741-2.74V7.073a2.74 2.74 0 0 0-2.74-2.74h-6.01a2.74 2.74 0 0 0-2.74 2.74v4.012a2.477 2.477 0 0 0 2.477 2.477h1.333Zm-.104 3.778a.815.815 0 0 1-1.23-.702v-1.743A3.81 3.81 0 0 1 3 11.086V7.074A4.074 4.074 0 0 1 7.074 3h6.01a4.074 4.074 0 0 1 4.073 4.074v3.748a4.074 4.074 0 0 1-4.074 4.074h-1.935L8.04 17.341Z"></path>
+                      <path d="M8.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM10.667 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM13.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0Z"></path>
+                    </svg>
+                    <!-- 이 글의 남겨진 댓글 수 -->
+                    <span class="replyCount">2</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="postList">
+        <div>
+          <div>
+            <div class="postListContent">
+              <div class="postTitleWrap">
+                <div class="postTitle">
+                  <div>
+                    <a href="">
+                      <div class="divImg" style="width: 34px;
+                        height: 34px;
+                        background: url(/images/mainFood/food19.png) center center / cover no-repeat, rgb(255, 255, 255);">
+                      </div>
+                    </a>
+                  </div>
+                  <div>
+                    <div>
+                      <a href="" class="postTitleFont">생방송 요리보고</a>
+                    </div>
+                    <div class="dateViewWrap">
+                      <a href="" class="fontgap">
+                        <span>2일전</span>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="disabled">
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                        <span>조회수 64</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="shareDiv">
+                  <div class="flexPosition">
+                    <div class="flexPosition">
+                      <button type="button" class="viweType" data-target="content2">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="quaternary">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2Zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z">
+                          </path></svg>
+                      </button>
+                      <!-- 클릭시 공유창 -->
+                      <div class="clickView" style="display: none;" id="content2">
+                        <ul class="ulView">
+                          <li tabindex="-1" data-option-value="" class="undefined">
+                            <button type="button" class="viewBtn" data-option-value="">공유
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- 여기까지 -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="blockButton">
+                <span class="blueFont">독점공개 에피소드</span>
+                <div style="height: 8px;"></div>
+                <h4 class="titleFont">히스테리 특집! (Feat. 나는솔로 16기 영숙 선배님) </h4>
+                <p class="hearts">
+                  16기 영숙을 알기 전까지 나는 여자를 몰랐다. 여성의 오랜 친구^^; 히스테리에 대해 이야기 나눴습니다. 순서는 다음과 같습니다. 히스테리를 어떻게 규정하고 있는가: 투엠씨의 의견 2. 본인의 히스테리 버튼 3. 나는솔로 16기 영숙 퀸~^^ 4. 히스테리를 안부리기 위해선? 5. 히스테리 몰래 부리기 (분명 부리는중인데 아무도 모르게 하기!!!!^^) 6. 히스테리의 좋은점 (맛집 정보처럼) 숨기려 해도 하품처럼 흘러나오는 나의 히스테리! 어떻게 다루며 살것인가^^ 본격 반성과 후회 방송... 재밌게 들어주세요. 생방여는 영숙님을 응원하고 지지합니다 -히스테리 반려인 일동-
+                </p>
+                <div class="videoWrap">
+                  <div class="video" style="background: url(/images/mainFood/food15.png) center center / cover no-repeat, rgb(255, 255, 255);">
+                  </div>
+                  <div class="videoRe"></div>
+                </div>
+              </button>
+              <!-- 후후 -->
+              <div class="flexMargin">
+                <div class="gapFlex">
+                  <button type="button" class="likeBTN" value="">
+                    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="likeImageNone" style="display: block; color: rgb(185, 185, 187); fill: rgb(185, 185, 187);">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.406 8.616 4.141c-1.383-1.266-3.682-.982-4.941.422-1.581 1.687-1.582 4.543.092 6.328l5.535 5.487a.988.988 0 0 0 1.396 0l5.535-5.487c1.674-1.785 1.674-4.64.092-6.328-1.259-1.404-3.558-1.688-4.941-.422L10 5.406Zm2.284-.281L10 7.214l-2.284-2.09c-.75-.685-2.203-.615-3.049.329l-.01.01-.01.011c-1.079 1.152-1.117 3.198.077 4.49L10 15.191l5.276-5.229c1.194-1.291 1.156-3.336.076-4.489l-.01-.01-.01-.011c-.846-.944-2.299-1.014-3.048-.328Z"></path>
+                    </svg>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="likeImageYes" style="display: none; color: rgb(91, 68, 234); fill: rgb(91, 68, 234);">
+                      <path d="M11.163 19.654a1.185 1.185 0 0 0 1.675 0l6.642-6.584c2.008-2.143 2.008-5.57.11-7.595-1.51-1.684-4.27-2.025-5.93-.506L12 6.488l-1.66-1.52c-1.66-1.518-4.42-1.177-5.93.507-1.898 2.025-1.898 5.452.11 7.595l6.643 6.584Z"></path>
+                    </svg>
+                    <!-- 이 글의 좋아요 받은 갯수 표시 -->
+                    <span class="likeCount">0</span>
+                  </button>
+                  <button type="button" class="replyBTN" value="">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="replyImege">
+                      <path clip-rule="evenodd" d="M8.144 13.563v2l2.543-2h2.396a2.74 2.74 0 0 0 2.741-2.74V7.073a2.74 2.74 0 0 0-2.74-2.74h-6.01a2.74 2.74 0 0 0-2.74 2.74v4.012a2.477 2.477 0 0 0 2.477 2.477h1.333Zm-.104 3.778a.815.815 0 0 1-1.23-.702v-1.743A3.81 3.81 0 0 1 3 11.086V7.074A4.074 4.074 0 0 1 7.074 3h6.01a4.074 4.074 0 0 1 4.073 4.074v3.748a4.074 4.074 0 0 1-4.074 4.074h-1.935L8.04 17.341Z"></path>
+                      <path d="M8.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM10.667 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM13.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0Z"></path>
+                    </svg>
+                    <!-- 이 글의 남겨진 댓글 수 -->
+                    <span class="replyCount">2</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="postList">
+        <div class="postListContent">
+          <div class="postTitleWrap">
+            <div class="postTitle">
+              <div>
+                <a href="">
+                  <div class="divImg" style="width: 34px;
+                        height: 34px;
+                        background: url(/images/mainFood/food19.png) center center / cover no-repeat, rgb(255, 255, 255);">
+                  </div>
+                </a>
+              </div>
+              <div>
+                <div>
+                  <a href="" class="postTitleFont">생방송 요리보고</a>
+                </div>
+                <div class="dateViewWrap">
+                  <a href="" class="fontgap">
+                    <span>2일전</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="disabled">
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                    <span>조회수 64</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="shareDiv">
+              <div class="flexPosition">
+                <div class="flexPosition">
+                  <button type="button" class="viweType" data-target="content3">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="quaternary">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2Zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z">
+                      </path></svg>
+                  </button>
+                  <!-- 클릭시 공유창 -->
+                  <div class="clickView" style="display: none;" id="content3">
+                    <ul class="ulView">
+                      <li tabindex="-1" data-option-value="" class="undefined">
+                        <button type="button" class="viewBtn" data-option-value="">공유
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- 여기까지 -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="blockButton">
+            <span class="blueFont">독점공개 에피소드</span>
+            <div style="height: 8px;"></div>
+            <h4 class="titleFont">히스테리 특집! (Feat. 나는솔로 16기 영숙 선배님) </h4>
+            <p class="hearts">
+              16기 영숙을 알기 전까지 나는 여자를 몰랐다. 여성의 오랜 친구^^; 히스테리에 대해 이야기 나눴습니다. 순서는 다음과 같습니다. 히스테리를 어떻게 규정하고 있는가: 투엠씨의 의견 2. 본인의 히스테리 버튼 3. 나는솔로 16기 영숙 퀸~^^ 4. 히스테리를 안부리기 위해선? 5. 히스테리 몰래 부리기 (분명 부리는중인데 아무도 모르게 하기!!!!^^) 6. 히스테리의 좋은점 (맛집 정보처럼) 숨기려 해도 하품처럼 흘러나오는 나의 히스테리! 어떻게 다루며 살것인가^^ 본격 반성과 후회 방송... 재밌게 들어주세요. 생방여는 영숙님을 응원하고 지지합니다 -히스테리 반려인 일동-
+            </p>
+          </button>
+          <div class="flexMargin">
+            <div class="gapFlex">
+              <button type="button" class="likeBTN" value="">
+                <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="likeImageNone" style="display: block; color: rgb(185, 185, 187); fill: rgb(185, 185, 187);">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.406 8.616 4.141c-1.383-1.266-3.682-.982-4.941.422-1.581 1.687-1.582 4.543.092 6.328l5.535 5.487a.988.988 0 0 0 1.396 0l5.535-5.487c1.674-1.785 1.674-4.64.092-6.328-1.259-1.404-3.558-1.688-4.941-.422L10 5.406Zm2.284-.281L10 7.214l-2.284-2.09c-.75-.685-2.203-.615-3.049.329l-.01.01-.01.011c-1.079 1.152-1.117 3.198.077 4.49L10 15.191l5.276-5.229c1.194-1.291 1.156-3.336.076-4.489l-.01-.01-.01-.011c-.846-.944-2.299-1.014-3.048-.328Z"></path>
+                </svg>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="likeImageYes" style="display: none; color: rgb(91, 68, 234); fill: rgb(91, 68, 234);">
+                  <path d="M11.163 19.654a1.185 1.185 0 0 0 1.675 0l6.642-6.584c2.008-2.143 2.008-5.57.11-7.595-1.51-1.684-4.27-2.025-5.93-.506L12 6.488l-1.66-1.52c-1.66-1.518-4.42-1.177-5.93.507-1.898 2.025-1.898 5.452.11 7.595l6.643 6.584Z"></path>
+                </svg>
+                <!-- 이 글의 좋아요 받은 갯수 표시 -->
+                <span class="likeCount">0</span>
+              </button>
+              <button type="button" class="replyBTN" value="">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="replyImege">
+                  <path clip-rule="evenodd" d="M8.144 13.563v2l2.543-2h2.396a2.74 2.74 0 0 0 2.741-2.74V7.073a2.74 2.74 0 0 0-2.74-2.74h-6.01a2.74 2.74 0 0 0-2.74 2.74v4.012a2.477 2.477 0 0 0 2.477 2.477h1.333Zm-.104 3.778a.815.815 0 0 1-1.23-.702v-1.743A3.81 3.81 0 0 1 3 11.086V7.074A4.074 4.074 0 0 1 7.074 3h6.01a4.074 4.074 0 0 1 4.073 4.074v3.748a4.074 4.074 0 0 1-4.074 4.074h-1.935L8.04 17.341Z"></path>
+                  <path d="M8.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM10.667 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM13.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0Z"></path>
+                </svg>
+                <!-- 이 글의 남겨진 댓글 수 -->
+                <span class="replyCount">2</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="postList">
+    <div class="postListContent">
+      <div class="postTitleWrap">
+        <div class="postTitle">
+          <div>
+            <a href="">
+              <div class="divImg" style="width: 34px;
+                       height: 34px;
+                       background: url(/images/mainFood/food19.png) center center / cover no-repeat, rgb(255, 255, 255);">
+              </div>
+            </a>
+          </div>
+          <div>
+            <div>
+              <a href="" class="postTitleFont">생방송 요리보고</a>
+            </div>
+            <div class="dateViewWrap">
+              <a href="" class="fontgap">
+                <span>2일전</span>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="disabled">
+                  <circle cx="12" cy="12" r="4"></circle>
+                </svg>
+                <span>조회수 64</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="shareDiv">
+          <div class="flexPosition">
+            <div class="flexPosition">
+              <button type="button" class="viweType" data-target="content4">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="quaternary">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2Zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z">
+                  </path></svg>
+              </button>
+              <!-- 클릭시 공유창 -->
+              <div class="clickView" style="display: none;" id="content4">
+                <ul class="ulView">
+                  <li tabindex="-1" data-option-value="" class="undefined">
+                    <button type="button" class="viewBtn" data-option-value="">공유
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <!-- 여기까지 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="blockButton">
+        <span class="blueFont">독점공개 에피소드</span>
+        <div style="height: 8px;"></div>
+        <h4 class="titleFont">히스테리 특집! (Feat. 나는솔로 16기 영숙 선배님) </h4>
+        <p class="hearts">
+          16기 영숙을 알기 전까지 나는 여자를 몰랐다. 여성의 오랜 친구^^; 히스테리에 대해 이야기 나눴습니다. 순서는 다음과 같습니다. 히스테리를 어떻게 규정하고 있는가: 투엠씨의 의견 2. 본인의 히스테리 버튼 3. 나는솔로 16기 영숙 퀸~^^ 4. 히스테리를 안부리기 위해선? 5. 히스테리 몰래 부리기 (분명 부리는중인데 아무도 모르게 하기!!!!^^) 6. 히스테리의 좋은점 (맛집 정보처럼) 숨기려 해도 하품처럼 흘러나오는 나의 히스테리! 어떻게 다루며 살것인가^^ 본격 반성과 후회 방송... 재밌게 들어주세요. 생방여는 영숙님을 응원하고 지지합니다 -히스테리 반려인 일동-
+        </p>
+      </button>
+      <div class="flexMargin">
+        <div class="gapFlex">
+          <button type="button" class="likeBTN" value="">
+            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="likeImageNone" style="display: block; color: rgb(185, 185, 187); fill: rgb(185, 185, 187);">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.406 8.616 4.141c-1.383-1.266-3.682-.982-4.941.422-1.581 1.687-1.582 4.543.092 6.328l5.535 5.487a.988.988 0 0 0 1.396 0l5.535-5.487c1.674-1.785 1.674-4.64.092-6.328-1.259-1.404-3.558-1.688-4.941-.422L10 5.406Zm2.284-.281L10 7.214l-2.284-2.09c-.75-.685-2.203-.615-3.049.329l-.01.01-.01.011c-1.079 1.152-1.117 3.198.077 4.49L10 15.191l5.276-5.229c1.194-1.291 1.156-3.336.076-4.489l-.01-.01-.01-.011c-.846-.944-2.299-1.014-3.048-.328Z"></path>
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="likeImageYes" style="display: none; color: rgb(91, 68, 234); fill: rgb(91, 68, 234);">
+              <path d="M11.163 19.654a1.185 1.185 0 0 0 1.675 0l6.642-6.584c2.008-2.143 2.008-5.57.11-7.595-1.51-1.684-4.27-2.025-5.93-.506L12 6.488l-1.66-1.52c-1.66-1.518-4.42-1.177-5.93.507-1.898 2.025-1.898 5.452.11 7.595l6.643 6.584Z"></path>
+            </svg>
+            <!-- 이 글의 좋아요 받은 갯수 표시 -->
+            <span class="likeCount">0</span>
+          </button>
+          <button type="button" class="replyBTN" value="">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="replyImege">
+              <path clip-rule="evenodd" d="M8.144 13.563v2l2.543-2h2.396a2.74 2.74 0 0 0 2.741-2.74V7.073a2.74 2.74 0 0 0-2.74-2.74h-6.01a2.74 2.74 0 0 0-2.74 2.74v4.012a2.477 2.477 0 0 0 2.477 2.477h1.333Zm-.104 3.778a.815.815 0 0 1-1.23-.702v-1.743A3.81 3.81 0 0 1 3 11.086V7.074A4.074 4.074 0 0 1 7.074 3h6.01a4.074 4.074 0 0 1 4.073 4.074v3.748a4.074 4.074 0 0 1-4.074 4.074h-1.935L8.04 17.341Z"></path>
+              <path d="M8.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM10.667 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM13.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0Z"></path>
+            </svg>
+            <!-- 이 글의 남겨진 댓글 수 -->
+            <span class="replyCount">2</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="postList">
+    <div class="postListContent">
+      <div class="postTitleWrap">
+        <div class="postTitle">
+          <div>
+            <a href="">
+              <div class="divImg" style="width: 34px;
+                     height: 34px;
+                     background: url(/images/mainFood/food19.png) center center / cover no-repeat, rgb(255, 255, 255);">
+              </div>
+            </a>
+          </div>
+          <div>
+            <div>
+              <a href="" class="postTitleFont">생방송 요리보고</a>
+            </div>
+            <div class="dateViewWrap">
+              <a href="" class="fontgap">
+                <span>2일전</span>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="disabled">
+                  <circle cx="12" cy="12" r="4"></circle>
+                </svg>
+                <span>조회수 64</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="shareDiv">
+          <div class="flexPosition">
+            <div class="flexPosition">
+              <button type="button" class="viweType" data-target="content5">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="quaternary">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2Zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z">
+                  </path></svg>
+              </button>
+              <!-- 클릭시 공유창 -->
+              <div class="clickView" style="display: none;" id="content5">
+                <ul class="ulView">
+                  <li tabindex="-1" data-option-value="" class="undefined">
+                    <button type="button" class="viewBtn" data-option-value="">공유
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <!-- 여기까지 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="blockButton">
+        <span class="blueFont">독점공개 에피소드</span>
+        <div style="height: 8px;"></div>
+        <h4 class="titleFont">히스테리 특집! (Feat. 나는솔로 16기 영숙 선배님) </h4>
+        <p class="hearts">
+          16기 영숙을 알기 전까지 나는 여자를 몰랐다. 여성의 오랜 친구^^; 히스테리에 대해 이야기 나눴습니다. 순서는 다음과 같습니다. 히스테리를 어떻게 규정하고 있는가: 투엠씨의 의견 2. 본인의 히스테리 버튼 3. 나는솔로 16기 영숙 퀸~^^ 4. 히스테리를 안부리기 위해선? 5. 히스테리 몰래 부리기 (분명 부리는중인데 아무도 모르게 하기!!!!^^) 6. 히스테리의 좋은점 (맛집 정보처럼) 숨기려 해도 하품처럼 흘러나오는 나의 히스테리! 어떻게 다루며 살것인가^^ 본격 반성과 후회 방송... 재밌게 들어주세요. 생방여는 영숙님을 응원하고 지지합니다 -히스테리 반려인 일동-
+        </p>
+      </button>
+      <div class="flexMargin">
+        <div class="gapFlex">
+          <button type="button" class="likeBTN" value="">
+            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="likeImageNone" style="display: block; color: rgb(185, 185, 187); fill: rgb(185, 185, 187);">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.406 8.616 4.141c-1.383-1.266-3.682-.982-4.941.422-1.581 1.687-1.582 4.543.092 6.328l5.535 5.487a.988.988 0 0 0 1.396 0l5.535-5.487c1.674-1.785 1.674-4.64.092-6.328-1.259-1.404-3.558-1.688-4.941-.422L10 5.406Zm2.284-.281L10 7.214l-2.284-2.09c-.75-.685-2.203-.615-3.049.329l-.01.01-.01.011c-1.079 1.152-1.117 3.198.077 4.49L10 15.191l5.276-5.229c1.194-1.291 1.156-3.336.076-4.489l-.01-.01-.01-.011c-.846-.944-2.299-1.014-3.048-.328Z"></path>
+            </svg>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="likeImageYes" style="display: none; color: rgb(91, 68, 234); fill: rgb(91, 68, 234);">
+              <path d="M11.163 19.654a1.185 1.185 0 0 0 1.675 0l6.642-6.584c2.008-2.143 2.008-5.57.11-7.595-1.51-1.684-4.27-2.025-5.93-.506L12 6.488l-1.66-1.52c-1.66-1.518-4.42-1.177-5.93.507-1.898 2.025-1.898 5.452.11 7.595l6.643 6.584Z"></path>
+            </svg>
+            <!-- 이 글의 좋아요 받은 갯수 표시 -->
+            <span class="likeCount">0</span>
+          </button>
+          <button type="button" class="replyBTN" value="">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="replyImege">
+              <path clip-rule="evenodd" d="M8.144 13.563v2l2.543-2h2.396a2.74 2.74 0 0 0 2.741-2.74V7.073a2.74 2.74 0 0 0-2.74-2.74h-6.01a2.74 2.74 0 0 0-2.74 2.74v4.012a2.477 2.477 0 0 0 2.477 2.477h1.333Zm-.104 3.778a.815.815 0 0 1-1.23-.702v-1.743A3.81 3.81 0 0 1 3 11.086V7.074A4.074 4.074 0 0 1 7.074 3h6.01a4.074 4.074 0 0 1 4.073 4.074v3.748a4.074 4.074 0 0 1-4.074 4.074h-1.935L8.04 17.341Z"></path>
+              <path d="M8.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM10.667 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0ZM13.167 9a.667.667 0 1 1-1.334 0 .667.667 0 0 1 1.334 0Z"></path>
+            </svg>
+            <!-- 이 글의 남겨진 댓글 수 -->
+            <span class="replyCount">2</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</main>
+<!-- 모달창 -->
+<div class="sharingDIV" style="display: none;">
+  <div class="sharingModalWrap">
+    <div class="sharingModalContainer">
+      <div class="headerAndClose">
+        <h4 class="modalHeader">공유하기</h4>
+        <div class="close">
+          <button type="button" class="closeButton">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="closeSVG">
+              <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div style="height: 4px;"></div>
+      <div class="sharingKindWrap">
+        <div class="sharingKindcontainer">
+          <div class="sharingKind">
+            <button class="sharingIcon">
+              <svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="31.5" stroke="#E6E6E7"></circle>
+                <g clip-path="url(#Twitter_svg__a)">
+                  <path d="M44.639 26.058c.019.28.019.562.019.846 0 8.647-6.555 18.62-18.54 18.62v-.006a18.39 18.39 0 0 1-9.99-2.933 13.05 13.05 0 0 0 9.644-2.712 6.528 6.528 0 0 1-6.087-4.545 6.47 6.47 0 0 0 2.942-.113 6.538 6.538 0 0 1-5.227-6.414v-.083c.906.507 1.92.788 2.957.819-2.863-1.922-3.745-5.747-2.017-8.738a18.468 18.468 0 0 0 13.43 6.837 6.566 6.566 0 0 1 1.885-6.252 6.504 6.504 0 0 1 9.22.284 13.044 13.044 0 0 0 4.138-1.59 6.564 6.564 0 0 1-2.865 3.62c1.292-.153 2.554-.5 3.742-1.03a13.269 13.269 0 0 1-3.251 3.39Z" fill="#1D9BF0"></path>
+                </g>
+                <defs>
+                  <clipPath id="Twitter_svg__a">
+                    <path fill="#fff" transform="translate(16 19.412)" d="M0 0h32v26.435H0z"></path>
+                  </clipPath>
+                </defs>
+              </svg>
+              트위터
+            </button>
+            <button class="sharingIcon">
+              <svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="31.5" stroke="#E6E6E7"></circle>
+                <path d="M31.762 16.762c-9.126 0-16.524 5.833-16.524 13.028 0 4.652 3.093 8.734 7.745 11.039-.253.873-1.626 5.615-1.68 5.988 0 0-.034.28.148.387.181.106.394.023.394.023.52-.072 6.029-3.941 6.982-4.613.953.134 1.933.205 2.935.205 9.126 0 16.524-5.833 16.524-13.029 0-7.195-7.398-13.028-16.524-13.028Z" fill="#3B1F1E"></path>
+                <path d="M22.626 34.339c-.526 0-.953-.409-.953-.91v-5.664h-1.487a.936.936 0 0 1-.936-.934c0-.514.42-.933.936-.933h4.881c.516 0 .936.419.936.933 0 .515-.42.934-.936.934H23.58v5.663c0 .502-.428.91-.954.91Zm8.36-.013c-.398 0-.702-.161-.794-.42l-.472-1.237h-2.907l-.472 1.237c-.092.259-.396.42-.793.42-.21 0-.416-.044-.606-.131-.263-.122-.515-.455-.226-1.354l2.28-6.002c.161-.456.649-.927 1.27-.94.623.013 1.11.483 1.271.941l2.28 6c.29.9.037 1.234-.226 1.355-.19.087-.396.131-.606.131Zm-1.767-3.345-.952-2.705-.953 2.705h1.905ZM33.35 34.2c-.504 0-.914-.393-.914-.874V26.85c0-.525.437-.953.973-.953.537 0 .974.428.974.953v5.6h2.025c.504 0 .914.393.914.875 0 .481-.41.874-.914.874h-3.058Zm5.296.126a.954.954 0 0 1-.953-.953V26.85a.954.954 0 0 1 1.906 0v2.05l2.66-2.66a.74.74 0 0 1 .529-.213.94.94 0 0 1 .656.282.94.94 0 0 1 .28.604.743.743 0 0 1-.21.58l-2.173 2.173 2.347 3.108a.946.946 0 0 1 .183.707.947.947 0 0 1-.37.628.943.943 0 0 1-.573.193.945.945 0 0 1-.762-.38l-2.236-2.961-.33.33v2.08a.955.955 0 0 1-.954.954Z" fill="#FFE812"></path>
+              </svg>
+              카카오톡
+            </button>
+            <button class="sharingIcon">
+              <svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="31.5" stroke="#E6E6E7"></circle>
+                <path d="M27.23 29.065a1.038 1.038 0 0 0-1.468 0l-2.935 2.936A6.486 6.486 0 1 0 32 41.174l2.936-2.935a1.038 1.038 0 1 0-1.468-1.468l-2.936 2.935a4.41 4.41 0 0 1-6.237-6.238l2.935-2.935a1.038 1.038 0 0 0 0-1.468ZM36.77 34.936a1.038 1.038 0 0 1 0-1.468l2.936-2.935a4.41 4.41 0 0 0-6.238-6.238l-2.936 2.936a1.038 1.038 0 1 1-1.467-1.468L32 22.827a6.487 6.487 0 0 1 9.173 9.174l-2.935 2.935a1.038 1.038 0 0 1-1.468 0Z" fill="#666667"></path>
+                <path d="M28.293 35.892a1.038 1.038 0 0 1 0-1.468l6.626-6.626a1.038 1.038 0 1 1 1.468 1.467l-6.627 6.627a1.038 1.038 0 0 1-1.468 0Z" fill="#666667"></path>
+              </svg>
+              링크 복사
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sharingModalshadow"></div>
+</div>
+</div>
+</body>
+<script src="/js/main/mainPost.js"></script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko" class="screenFull">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요리보고</title>
+  <link rel="stylesheet" href="/css/join_login/joinComplete.css">
+  <link rel="shortcut icon" href="/images/favicon/yoribogo_favicon.ico">
+</head>
+
+<body class="screenFull"> <!-- body class="h-full" -->
+  <div id="screenFullSecond"> <!-- div id="__next" -->
+    <div class="fullLayout"> <!-- div class="h-full min-h-screen flex" -->
+      <div class="halfScreen"> <!-- div class="w-[100%] ... lg:py-[56px]" -->
+        <section class="innerLayout">
+          <div class="mainFull">
+            <div class="requestCompleteBox">
+              <p class="requestCompleteText">요리보고에 오신 것을 환영합니다.</p>
+              <h1 class="emailText">이메일을 인증하고<br>가입을 완료해주세요.</h1>
+              <p class="contentBox">
+                <!-- DB로 data 받아올 위치 -->
+                <strong class="joinEmail">example@gmail.com</strong>으로 전송된 <br>인증메일을 확인해주세요.
+              </p>
+            </div>
+            <div class="mainButtonBox">
+              <a href="">
+                <button class="mainPageMove">메인으로</button>
+              </a>
+            </div>
+            <div class="mailTextLine">
+              <hr class="line">
+              <p class="contentBoxText">인증 메일 링크가 만료되었나요?</p>
+              <hr class="line">
+            </div>
+            <div class="certiEmail">
+              <button id="openModal" class="certiEamilSend" onclick="openModal()">인증 메일 재발송</button>
+            </div>
+            <p class="noticeText">메일을 찾을 수 없다면 스팸 메일함을 확인해주세요.</p>
+          </div>
+        </section>
+      </div>
+      <div class="hiddenBlock">
+        <div class="screenFull picture">
+          <span
+            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"
+            class="screenFull foodPicture">
+            <img sizes="100vw" alt="yoribogo intro imgage" src="/images/food/food4.png" decoding="async" data-nimg="fill" style="position: absolute; inset: 0px;     box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+          </span>
+        </div>
+      </div>
+      <div id="modalWindowWrap" class="modalWindow">
+        <div class="shadoWindow">
+          <h4 class="sendFailure">메일 발송 실패</h4>
+          <div class="wrongText">잘못된 형식의 토큰입니다.</div>
+          <div class="sendFailureCheckLine">
+            <div class="sendFailureCheck">
+              <button class="sendCheckButton" onclick="closeModal()">확인</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="/js/join_login/joinComplete.js"></script>
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>yoribogo: 보낸쪽지함</title>
+    <link rel="icon" href="/images/favicon/yoribogo_favicon.ico" />
+    <link rel="stylesheet" href="/css/note/inbox.css" />
+</head>
+<body>
+<div class="wrap">
+    <div class="innerWrapper"  th:replace="~{/fix/mypage/myPageHeader :: mypage-nav}"></div>
+        <div class="overflow">
+            <nav class="surfaceSecondary">
+                <div class="surfaceInner">
+                    <div class="flexCol">
+                        <div class="margin12"></div>
+                        <h2 class="userName">승우</h2>
+                        <a href="http://127.0.0.1:5500/mypage/myinfo.html">
+                            <button type="button" class="myPageButton">
+                                <div class="myPageButtonInner">
+                                    <div>내 쪽지</div>
+                                    <svg
+                                            viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            height="16px"
+                                            width="16px"
+                                            class="svg3"
+                                    >
+                                        <path d="M11 7a1 1 0 0 0-1-1H4v14h14v-6a1 1 0 1 0-2 0v4H6V8h4a1 1 0 0 0 1-1Z"></path>
+                                        <path
+                                                d="M19.01 3.829H20v6.656a1 1 0 1 1-2 0V7.244l-5.293 5.293a1 1 0 0 1-1.414-1.415l5.293-5.292h-3.243a1 1 0 1 1 0-2H19.01Z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <!-- 사이드바 시작 -->
+                <ul class="surfaceUl">
+                    <li class="surfaceUlLists">
+                        <a class="aList" href="">
+                            <img class="svg4" src="/images/noteImage/email.png" />
+
+                            <span class="surfaceCategory">받은 쪽지함</span>
+                        </a>
+                    </li>
+                    <li class="surfaceUlLists">
+                        <a class="aList" href="">
+                            <img class="svg5" src="/images/noteImage/note.png" />
+                            <span class="surfaceCategory">보낸 쪽지함</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- 여기까지 사이드바 -->
+            </nav>
+            <div class="basicShrink">
+                <div class="desktopGrid">
+                    <div class="colSpanFull">
+                        <div class="surfacePrimary">
+                            <header class="surfacePrimaryHeader">
+                                <h1 class="myRecipe">보낸 쪽지함</h1>
+                            </header>
+                            <div class="headerBelow">
+                                <ul class="headerBelowUl">
+                                    <li class="relative">
+                                        <button id="uploadCompleteBar" type="button" class="relativeButton">
+                                            <div class="flex">
+                                                <p class="pTagComplete">보낸 쪽지</p>
+                                                <div class="pBelow">
+                                                    <p class="postNumberP">1</p>
+                                                </div>
+                                            </div>
+                                        </button>
+                                        <div id="uploadUnderBar" class="relativeButtonDiv"></div>
+                                    </li>
+                                    <li class="relative">
+                                        <button id="saveDraftBar" type="button" class="relativeButton2">
+                                            <div>
+                                                <div class="flex">
+                                                    <p class="pTagComplete">임시보관함</p>
+                                                    <div class="saveDraftDiv">
+                                                        <p class="cancelNumberP">0</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </button>
+                                        <div id="saveUnderBar" class="relativeButtonDiv"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 게시완료 nav -->
+                            <div id="uploadComplete" class="itemCenter">
+                                <div>
+                                    <span class="spanEntire">전체</span>
+                                    <span class="spanCount">1</span>
+                                </div>
+                                <div class="gapFlex12">
+                                    <div class="relative">
+                                        <button id="rangeCategoryBtn" class="gapFlexButton1">
+                                            <span id="categorySpan" class="gapFlexSpan">카테고리 전체</span>
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgCategory">
+                                                <path
+                                                        fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"
+                                                ></path>
+                                            </svg>
+                                        </button>
+                                        <div id="rangeCategory" class="rangeModal">
+                                            <ul class="rangeModalUl">
+                                                <li data-option-value="">
+                                                    <button type="button" class="rangeModalBtn categoryBtns">카테고리 전체</button>
+                                                </li>
+                                                <li data-option-value="FREE">
+                                                    <button type="button" class="rangeModalBtn categoryBtns" data-option-value="NONE">
+                                                        카테고리 미설정
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="relative">
+                                        <button id="rangeShareBtn" class="gapFlexButton1">
+                                            <span id="shareSpan" class="gapFlexSpan">공유범위 전체</span>
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgShare">
+                                                <path
+                                                        fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"
+                                                ></path>
+                                            </svg>
+                                        </button>
+                                        <div id="rangeShare" class="rangeModal">
+                                            <ul class="rangeModalUl">
+                                                <li data-option-value="">
+                                                    <button type="button" class="rangeModalBtn shareBtns">공유범위 전체</button>
+                                                </li>
+                                                <li data-option-value="FREE">
+                                                    <button type="button" class="rangeModalBtn shareBtns" data-option-value="FREE">
+                                                        무료공유
+                                                    </button>
+                                                </li>
+                                                <li data-option-value="MEMBER">
+                                                    <button type="button" class="rangeModalBtn shareBtns" data-option-value="MEMBER">
+                                                        유료공유
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="relative">
+                                        <button id="rangeOrderBtn" class="gapFlexButton1">
+                                            <span id="orderSpan" class="gapFlexSpan">최신순</span>
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgTime">
+                                                <path
+                                                        fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"
+                                                ></path>
+                                            </svg>
+                                        </button>
+                                        <div id="rangeOrder" class="rangeModal">
+                                            <ul class="rangeModalUl">
+                                                <li data-option-value="">
+                                                    <button type="button" class="rangeModalBtn orderBtns" data-option-value="RECENT">
+                                                        최신순
+                                                    </button>
+                                                </li>
+                                                <li data-option-value="FREE">
+                                                    <button type="button" class="rangeModalBtn orderBtns" data-option-value="VIEW">
+                                                        발신일
+                                                    </button>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 게시완료 ul -->
+                        <ul id="uploadCompleteUl" class="lastUl">
+                            <li id="recipeList1" class="recipeList">
+                                <button class="lastUlButton">
+                                    <div class="lastUlButtonDiv">
+                                        <div>
+                                            <p class="postTitle">쪽지 제목1</p>
+                                        </div>
+                                        <p class="postContent">닉네임1</p>
+                                    </div>
+                                </button>
+                                <div class="div1"></div>
+
+                                <div class="div3">
+                                    <div class="divItem">
+                                        <p class="divItemP">2023/08/22</p>
+                                        <p class="divItemView">발신일</p>
+                                    </div>
+                                    <div class="div4">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                    <div class="divDate">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                </div>
+                                <div class="div5">
+                                    <button type="button" class="div5Btn">
+                                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="m15.687 8.163.545-.506c1.024-.951 1.024-2.493 0-3.444-1.024-.95-2.684-.95-3.709 0l-8.362 7.765-1.127 3.547c-.183.577.395 1.113 1.016.943l3.82-1.046 6.661-6.186.005.004 1.155-1.073-.004-.004Zm-2.312 0-6.367 5.912-1.981.543.584-1.84 6.367-5.912 1.397 1.297Zm1.156-1.073-1.397-1.298.545-.506a1.042 1.042 0 0 1 1.397 0 .872.872 0 0 1 0 1.298l-.545.506Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="div5Btn deleteBtns">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z"
+                                            ></path>
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>
+                            <li  class="recipeList">
+                                <button class="lastUlButton">
+                                    <div class="lastUlButtonDiv">
+                                        <div>
+                                            <p class="postTitle">쪽지 제목2</p>
+                                        </div>
+                                        <p class="postContent">닉네임2</p>
+                                    </div>
+                                </button>
+                                <div class="div1"></div>
+
+                                <div class="div3">
+                                    <div class="divItem">
+                                        <p class="divItemP">2023/08/22</p>
+                                        <p class="divItemView">발신일</p>
+                                    </div>
+                                    <div class="div4">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                    <div class="divDate">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                </div>
+                                <div class="div5">
+                                    <button type="button" class="div5Btn">
+                                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="m15.687 8.163.545-.506c1.024-.951 1.024-2.493 0-3.444-1.024-.95-2.684-.95-3.709 0l-8.362 7.765-1.127 3.547c-.183.577.395 1.113 1.016.943l3.82-1.046 6.661-6.186.005.004 1.155-1.073-.004-.004Zm-2.312 0-6.367 5.912-1.981.543.584-1.84 6.367-5.912 1.397 1.297Zm1.156-1.073-1.397-1.298.545-.506a1.042 1.042 0 0 1 1.397 0 .872.872 0 0 1 0 1.298l-.545.506Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="div5Btn deleteBtns">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z"
+                                            ></path>
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>
+                            <li  class="recipeList">
+                                <button class="lastUlButton">
+                                    <div class="lastUlButtonDiv">
+                                        <div>
+                                            <p class="postTitle">쪽지 제목3</p>
+                                        </div>
+                                        <p class="postContent">닉네임3</p>
+                                    </div>
+                                </button>
+                                <div class="div1"></div>
+
+                                <div class="div3">
+                                    <div class="divItem">
+                                        <p class="divItemP">2023/08/22</p>
+                                        <p class="divItemView">발신일</p>
+                                    </div>
+                                    <div class="div4">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                    <div class="divDate">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                </div>
+                                <div class="div5">
+                                    <button type="button" class="div5Btn">
+                                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="m15.687 8.163.545-.506c1.024-.951 1.024-2.493 0-3.444-1.024-.95-2.684-.95-3.709 0l-8.362 7.765-1.127 3.547c-.183.577.395 1.113 1.016.943l3.82-1.046 6.661-6.186.005.004 1.155-1.073-.004-.004Zm-2.312 0-6.367 5.912-1.981.543.584-1.84 6.367-5.912 1.397 1.297Zm1.156-1.073-1.397-1.298.545-.506a1.042 1.042 0 0 1 1.397 0 .872.872 0 0 1 0 1.298l-.545.506Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="div5Btn deleteBtns">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z"
+                                            ></path>
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>
+                            <li  class="recipeList">
+                                <button class="lastUlButton">
+                                    <div class="lastUlButtonDiv">
+                                        <div>
+                                            <p class="postTitle">쪽지 제목4</p>
+                                        </div>
+                                        <p class="postContent">닉네임4</p>
+                                    </div>
+                                </button>
+                                <div class="div1"></div>
+
+                                <div class="div3">
+                                    <div class="divItem">
+                                        <p class="divItemP">2023/08/22</p>
+                                        <p class="divItemView">발신일</p>
+                                    </div>
+                                    <div class="div4">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                    <div class="divDate">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                </div>
+                                <div class="div5">
+                                    <button type="button" class="div5Btn">
+                                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="m15.687 8.163.545-.506c1.024-.951 1.024-2.493 0-3.444-1.024-.95-2.684-.95-3.709 0l-8.362 7.765-1.127 3.547c-.183.577.395 1.113 1.016.943l3.82-1.046 6.661-6.186.005.004 1.155-1.073-.004-.004Zm-2.312 0-6.367 5.912-1.981.543.584-1.84 6.367-5.912 1.397 1.297Zm1.156-1.073-1.397-1.298.545-.506a1.042 1.042 0 0 1 1.397 0 .872.872 0 0 1 0 1.298l-.545.506Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="div5Btn deleteBtns">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z"
+                                            ></path>
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>
+                            <li  class="recipeList">
+                                <button class="lastUlButton">
+                                    <div class="lastUlButtonDiv">
+                                        <div>
+                                            <p class="postTitle">쪽지 제목5</p>
+                                        </div>
+                                        <p class="postContent">닉네임5</p>
+                                    </div>
+                                </button>
+                                <div class="div1"></div>
+                                <div class="div3">
+                                    <div class="divItem">
+                                        <p class="divItemP">2023/08/22</p>
+                                        <p class="divItemView">발신일</p>
+                                    </div>
+                                    <div class="div4">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                    <div class="divDate">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                </div>
+                                <div class="div5">
+                                    <button type="button" class="div5Btn">
+                                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="m15.687 8.163.545-.506c1.024-.951 1.024-2.493 0-3.444-1.024-.95-2.684-.95-3.709 0l-8.362 7.765-1.127 3.547c-.183.577.395 1.113 1.016.943l3.82-1.046 6.661-6.186.005.004 1.155-1.073-.004-.004Zm-2.312 0-6.367 5.912-1.981.543.584-1.84 6.367-5.912 1.397 1.297Zm1.156-1.073-1.397-1.298.545-.506a1.042 1.042 0 0 1 1.397 0 .872.872 0 0 1 0 1.298l-.545.506Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="div5Btn deleteBtns">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z"
+                                            ></path>
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- 임시저장 ul -->
+                        <ul id="saveDraftUl" class="lastUl">
+                            <li class="cancelList">
+                                <button class="lastUlButton">
+                                    <div class="lastUlButtonDiv">
+                                        <div>
+                                            <p class="postTitle">쪽지 제목1</p>
+                                        </div>
+                                        <p class="postContent">닉네임1</p>
+                                    </div>
+                                </button>
+                                <div class="div1"></div>
+
+                                <div class="div3">
+                                    <div class="divItem">
+                                        <p class="divItemP">2023/08/22</p>
+                                        <p class="divItemView">발신일</p>
+                                    </div>
+                                    <div class="div4">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                    <div class="divDate">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                </div>
+                                <div class="div5">
+                                    <button type="button" class="div5Btn">
+                                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="m15.687 8.163.545-.506c1.024-.951 1.024-2.493 0-3.444-1.024-.95-2.684-.95-3.709 0l-8.362 7.765-1.127 3.547c-.183.577.395 1.113 1.016.943l3.82-1.046 6.661-6.186.005.004 1.155-1.073-.004-.004Zm-2.312 0-6.367 5.912-1.981.543.584-1.84 6.367-5.912 1.397 1.297Zm1.156-1.073-1.397-1.298.545-.506a1.042 1.042 0 0 1 1.397 0 .872.872 0 0 1 0 1.298l-.545.506Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="div5Btn deleteBtns">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z"
+                                            ></path>
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="cancelList">
+                                <button class="lastUlButton">
+                                    <div class="lastUlButtonDiv">
+                                        <div>
+                                            <p class="postTitle">쪽지 제목2</p>
+                                        </div>
+                                        <p class="postContent">닉네임2</p>
+                                    </div>
+                                </button>
+                                <div class="div1"></div>
+                                <div class="div3">
+                                    <div class="divItem">
+                                        <p class="divItemP">2023/08/22</p>
+                                        <p class="divItemView">발신일</p>
+                                    </div>
+                                    <div class="div4">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                    <div class="divDate">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                </div>
+                                <div class="div5">
+                                    <button type="button" class="div5Btn">
+                                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="m15.687 8.163.545-.506c1.024-.951 1.024-2.493 0-3.444-1.024-.95-2.684-.95-3.709 0l-8.362 7.765-1.127 3.547c-.183.577.395 1.113 1.016.943l3.82-1.046 6.661-6.186.005.004 1.155-1.073-.004-.004Zm-2.312 0-6.367 5.912-1.981.543.584-1.84 6.367-5.912 1.397 1.297Zm1.156-1.073-1.397-1.298.545-.506a1.042 1.042 0 0 1 1.397 0 .872.872 0 0 1 0 1.298l-.545.506Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="div5Btn deleteBtns">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z"
+                                            ></path>
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="cancelList">
+                                <button class="lastUlButton">
+                                    <div class="lastUlButtonDiv">
+                                        <div>
+                                            <p class="postTitle">쪽지 제목3</p>
+                                        </div>
+                                        <p class="postContent">닉네임3</p>
+                                    </div>
+                                </button>
+                                <div class="div1"></div>
+
+                                <div class="div3">
+                                    <div class="divItem">
+                                        <p class="divItemP">2023/08/22</p>
+                                        <p class="divItemView">구매일</p>
+                                    </div>
+                                    <div class="div4">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                    <div class="divDate">
+                                        <p class="divItemP"></p>
+                                        <p class="divItemView"></p>
+                                    </div>
+                                </div>
+                                <div class="div5">
+                                    <button type="button" class="div5Btn">
+                                        <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="m15.687 8.163.545-.506c1.024-.951 1.024-2.493 0-3.444-1.024-.95-2.684-.95-3.709 0l-8.362 7.765-1.127 3.547c-.183.577.395 1.113 1.016.943l3.82-1.046 6.661-6.186.005.004 1.155-1.073-.004-.004Zm-2.312 0-6.367 5.912-1.981.543.584-1.84 6.367-5.912 1.397 1.297Zm1.156-1.073-1.397-1.298.545-.506a1.042 1.042 0 0 1 1.397 0 .872.872 0 0 1 0 1.298l-.545.506Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="div5Btn deleteBtns">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="editSvg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M10 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 0 1 1.4 0v3.6a.7.7 0 0 1-.7.7ZM14 15.6a.7.7 0 0 1-.7-.7v-3.6a.7.7 0 1 1 1.4 0v3.6a.7.7 0 0 1-.7.7Z"
+                                            ></path>
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M9.6 3.8h4.6c.22 0 .4.178.4.4v1.4H9.2V4.2c0-.222.179-.4.4-.4Zm-2 .4a2 2 0 0 1 2-2h4.6a2 2 0 0 1 2 2v1.4h3.5a.8.8 0 0 1 0 1.6H19v10.4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7.2h-.7a.8.8 0 1 1 0-1.6h3.3V4.2Zm-1 3h10.8v10.4A2.4 2.4 0 0 1 15 20H9a2.4 2.4 0 0 1-2.4-2.4V7.2Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                        <div id="pagingBtn" class="div6">
+                            <ul class="flex">
+                                <li>
+                                    <button type="button" class="div6Btn">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="div6Svg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M15.58 3.27c.504.405.563 1.115.13 1.587L9.168 12l6.543 7.143a1.076 1.076 0 0 1-.13 1.586 1.26 1.26 0 0 1-1.695-.122L6 12l7.885-8.607a1.26 1.26 0 0 1 1.695-.122Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li class="margin16">
+                                    <button type="button" class="margin16Btn">
+                                        <span class="margin16Span">1</span>
+                                    </button>
+                                </li>
+                                <li class="margin16">
+                                    <button type="button" class="div6Btn">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="div6Svg">
+                                            <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"
+                                            ></path>
+                                        </svg>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="zIndex0"></div>
+    <div class="zIndex10" id="modalContainer">
+        <div class="modalWindow">
+            <h4 class="modalTitle">레시피 삭제</h4>
+            <div class="modalContent">해당 레시피를 삭제하시겠습니까?</div>
+            <div class="modalBtns">
+                <div class="cancelWrapper">
+                    <button type="button" class="cancelBtn">취소</button>
+                </div>
+                <div class="confirmWrapper">
+                    <button type="button" class="confirmBtn">확인</button>
+                </div>
+            </div>
+        </div>
+        <div class="modalWrapperGray"></div>
+    </div>
+</div>
+<script src="/js/note/inbox.js"></script>
+</body>
+</html>

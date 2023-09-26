@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>요리보고 쪽지</title>
+    <link rel="shortcut icon" href="/images/favicon/yoribogo_favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/css/note/note.css" />
+</head>
+<body>
+<div class="wrap">
+    <div class="innerWrapper"  th:replace="~{/fix/mypage/myPageHeader :: mypage-nav}"></div>
+        <div class="overflow">
+            <nav class="surfaceSecondary">
+                <div class="surfaceInner">
+                    <div class="flexCol">
+                        <div class="margin12"></div>
+                        <h2 class="userName">승우</h2>
+                        <a href="">
+                            <button type="button" class="myPageButton">
+                                <div class="myPageButtonInner">
+                                    <div>내 쪽지</div>
+                                    <svg
+                                            viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            height="16px"
+                                            width="16px"
+                                            class="svg3"
+                                    >
+                                        <path d="M11 7a1 1 0 0 0-1-1H4v14h14v-6a1 1 0 1 0-2 0v4H6V8h4a1 1 0 0 0 1-1Z"></path>
+                                        <path
+                                                d="M19.01 3.829H20v6.656a1 1 0 1 1-2 0V7.244l-5.293 5.293a1 1 0 0 1-1.414-1.415l5.293-5.292h-3.243a1 1 0 1 1 0-2H19.01Z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <ul class="surfaceUl">
+                    <li class="surfaceUlLists">
+                        <a class="aList" href="">
+                            <img class="svg4" src="/images/noteImage/email.png" />
+                            <span class="surfaceCategory">받은 쪽지함</span>
+                        </a>
+                    </li>
+                    <li class="surfaceUlLists">
+                        <a
+                                class="aList"
+                                href="http://127.0.0.1:5500/%EB%82%B4%EA%B0%80%EA%B5%AC%EB%A7%A4%ED%95%9C%EB%A0%88%EC%8B%9C%ED%94%BC/mypurchase.html"
+                        >
+                            <img class="svg5" src="/images/noteImage/note.png" />
+                            <span class="surfaceCategory">보낸 쪽지함</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="basicShrink">
+                <div class="desktopGrid">
+                    <div class="infoWrapper">
+                        <div class="infoWrapperInner">
+                            <h3 class="myinfoH3">쪽지</h3>
+                            <div class="flex">
+                                <div class="myInfoDiv">
+                                    <button type="button" class="myInfoDivBtn">보내기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infoDiv1">
+                        <div>
+                            <div class="divInner1">
+                                <strong class="profilePhoto">받는 사람</strong>
+                            </div>
+                            <span class="profileStatement">받는 사람을 선택해주세요</span>
+                        </div>
+                    </div>
+                    <div class="infoDiv2">
+                        <div class="flex">
+                            <div class="flex1">
+                    <span class="profileImg">
+                      <img alt="" class="myProfile" sizes="100vw" src="/images/imgLogin/profile.png" />
+                    </span>
+                            </div>
+                            <div class="flex2">
+                                <div class="flex2Margin">
+                                    <input placeholder="받는 사람" class="flex2Btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="flex2Hr" />
+                    <div class="infoDiv3">
+                        <div>
+                            <div class="infoDiv5">
+                                <div>
+                                    <div class="info5Inner">
+                                        <strong class="oneSentence">작성</strong>
+                                        <svg viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg" class="svgOneSentence">
+                                            <circle cx="4" cy="4" r="4"></circle>
+                                        </svg>
+                                    </div>
+                                    <span class="info5Span">작성해주세요.</span>
+                                </div>
+                            </div>
+                            <div class="infoDiv6">
+                                <label class="labelText">
+                                    <div>
+                                        <div class="writingArea">
+                                            <textarea id="writeNote" style="resize:none;" onkeyup="nWrite.checkContentLength();" rows="5" cols="55" title="쪽지 내용을 입력해 주세요."></textarea>
+                                        </div>
+                                    </div>
+                                </label>
+                                <div class="info6Div">
+                                    <div class="textCount">1/1000</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="margin8Hr" />
+                    </div>
+
+                    <!-- 여기까지 -->
+                </div>
+            </div>
+        </div>
+
+    <div class="zIndex0"></div>
+</div>
+<script src="/js/note/note.js"></script>
+</body>
+</html>

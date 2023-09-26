@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>요리보고 Yoribogo</title>
+    <link rel="stylesheet" href="/css/post/write.css">
+    <link rel="icon" href="/images/post/yoribogo_favicon.ico">
+</head>
+<body>
+    <div class="next">
+        <!-- 네비와 헤더태그를 감싸는 div -->
+        <div class="navAndHeader">
+            <!-- 분리시킨 nav -->
+            <nav class="innerWrapperNav" th:replace="~{/fix/post/writeHeader :: write-nav}"></nav>
+            <header class="headerWrap">
+                <div class="headerContainer">
+                    <!-- 뒤로가기 버튼과 포스트 작성하기 -->
+                    <div class="backAndH1">
+                        <button class="backBTN">
+                            <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="backSVG">
+                                <path d="M13.833 8a.667.667 0 0 0-.666-.667H5.72L8.973 4.08a.667.667 0 1 0-.943-.943L3.167 8l4.863 4.863a.665.665 0 0 0 .94-.94L5.72 8.667h7.447A.667.667 0 0 0 13.833 8Z"></path>
+                            </svg>
+                        </button>
+                        <h1 class="headerValue">게시글 작성하기</h1>
+                    </div>
+                    <!-- 임시저장 버튼과 게시 버튼 -->
+                    <div class="saveAndpostUp">
+                        <div class="saveWrap">
+                            <!-- 게시글 작성으로 이동하면 flex, 수정하기로 이동화면 none -->
+                            <button type="button" disabled class="saveBTN">임시저장</button>
+                            <!-- 게시글 작성으로 이동하면 none, 수정하기로 이동화면 flex -->
+                            <button type="button" class="postDeleteBTN">삭제</button>
+                        </div>
+                        <div>
+                            <!-- 게시글 작성으로 이동하면 flex, 수정하기로 이동화면 none -->
+                            <button type="button" class="postWriteBTN" disabled>게시</button>
+                            <!-- 게시글 작성으로 이동하면 none, 수정하기로 이동화면 flex -->
+                            <button type="button" class="postModifyBTN" disabled>수정</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <main>
+            <div class="postWriteWrap">
+                <section class="postWriteSection">
+                    <div class="postHeaderWrap">
+                        <div>
+                            <label class="postHeaderLabel">
+                                <input type="text" class="postHeaderInput" placeholder="제목을 입력해주세요." value>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="postWriteContainer">
+                            <textarea name="write" id="write" placeholder="본문 컨텐츠를 작성해주세요."></textarea>
+                        </div>
+                    </div>
+                </section>
+                <section class="sidetooldarWrap">
+                    <section class="sidetooldarSection">
+                        <!-- 게시글 종류 사이드바 제목 -->
+                        <div class="sidtoolMenu">
+                            <div class="sidtoolMenuHeaderWrap">
+                                <strong class="sidtoolMenuStrong">게시글 종류</strong>
+                            </div>
+                        </div>
+                        <!-- 게시글 종류 사이드바 내용 -->
+                        <div class="sidetoolContent">
+                            <div class="contentWrap">
+                                <div class="contentContainer">
+                                    <div>
+                                        <label class="postKindSelect">
+                                            <input type="text" readonly class="postKindSelectInput" value="레시피">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="postKindSelectSVG">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>
+                                            </svg>
+                                        </label>
+                                        <div class="postKindListWrap" style="display: none;">
+                                            <div class="contentList">
+                                                <ul class="contentListUl">
+                                                    <li tabindex="-1" class="postKindItem">
+                                                        <button type="button" class="postKindItemBTN">레시피</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="postKindItem">
+                                                        <button type="button" class="postKindItemBTN">후기</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 공유 종류 사이드바 제목 -->
+                        <div class="sidtoolMenu">
+                            <div class="sidtoolMenuHeaderWrap">
+                                <strong class="sidtoolMenuStrong">공유 종류</strong>
+                            </div>
+                        </div>
+                        <!-- 공유 종류 사이드바 내용 -->
+                        <div class="sidetoolContent">
+                            <div class="contentWrap">
+                                <div class="contentContainer">
+                                    <div>
+                                        <label class="sharingSelect">
+                                            <input type="text" readonly class="sharingSelectInput" value="무료 공유">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sharingSelectSVG">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>
+                                            </svg>
+                                        </label>
+                                        <div class="sharingListWrap" style="display: none;">
+                                            <div class="contentList">
+                                                <ul class="contentListUl">
+                                                    <li tabindex="-1" class="sharingItem">
+                                                        <button type="button" class="sharingItemBTN">무료 공유</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="sharingItem">
+                                                        <button type="button" class="sharingItemBTN">유료 공유</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 카테고리 사이드바 제목 -->
+                        <div class="sidtoolMenu">
+                            <div class="sidtoolMenuHeaderWrap">
+                                <strong class="sidtoolMenuStrong">카테고리</strong>
+                            </div>
+                        </div>
+                        <!-- 카테고리 사이드바 내용 -->
+                        <div class="sidetoolContent">
+                            <div class="contentWrap">
+                                <div class="contentContainer">
+                                    <div>
+                                        <label class="categorySelect">
+                                            <input type="text" readonly placeholder="카테고리 미설정" class="categorySelectInput" value>
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="categorySelectSVG">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>
+                                            </svg>
+                                        </label>
+                                        <div class="categoryListWrap" style="display: none;">
+                                            <div class="contentList">
+                                                <ul class="contentListUl">
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">카테고리 미설정</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">한식</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">중식</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">일식</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">양식</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">야식</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">분식</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">브런치</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">디저트</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">다이어트 식단</button>
+                                                    </li>
+                                                    <li tabindex="-1" class="categoryItem">
+                                                        <button type="button" class="categoryItemBTN">기타</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 태그 사이드바 제목 -->
+                        <div class="sidtoolMenu">
+                            <div class="sidtoolMenuHeaderWrap">
+                                <strong class="sidtoolMenuStrong">태그</strong>
+                            </div>
+                        </div>
+                        <!-- 태그 사이드바 내용 -->
+                        <div class="sidetoolContent">
+                            <!-- 유효성검사에 문제 없거나 아무것도 입력안했을 경우 -->
+                            <div class="contentWrap">
+                                <div class="contentContainer">
+                                    <div>
+                                        <!-- input태그 안에서 유효성 검사 후 문제 있을 시 tapWriteLong 클래스 넣기 -->
+                                        <label class="tapWrite">
+                                            <!-- addTag 안의 li가 10개가 되면 인라인 속성으로 disabled 넣기 -->
+                                            <input type="text" class="tapWriteInput" placeholder="포스트의 키워드를 태그로 입력하세요." value>
+                                        </label>
+                                        <!-- input태그 안에서 유효성 검사 후 문제 있을 시 warningWrapLong 클래스 넣기 -->
+                                        <div class="warningWrap">
+                                            <div class="warning">
+                                                <!-- input태그 안에서 유효성 검사 후 문제 있을 시 block -->
+                                                <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="warningSVG" style="display: none;">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.008 22.05c5.523.023 10.019-4.436 10.042-9.959.023-5.523-4.436-10.018-9.959-10.041C6.568 2.027 2.073 6.485 2.05 12.008c-.023 5.523 4.435 10.019 9.958 10.042Zm1.527-6.494a1.5 1.5 0 1 1-3-.013 1.5 1.5 0 0 1 3 .013Zm-1.181-2.505a.5.5 0 0 0 .498-.436l.646-4.997a.5.5 0 0 0-.494-.564l-1.867-.008a.5.5 0 0 0-.499.56l.604 5.002a.5.5 0 0 0 .495.44l.617.003Z"></path>
+                                                </svg>
+                                                <!-- 유효성 검사에 문제 없거나 아무것도 입력 안했을 때 -->
+                                                최대 10개, 1개당 20자까지 입력할 수 있습니다.
+                                                <!-- 유효성 검사에 문제 있을 때 -->
+                                                <!-- 밑줄(_)을 제외한 특수 문자는 입력 불가합니다. -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 유효성검사에 문제가 있을 경우 -->
+                            <div class="contentWrap">
+                                <div class="contentContainer">
+                                    <div>
+                                        <!-- input태그 안에서 유효성 검사 후 문제 있을 시 tapWriteLong 클래스 넣기 -->
+                                        <label class="tapWrite">
+                                            <input type="text" class="tapWriteInput tapWriteLong" placeholder="포스트의 키워드를 태그로 입력하세요." value>
+                                        </label>
+                                        <!-- input태그 안에서 유효성 검사 후 문제 있을 시 warningWrapLong 클래스 넣기 -->
+                                        <div class="warningWrap warningWrapLong">
+                                            <div class="warning">
+                                                <!-- input태그 안에서 유효성 검사 후 문제 있을 시 block -->
+                                                <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="warningSVG" style="display: block;">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.008 22.05c5.523.023 10.019-4.436 10.042-9.959.023-5.523-4.436-10.018-9.959-10.041C6.568 2.027 2.073 6.485 2.05 12.008c-.023 5.523 4.435 10.019 9.958 10.042Zm1.527-6.494a1.5 1.5 0 1 1-3-.013 1.5 1.5 0 0 1 3 .013Zm-1.181-2.505a.5.5 0 0 0 .498-.436l.646-4.997a.5.5 0 0 0-.494-.564l-1.867-.008a.5.5 0 0 0-.499.56l.604 5.002a.5.5 0 0 0 .495.44l.617.003Z"></path>
+                                                </svg>
+                                                <!-- 유효성 검사에 문제 있을 때 -->
+                                                밑줄(_)을 제외한 특수 문자는 입력 불가합니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 초기 ul태그만 남아 있고 안에 내용은 없습니다. -->
+                            <ul class="addTag">
+                                <!-- li태그가 추가되는 형식 -->
+                                <li class="tagWrap">
+                                    <span class="tagContent">나</span>
+                                    <button type="button">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="tagDeleteSVG">
+                                            <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li class="tagWrap">
+                                    <span class="tagContent">나나</span>
+                                    <button type="button">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="tagDeleteSVG">
+                                            <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li class="tagWrap">
+                                    <span class="tagContent">나나나</span>
+                                    <button type="button">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="tagDeleteSVG">
+                                            <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li class="tagWrap">
+                                    <span class="tagContent">나나나나</span>
+                                    <button type="button">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="tagDeleteSVG">
+                                            <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li class="tagWrap">
+                                    <span class="tagContent">나나나나나</span>
+                                    <button type="button">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="tagDeleteSVG">
+                                            <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                        </svg>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 파일 첨부 사이드바 제목 -->
+                        <div class="sidtoolMenu">
+                            <div class="sidtoolMenuHeaderWrap">
+                                <strong class="sidtoolMenuStrong">파일 첨부</strong>
+                            </div>
+                            <button type="button" class="uploadBTN">업로드</button>
+                        </div>
+                        <!-- 파일 첨부 사이드바 내용 -->
+                        <div class="sidetoolContent">
+                            <!-- 첨부된 파일이 없을 경우 -->
+                            <div class="fileContentWrap">
+                                <span class="noneFile">첨부된 파일이 없습니다.</span>
+                            </div>
+                            <!-- 첨부된 파일이 있을 경우 -->
+                            <ul class="fileContentUl">
+                                <li class="fileContentLi">
+                                    <div class="sidDummyImage">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sidDummyImageSVG">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.6 4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8.961a2 2 0 0 0-.751-1.561l-3.702-2.962A2 2 0 0 0 13.898 4H6.6Zm11 15.2h-11a.2.2 0 0 1-.2-.2V6c0-.11.09-.2.2-.2h7V8a1 1 0 0 0 1 1h3.2v10a.2.2 0 0 1-.2.2Z"></path>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.1 12a.9.9 0 0 1 .9-.9h6a.9.9 0 1 1 0 1.8H9a.9.9 0 0 1-.9-.9ZM8.1 15a.9.9 0 0 1 .9-.9h6a.9.9 0 1 1 0 1.8H9a.9.9 0 0 1-.9-.9Z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="sidUploadFileName">coin.png</p>
+                                    <button type="button" class="sidUploadFileDeleteBTN">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sidUploadFileDeleteSVG">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Zm3.636-13.636a.9.9 0 0 1 0 1.272L13.273 12l2.363 2.364a.9.9 0 1 1-1.273 1.272L12 13.273l-2.364 2.363a.9.9 0 0 1-1.273-1.272L10.727 12 8.363 9.636a.9.9 0 0 1 1.273-1.272L12 10.727l2.363-2.363a.9.9 0 0 1 1.273 0Z"></path>
+                                        </svg>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </main>
+        <!-- 첨부파일 모달창 -->
+        <div class="zIndex0">
+            <div class="attachingFileModalWrap" style="display: none;">
+                <div class="attachingFileModalContainer">
+                    <div class="attachingFileModalBox">
+                        <div class="modalHeaderWrap">
+                            <h4 class="modalHeader">파일 첨부</h4>
+                            <div class="modalCloseBTNWrap">
+                                <!-- 모달창 상단 X버튼 -->
+                                <button type="button" class="modalCloseBTN">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="modalCloseSVG">
+                                        <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="modalContentWrap">
+                            <p class="announcement">다음과 같은 형식에 맞게 파일을 업로드해주세요. 파일은 최대 10개까지 첨부가능합니다.</p>
+                            <dl class="formAndSize">
+                                <div class="formWrap">
+                                    <dt class="formDT">파일 형식</dt>
+                                    <dd class="formDD">
+                                        <p>이미지: jpg, jpeg, png, gif</p>
+                                        <p>동영상: mp4, mov, avi, wmv</p>
+                                        <p>음악 파일: mp3, wav, flac, m4a</p>
+                                        <p>문서 파일: pdf, doc, docx, ppt, pptx, xls, xlsx, hwp, zip</p>
+                                        <p>기타: clip, skp, sut, psd, cs3o, csmo, brushset, brush, swatches, abr</p>
+                                    </dd>
+                                </div>
+                                <div class="sizeWrap">
+                                    <dt class="sizeDT">파일 크기</dt>
+                                    <dd class="sizeDD">
+                                        <p>포스트당 최대 1GB 첨부 가능</p>
+                                    </dd>
+                                </div>
+                            </dl>
+                            <!-- 선택된 파일들 추가, 파일이 없을 경우 ul태그만 있음 -->
+                            <ul class="uploadedFile">
+                                <li class="uploadedItem">
+                                    <div class="dummyImageWrap">
+                                        <div class="dummyImage">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="dummyImageSVG">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.6 4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8.961a2 2 0 0 0-.751-1.561l-3.702-2.962A2 2 0 0 0 13.898 4H6.6Zm11 15.2h-11a.2.2 0 0 1-.2-.2V6c0-.11.09-.2.2-.2h7V8a1 1 0 0 0 1 1h3.2v10a.2.2 0 0 1-.2.2Z"></path>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.1 12a.9.9 0 0 1 .9-.9h6a.9.9 0 1 1 0 1.8H9a.9.9 0 0 1-.9-.9ZM8.1 15a.9.9 0 0 1 .9-.9h6a.9.9 0 1 1 0 1.8H9a.9.9 0 0 1-.9-.9Z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <!-- 파일 이름 -->
+                                    <p class="uploadedFileName">coin.png</p>
+                                    <button type="button" class="uploadedFileDelete">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="uploadedFileDeleteSVG">
+                                            <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                        </svg>
+                                    </button>
+                                </li>
+                            </ul>
+                            <section class="uploadWarningwrap">
+                                <!-- 업로드 목록이 10개가 되면 block -->
+                                <div class="uploadWarningContainer">
+                                    <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="uploadWarningSVG">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.008 22.05c5.523.023 10.019-4.436 10.042-9.959.023-5.523-4.436-10.018-9.959-10.041C6.568 2.027 2.073 6.485 2.05 12.008c-.023 5.523 4.435 10.019 9.958 10.042Zm1.527-6.494a1.5 1.5 0 1 1-3-.013 1.5 1.5 0 0 1 3 .013Zm-1.181-2.505a.5.5 0 0 0 .498-.436l.646-4.997a.5.5 0 0 0-.494-.564l-1.867-.008a.5.5 0 0 0-.499.56l.604 5.002a.5.5 0 0 0 .495.44l.617.003Z"></path>
+                                    </svg>
+                                    <div class="uploadWarningBox">
+                                        <strong class="uploadWarning1">파일은 최대 10개까지 업로드 가능합니다.</strong>
+                                        <p class="uploadWarning2">다른 파일을 첨부하시려면 기존 파일을 삭제 후 업로드해주세요.</p>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="fileUploadSection">
+                                <!-- 파일 업로드 버튼 클릭 시 선택한 파일들이 uploadedFile안에 추가 -->
+                                <button type="button" class="fileUploadBTN">
+                                    <div class="fileUpload">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" class="fileUploadSVG">
+                                            <path d="m12 2.586 4.707 4.707a1 1 0 0 1-1.414 1.414L13 6.414V13.9a1 1 0 1 1-2 0V6.414L8.707 8.707a1 1 0 0 1-1.414-1.414L12 2.586Z"></path>
+                                            <path d="M6 13a1 1 0 1 0-2 0v7h16v-7a1 1 0 1 0-2 0v5H6v-5Z"></path>
+                                        </svg>
+                                        <div>파일 업로드</div>
+                                    </div>
+                                    <!-- 선택한 파일을 저장하는 input인것으로 추정 -->
+                                    <input type="file" accept="image/png,image/jpeg,image/jpg,image/gif,application/pdf,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.hancom.hwp,application/haansofthwp,application/x-hwp,.hwp,video/mp4,video/quicktime,video/x-msvideo,video/x-ms-wmv,audio/wav,audio/x-wav,audio/mpeg,audio/x-flac,audio/flac,audio/mp4,audio/x-m4a,audio/m4a,application/zip,application/x-zip,application/x-zip-compressed,application/octet-stream,application/x-compress,application/x-compressed,multipart/x-zip,.cs3o,.csmo,.clip,.sut,.skp,.swatches,.abr,image/vnd.adobe.photoshop,application/x-photoshop,application/photoshop,application/psd,image/psd,image/photoshop,image/x-photoshop,zz-application/zz-winassoc-psd,application/vnd.sketchup.skp,.brush,.brushset" multiple="" class="fileInput">
+                                </button>
+                            </section>
+                            <section class="cancelAndConfirm">
+                                <button type="button" class="cancelBTN">취소</button>
+                                <button type="button" class="confirmBTN">첨부</button>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="attachingFileModalGray" style="display: none;"></div>
+        </div>
+    </div>
+</body>
+<script src="/js/post/write.js"></script>
+</html>

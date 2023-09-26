@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>요리보고 Yoribogo</title>
+    <link rel="stylesheet" href="/css/post/reviewList.css">
+    <link rel="icon" href="/images/post/yoribogo_favicon.ico" />
+</head>
+<body>
+    <div id="__next">
+        <nav class="mainBanner" th:replace="~{/fix/post/listHeader :: list-nav}"></nav>
+        <div class="catagoryWrap">
+            <div class="catagory">
+                <span class="mainPage">main</span>
+                <span class="recipePage">레시피</span>
+                <span class="reviewPage">후기</span>
+            </div>
+        </div>
+        <main class="contentWrap">
+            <div class="contentCategory">
+                <div class="classification">
+                    <div class="classification">
+                        <label class="freeListWrap">
+                            <!-- 클릭 시 value값이 값은 것만 게시판 표시 -->
+                            <input type="radio" name="listCategory" class="freeListCategory" value="free" checked>
+                            <span class="spanFree">무료 공유</span>
+                        </label>
+                    </div>
+                    <div class="classification">
+                        <span class="line"></span>
+                        <label class="payListWrap">
+                            <!-- 클릭 시 value값이 값은 것만 게시판 표시 -->
+                            <input type="radio" name="listCategory" class="payListCategory" value="pay">
+                            <span class="spanPay">유료 공유</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="button" id="filterBtn" class="filterBtn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filterSvg">
+                        <path d="M4 7a.8.8 0 0 1 .8-.8h14.4a.8.8 0 0 1 0 1.6H4.8A.8.8 0 0 1 4 7Z"></path>
+                        <path d="M17.8 7A1.9 1.9 0 1 1 14 7a1.9 1.9 0 0 1 3.8 0ZM4 12a.8.8 0 0 1 .8-.8h14.4a.8.8 0 0 1 0 1.6H4.8A.8.8 0 0 1 4 12Z"></path>
+                        <path d="M10.8 12A1.9 1.9 0 1 1 7 12a1.9 1.9 0 0 1 3.8 0ZM4 17a.8.8 0 0 1 .8-.8h14.4a.8.8 0 0 1 0 1.6H4.8A.8.8 0 0 1 4 17Z"></path>
+                        <path d="M13.8 17a1.9 1.9 0 1 1-3.8 0 1.9 1.9 0 0 1 3.8 0Z"></path>
+                    </svg>
+                    <span class="filterSpan">필터</span>
+                </button>
+            </div>
+            <!-- 무료 공유 게시판 -->
+            <div>
+                <ul class="freeList">
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="freeItemWrap">
+                        <div>
+                            <!-- 버튼태그에 클릭 이벤트 리스너 있으니 게시글 상세보기로 연결 -->
+                            <button type="button" class="freeItem">
+                                <div class="itemThumbnail">
+                                    <!-- 게시글 정보 가져와서 h2와 p태그 value 채우기 -->
+                                    <div class="contentThumbnail">
+                                        <h2 class="contentHeader">정부출연연구기관 자소서 첨삭 참고용</h2>
+                                        <p class="content">안녕하세요:) 첨삭형 멤버십 가입시 어떻게 자소서 또는 학업계획서 첨삭이 이루어지는지 궁금해하시는 분들이 많아 예시를 가져왔습니다 ! 첫 번째 사례를 보면, 해당 분야의 '전문성'이 어느 수준에 도달했는지 물어보는 문항을 볼 수 있습니다. 자소서를 작성하기 이전 먼저 질문의 의도를 파악해야하는데요. 해당 문항의 의도는 지원자가 지금까지 쌓아왔던 경험과 경력으로 우리가 채용하는 직무에서 어떤 역량을 펼칠 수 있는가? 입니다. 지원자분께서 작성해주신 초안을 확인해보면 지원한 회사에서 어떤 직무로 채용하려고 하는지는 고려하지 않은 채 지금까지 겪었던 경험만을 나열해두었습니다. 이런 자소서로는 본인을 강력하게 어필할 수 없겠죠? 첨삭을 통한 1차 자료를 확인해보시면, 질문의 의도에 맞춰 경험을 통해 해당 직무에서 어떠한 능력을 발휘할 수 있는지가 명확, 간결하게 표현되어 있습니다. 이번 사례는 직무에 지원하고자 하는 이유입니다. 왼쪽 이미지는 지원자의 초안인데요. 이처럼 본인의 직무분야와 관련된 것을 살리기보단 본인의 열정을 어필하는 자소서는 해당 문항에서 요구하는 니즈를 맞추지 못할 가능성이 높습니다. 오른쪽의 1차 첨삭 예시는 지원자의 경력과, 경험을 살려 나의 역량으로 해당 직무에서 어떠한 역량을 펼칠 수 있는지와 대학과 정부출연연구기관의 연계로 인력을 충당하는 상황을 발빠르게 캐치하여 서술된 것을 확인해볼 수 있습니다. 대학의 학업 및 연구계획서도 자기소개서와 다를 것이 없습니다. 본인의 학과와 전공을 깊이 해석하여 현재 이슈되는 연구 주제로 방향성을 잡아 작성하는 것이 합격의 핵심입니다. 문의는 언제나 환영이며, 믿고 맡겨주신 만큼 합격의 길로 다가설 수 있도록 코칭해드리겠습니다. ^^ 감사합니다.</p>
+                                    </div>
+                                    <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
+                                    <div class="imageThumbnailWrap" style="display: block;">
+                        <span class="imageThumbnail">
+                          <img alt src="/images/post/postRead1.png" decoding="async" data-nimg="fill" class="image">
+                        </span>
+                                    </div>
+                                </div>
+                                <div class="itemThumbnailFooter">
+                                    <!-- css속성 background: url() 괄호안에 프로필의 이미지 입력 -->
+                                    <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                                    <div class="nameTimeHits">
+                                        <!-- 닉네임 -->
+                                        <span class="nickname">이공계연구원 코냉</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
+                                        <span class="time">1시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+                                        <!-- 뒤의 숫자는 받아서 출력 -->
+                                        <span class="hits">조회수 1</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+        <!-- 필터 모달창 -->
+        <div id="filterContainer" class="filterContainer">
+            <div class="filterBox">
+                <div class="filterCategory">
+                    <h4 class="filterHeadline">카테고리 설정</h4>
+                    <div style="height: 24px;"></div>
+                    <div class="filtercontent">
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">한식</span>
+                        </label>
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">중식</span>
+                        </label>
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">일식</span>
+                        </label>
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">양식</span>
+                        </label>
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">야식</span>
+                        </label>
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">분식</span>
+                        </label>
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">브런치</span>
+                        </label>
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">디저트</span>
+                        </label>
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">다이어트 식단</span>
+                        </label>
+                        <label class="filterItem">
+                            <input type="checkbox" class="catagoryInput" checked>
+                            <span class="catagoryName">기타</span>
+                        </label>
+                    </div>
+                    <div style="height: 24px;"></div>
+                    <button type="button" class="categoryButton">적용</button>
+                </div>
+            </div>
+            <div id="filterWrap" class="filterWrap"></div>
+        </div>
+        <div class="warningWindowWrap">
+            <div class="warningWindow">
+                <div class="warning">카테고리는 최소 2개 이상 선택해야 합니다.</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="searchWrap">
+            <div class="searchNav">
+                <div class="searchNavIn">
+                    <button type="button" onclick="closeX()">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="close">
+                            <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="searchAgain">
+                    <main class="searchMax">
+                        <label class="searchLabel">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="dodbogi">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z">
+                                </path>
+                            </svg>
+                            <input type="search" class="searchInput" placeholder="요리, 태그 검색" value="">
+                        </label>
+                    </main>
+                </div>
+            </div>
+            <div class="searchMain">
+                <div class="ingi">
+                    <header class="ingiHeader">
+                        <h3 class="ingiTitle">인기 검색어</h3>
+                        <span class="ingiTime">23:00 기준</span>
+                    </header>
+                    <div class="ingi">
+                        <ol class="ingiRanking">
+                            <li class="ingiList">
+                                <span class="ranking">1</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          된장찌개
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="ingiList">
+                                <span class="ranking">2</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          오이무침
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="ingiList">
+                                <span class="ranking">3</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          돈까스
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="ingiList">
+                                <span class="ranking">4</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          우연
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="ingiList">
+                                <span class="ranking">5</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          레디
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="ingiList">
+                                <span class="ranking">6</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          서윤후
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="ingiList">
+                                <span class="ranking">7</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          뽀이
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="ingiList">
+                                <span class="ranking">8</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          코바늘
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="ingiList">
+                                <span class="ranking">9</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          금개
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="ingiList">
+                                <span class="ranking">10</span>
+                                <button type="button">
+                                    <a>
+                        <span class="rankingContent">
+                          요리보고
+                        </span>
+                                    </a>
+                                </button>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="shape"></div>
+                <div class="seaon"></div>
+                <div class="shapeSmall"></div>
+                <div class="ingi">
+                    <header class="ingiHeader">
+                        <h3 class="ingiTitle">최근 검색어</h3>
+                    </header>
+                    <div class="ingi">
+                        <div class="ingiEmoticon">
+                            <svg width="118" height="82" fill="none" xmlns="http://www.w3.org/2000/svg" class="cuteEmoticon">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M70.255 65.44c6.188-10.339 1.977-21.031-5.429-26.181-3.711-2.581-8.35-3.873-13.015-2.974-4.715.91-9.111 3.99-12.408 9.498C37.527 48.917 37 53.33 37 56.515c0 2.346 1.116 4.873 2.324 6.838 1.228 1.996 2.89 3.958 4.536 5.053 2.352 1.567 4.977 2.014 7.022 2.35 2.866.471 6.346.312 9.65-.423a26.01 26.01 0 0 0 4.584-1.46l4.385 7.684c.836 1.466 2.935 1.733 4.53.578 1.494-1.084 1.955-2.999 1.027-4.278l-5.076-7.004.055-.048.218-.365ZM43.902 48.476c2.658-4.44 5.879-6.459 8.902-7.042 3.073-.593 6.296.23 9.028 2.13 5.391 3.749 8.392 11.294 4.145 18.804-1.63 1.279-3.975 2.266-6.584 2.846-2.769.616-5.565.712-7.66.368-2.118-.348-3.672-.678-4.968-1.54-.78-.52-1.963-1.792-2.974-3.436-1.03-1.675-1.547-3.195-1.547-4.091 0-2.888.52-6.139 1.658-8.039Z" fill="#EAE9EF"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M86.657 17.172C86.66 4.817 67.631-1.532 59.284 4.032c-10.6 7.063-11.674 15.423-10.282 23.607-1.737-.67-3.439-1.37-4.05-2.278-.48-.709-2.042-2.727-2.774-3.186-2.394-1.498-4.725-.535-5.113 2.224-.731 5.207 4.66 13.805 15.237 16.12 2.075 7.867 2.69 14.685-6.099 18.796 0 0 25.133 6.373 31.16-14.952.322-1.143.887-2.421 1.585-3.834 3.69.06 8.09-.398 13.072-6.846.838-2.416 1.015-3.596-.505-5.824-.674-.988-1.981-1.607-3.226-1.158-.817.295-1.677 1.064-2.26 1.693-.541.584-1.212 1.06-1.948 1.46 1.465-3.753 2.575-7.983 2.576-12.681Z" fill="#9D8DFF"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M80.604 34.761a.7.7 0 0 1 .145.98c-.374.503-.659 1.22-.884 2.046-.217.793-.364 1.626-.496 2.377l-.013.071a.7.7 0 1 1-1.379-.243l.016-.09c.13-.738.287-1.627.521-2.484.242-.885.582-1.8 1.11-2.512a.7.7 0 0 1 .98-.145ZM48.617 27.204a.7.7 0 0 1 .969.205c.136.21.296.441.462.68.273.396.562.813.788 1.196.384.648.717 1.392.717 2.215a.7.7 0 1 1-1.4 0c0-.448-.183-.93-.522-1.503-.21-.356-.437-.681-.68-1.031-.17-.245-.35-.503-.539-.793a.7.7 0 0 1 .205-.969Z" fill="#000"></path>
+                                <path d="M73.706 23.67c-.125-.616-3.717-1.942-3.825.664.44 6.523 4.374 2.06 3.825-.664Z" fill="#030303"></path>
+                                <path d="M70.813 19.49c-.042.92-.583 1.581-1.21 1.479-.625-.102-1.098-.93-1.055-1.848.042-.918.583-1.58 1.209-1.478.626.102 1.099.93 1.056 1.848ZM75.815 19.74c-.042.92-.584 1.581-1.21 1.479-.625-.102-1.098-.93-1.056-1.848.043-.918.584-1.58 1.21-1.478.626.102 1.099.93 1.056 1.848Z" fill="#060606">
+                                </path>
+                            </svg>
+                            <p class="lately">최근 검색어가 없습니다</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/post/reviewList.js"></script>
+</html>

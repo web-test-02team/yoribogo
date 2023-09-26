@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>요리보고</title>
+    <link rel="stylesheet" href="/css/main/introHeader.css">
+</head>
+<body>
+<div class="postWrap" th:fragment="intro-login">
+    <div class="headerNavWrap">
+        <nav class="headerNav">
+                <div>
+                <div class="yoribogoLogo">
+                    <!-- 로고 경로 바꾸주시면됩니다 -->
+                    <a href="">
+                        <img src="/images/logo/yoribogo.png" alt="요리보고로고" class="navLogo" style="fill: #ffffff;">
+                    </a>
+                </div>
+            </div>
+            <!-- 로그인 안했을때  -->
+            <div class="notLogin" style="display: none;">
+                <button type="button" class="notLoginButton">로그인</button>
+            </div>
+            <!-- 여기까지 -->
+            <div class="loginImg" style="display: block;">
+                <div class="positonRelative">
+                    <button class="loginButton">
+                        <!-- 프로필 이미지 경로 바꿔야합니다 -->
+                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                             <img alt="프로필 이미지" sizes="100vw" src="/images/imgLogin/imgLogin.png" decoding="async" data-nimg="fill" class="rounded" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                        </span>
+                    </button>
+                    <!-- 로그인 한후 이미지 클릭시 나오는거 리스트 -->
+                    <div class="loginClick" style=" display: none;">
+                        <ul class="loginUl">
+                            <!-- 로그인 정보를 가지고와야함 -->
+                            <li class="loginLi">
+                                <div class="loginInfo">
+                                    <span class="fontName">박세준</span>
+                                    <span class="fontEmail">sejun1227@naver.com</span>
+                                </div>
+                            </li>
+                            <!-- 이건 짜피 안보이는데 왜 넣어논지 모르겠어요 -->
+                            <li class="loginLi">
+                                <button type="button" class="loginClickButtonHidden">크리에이터 시작하기</button>
+                            </li>
+                            <li class="loginLi">
+                                <button type="button" class="loginClickButton">마이 페이지</button>
+                            </li>
+                            <li class="loginLi">
+                                <button type="button" class="loginClickButton">내 포인트</button>
+                            </li>
+                            <li class="loginLi">
+                                <button type="button" class="loginClickButton">쪽지함</button>
+                            </li>
+                            <li class="loginLi">
+                                <button type="button" class="loginClickButton">헬프센터</button>
+                            </li>
+                            <!-- 카카오 계정 연걸 -->
+                            <li tabindex="-1" class="loginLi" style="display: block;">
+                                <button type="button" class="kakaoBtn">
+                                    <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="kakao1">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 2C4.803 2 1.833 4.306 1.833 7.128a5.026 5.026 0 0 0 3.091 4.339l-.636 2.306c-.03.06 0 .151.06.181.061.061.182.061.243 0l2.697-1.79c.394.061.788.091 1.212.091 3.667 0 6.667-2.306 6.667-5.127C15.167 4.306 12.197 2 8.5 2Z">
+                                        </path>
+                                    </svg>
+                                    <p class="kakao2">카카오 계정 연동하고<br/>간편하게 로그인</p>
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgKakao">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </li>
+                            <li class="loginLi">
+                                <button type="button" class="loginClickButton">
+                                    로그아웃
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <h3 class="h3None" style="display: none">생방송 요리보고!</h3>
+        </nav>
+    </div>
+</div>
+</body>
+<script src="/js/main/introHeaderLogin.js"></script>
+</html>

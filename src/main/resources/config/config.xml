@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.app.yoribogo.domain.vo.CategoryAVO" alias="categoryAVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.CategoryBVO" alias="categoryBVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.CategoryCVO" alias="categoryCVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.CommentVO" alias="commentVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.FavoriteRecipeVO" alias="favoriteRecipeVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.LikeVO" alias="likeVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.MemberVO" alias="memberVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.MessageVO" alias="messageVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.PostFileVO" alias="postFileVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.PostVO" alias="postVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.ProfileVO" alias="profileVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.PurchasedRecipeVO" alias="purchasedRecipeVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.PurchaseVO" alias="purchaseVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.RecipeVO" alias="recipeVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.TagVO" alias="tagVO" />
+        <typeAlias type="com.app.yoribogo.domain.vo.TagsVO" alias="tagsVO" />
+    </typeAliases>
+</configuration>
