@@ -1277,7 +1277,6 @@ span.writerName {
 }
 
 .seeMoreButton {
-    width: 116px;
     padding-left: 15px;
     padding-right: 15px;
     border-style: solid;
@@ -1303,8 +1302,8 @@ span.writerName {
 }
 
 .seeMoreSVG {
-    width: 16px;
     height: 16px;
+    margin-left: 4px;
     color: #5b44ea;
     fill: #5b44ea;
 }
