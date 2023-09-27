@@ -1,4 +1,4 @@
-// 스크롤이 가장 일 경우 memberNameBar display: none 그 외 block
+// 스크롤이 가장 위일 경우 memberNameBar display: none 그 외 block
 const memberNameBar = document.querySelector(".memberNameBar")
 // 스크롤 이벤트 핸들러 함수
 function handleScroll() {
@@ -26,10 +26,10 @@ memberContainer.addEventListener("click",() => {
 });
 
 // 공유 아이콘 클릭 시 공유 모달창 표시
-const sharingWrap = document.querySelector(".sharingWrap")
+const sharingContainer = document.querySelector(".sharingContainer")
 const sharingDIV = document.querySelector(".sharingDIV")
 
-sharingWrap.addEventListener("click", () => {
+sharingContainer.addEventListener("click", () => {
     sharingDIV.style.display = "block";
 })
 // 회색면 클릭 시 필터 모달창 닫기 - 필터 모달창 닫히면서 전 상태로 돌리기
@@ -136,4 +136,15 @@ replyDeleteCancelBTN.addEventListener("click", () => {
 
 replyDeleteAgreeBTN.addEventListener("click", () => {
     replyDeleteDIV.style.display = 'none';
+})
+
+// 공유 옆 ...버튼 클릭 시 이벤트
+const postToolBTN = document.querySelector(".postToolBTN");
+const modifyAndDeleteWrap = document.querySelector(".modifyAndDeleteWrap");
+postToolBTN.addEventListener("click", () => {
+    if(modifyAndDeleteWrap.style.display === "none"){
+        modifyAndDeleteWrap.style.display = "block";
+    }else {
+        modifyAndDeleteWrap.style.display = "none";
+    }
 })
