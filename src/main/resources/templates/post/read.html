@@ -33,7 +33,7 @@
                                 <a class="memberName" href="">이공계연구원 코냉</a>
                             </div>
                             <div class="postInformation">
-                                <p class="public">전체공개</p>
+                                <p class="public">무료공유</p>
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
                                     <circle cx="12" cy="12" r="4"></circle>
                                 </svg>
@@ -43,18 +43,45 @@
                                         <circle cx="12" cy="12" r="4"></circle>
                                     </svg>
                                     <span>조회수 3</span>
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
+                                        <circle cx="12" cy="12" r="4"></circle>
+                                    </svg>
+<!--                                작성자가 입력한 금액    -->
+                                    10,000원
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <!-- 공유 -->
                     <div class="sharingWrap">
+                        <!-- 공유 -->
                         <div class="sharingContainer">
                             <button type="button">
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sharing">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6a3 3 0 0 1-5.022 2.216l-5.01 3.34c.018.127.029.255.031.385l4.84 2.978a3 3 0 1 1-.83 1.838l-4.672-2.876a3 3 0 1 1-.315-4.098l5.01-3.34A3 3 0 1 1 20 6Z"></path>
                                 </svg>
                             </button>
+                        </div>
+                        <!-- 수정, 삭제는 본인이 작성한 게시글 일때만 보이도록 -->
+                        <div class="postToolWrap">
+                            <div class="postToolContainer">
+                                <button type="button" class="postToolBTN">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="postTool">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2Zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z"></path>
+                                    </svg>
+                                </button>
+                                <div class="modifyAndDeleteWrap" style="display: none; top: 36px;">
+                                    <ul class="modifyAndDeleteUl">
+                                        <li tabindex="-1" class="postModifyLi">
+                                            <!-- 수정 클릭 시 write페이지에 현재 글 데이터 가지고 이동 -->
+                                            <button type="button" class="postModifyBTN">수정</button>
+                                        </li>
+                                        <li tabindex="-1" class="postDeleteLi">
+                                            <!-- 삭제 클릭 시 별다른 과정없이 바로 해당 게시글 삭제 -->
+                                            <button type="button" class="postDeleteBTN">삭제</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -163,15 +190,27 @@
                     <div class="requestingWrap">
                         <div class="requestingContainer">
                             <div>
+<!--                                클릭 시 쪽지 작성하는 페이지 이동, 레시피 게시글의 유료공유 이외에는 모두 클래스 옆에 disabled 추가 -->
                                 <button type="button" class="requestingButton">
                                     <div class="requestingcontent">
-                                        <div>쪽지로 거래 제안하기</div>
                                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" class="plus">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 0-1 1v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2h-7V4a1 1 0 0 0-1-1Z"></path>
                                         </svg>
+                                        <div>거래 제안하기</div>
                                     </div>
                                 </button>
                             </div>
+                        </div>
+                        <div class="requestingContainer">
+<!--                            클릭 시 결제 페이지, 레시피 게시글의 유료공유 이외에는 모두 클래스 옆에 disabled 추가-->
+                            <button type="button" class="paymentBTN">
+                                <div class="requestingcontent">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" class="plus">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 0-1 1v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2h-7V4a1 1 0 0 0-1-1Z"></path>
+                                    </svg>
+                                    <div>결제</div>
+                                </div>
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -471,9 +510,9 @@
                                         </div>
                                         <!-- 게시글에 이미지 있을 경우 imageThumbnailWrap클래스 display: block설정 필요 -->
                                         <div class="imageThumbnailWrap" style="display: block;">
-                        <span class="imageThumbnail">
-                          <img alt src="/image/postReadImage/imageThumbnail.png" decoding="async" data-nimg="fill" class="image">
-                        </span>
+                                            <span class="imageThumbnail">
+                                              <img alt src="/images/post/imageThumbnail.png" decoding="async" data-nimg="fill" class="image">
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="postThumbnailFooter">
