@@ -76,3 +76,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
     });
 });
+const postButton=document.querySelector(".postButton");
+postButton.addEventListener("click",()=>{
+    window.location.href="http://localhost:10000/member/mainPost";
+})

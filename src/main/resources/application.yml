@@ -2,19 +2,11 @@
 server:
   port: 10000
 
-#JDBC
-#spring:
-#  datasource:
-#    driver-class-name: oracle.jdbc.OracleDriver
-#    url: jdbc:oracle:thin:@//localhost:1521/XE
-#    username: hr
-#    password: hr
-
 #MyBatis
 spring:
   datasource:
     hikari:
       driver-class-name: oracle.jdbc.OracleDriver
-      jdbc-url: jdbc:oracle:thin:@//localhost:1521/XE
+      jdbc-url: jdbc:oracle:thin:@//43.201.19.7:1521/XE
       username: hr
       password: hr
