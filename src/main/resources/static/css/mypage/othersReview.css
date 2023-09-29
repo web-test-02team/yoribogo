@@ -224,6 +224,12 @@ a {
     border-radius: 4px;
 }
 
+
+#here {
+    background-color: #fbb86b41;
+    border-radius: 4px;
+}
+
 .aList {
     align-items: center;
     flex-grow: 1;
@@ -1120,4 +1126,26 @@ ul {
 
 .rounded-full {
     border-radius: 9999px;
+}
+
+.maintenanceFeeContent {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    margin-top: 120px;
+}
+
+.noDataDisplay {
+    display: none;
+}
+
+.noData {
+    margin-top: 23px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #8a8a8b;
+    fill: #8a8a8b;
 }

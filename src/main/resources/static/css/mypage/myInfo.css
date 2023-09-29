@@ -371,6 +371,11 @@ a {
     border-radius: 4px;
 }
 
+#here {
+    background-color: #fbb86b41;
+    border-radius: 4px;
+}
+
 .aList {
     align-items: center;
     flex-grow: 1;
@@ -1286,6 +1291,9 @@ a {
     cursor: default;
 }
 .validationWrapOneSentence {
+    display: none;
+}
+.validationWrapOneSentence2 {
     display: none;
 }
 .validationWrapUrls {
