@@ -166,7 +166,8 @@ h1 {
 }
 
 .hiddenWrong {
-  display: flex;
+  display: none;
+  /*display: flex;*/
   margin-top: 8px;
   font-weight: 400;
   font-size: 12px;
@@ -395,4 +396,14 @@ a {
   position: relative;
   background-color: #f3f3f4;
 }
-
+.formTest{
+  margin-top: 24px;
+}
+.newPassword{
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333334;
+  fill: #333334;
+}
