@@ -383,3 +383,35 @@ button.join {
   position: relative;
   background-color: #f3f3f4;
 }
+.hiddenWrong {
+  display: none;
+  /*display: flex;*/
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #de2c2c;
+  fill: #de2c2c;
+}
+
+.hiddenWrongEmail, .hiddenWrongPw, .hiddenWrongName,.hiddenWrongAgr{
+  align-items: center;
+  display: flex;
+  margin-right: auto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #de2c2c;
+  fill: #de2c2c;
+}
+
+.wrong {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #de2c2c;
+  fill: #de2c2c;
+}

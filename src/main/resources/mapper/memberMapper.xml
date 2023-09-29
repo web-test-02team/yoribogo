@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yoribogo.mapper.MemberMapper">
+        <insert id="insert">
+        INSERT INTO TBL_MEMBER(ID, MEMBER_EMAIL,MEMBER_PASSWORD,MEMBER_NAME,MEMBER_LOGIN_CODE)
+        VALUES (SEQ_MEMBER.NEXTVAL,#{memberEmail},#{memberPassword},#{memberName},#{memberLoginCode})
+        </insert>
 
+        <select id="selectByLogin" resultType="memberVO">
+                SELECT ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NAME, MEMBER_PROFILE_NAME, MEMBER_PROFILE_PATH, MEMBER_STATUS, MEMBER_LOGIN_CODE, MEMBER_KAKAO_EMAIL, MEMBER_KAKAO_PROFILE_URL
+                FROM TBL_MEMBER
+                WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_PASSWORD = #{memberPassword}
+        </select>
 </mapper>
