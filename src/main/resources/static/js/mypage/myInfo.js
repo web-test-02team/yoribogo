@@ -209,3 +209,25 @@ function updateInputAndValidation(inputElement) {
         label.style.borderColor = "rgba(0,0,0,.1)";
     }
 }
+
+function updateNameAndValidation(inputElement) {
+    // 글자 수 업데이트
+    const textCountElement = inputElement.closest(".infoDiv6").querySelector(".textCount");
+    const maxLength = 50;
+    const currentLength = inputElement.value.length;
+    textCountElement.textContent = `${currentLength}/${maxLength}`;
+
+    // 유효성 검사
+    const oneSentenceValidationWrap2 = document.querySelector(".validationWrapOneSentence2");
+    const label2 = inputElement.parentElement;
+    if (inputElement.value.trim() === "") {
+        oneSentenceValidationWrap2.style.display = "block"; // Show validation message
+        label2.style.borderWith = "2px";
+        label2.style.borderColor = "#eb4545";
+    } else {
+        oneSentenceValidationWrap2.style.display = "none"; // Hide validation message
+        label2.style.borderWith = "1px";
+        label2.style.borderColor = "rgba(0,0,0,.1)";
+    }
+}
+

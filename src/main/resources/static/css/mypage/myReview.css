@@ -224,6 +224,11 @@ a {
     border-radius: 4px;
 }
 
+#here {
+    background-color: #fbb86b41;
+    border-radius: 4px;
+}
+
 .aList {
     align-items: center;
     flex-grow: 1;
@@ -1120,4 +1125,96 @@ ul {
 
 .rounded-full {
     border-radius: 9999px;
+}
+
+
+.infoWrapperInner {
+    justify-content: space-between;
+    display: flex;
+}
+
+.myinfoH3 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 40px;
+    color: #1d1d1e;
+    fill: #1d1d1e;
+    margin: 0;
+}
+.myInfoDiv {
+    width: 88px;
+    margin-left: 12px;
+}
+
+.myInfoDivBtn {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    position: relative;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+    fill: #fff;
+    background-color: #1d1d1e;
+}
+
+.noDataDisplay {
+    display: none;
+}
+
+.noDataDisplay2 {
+    display: none;
+}
+
+.noData {
+    margin-top: 23px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #8a8a8b;
+    fill: #8a8a8b;
+}
+
+
+.infoWrapperInner {
+    justify-content: space-between;
+    display: flex;
+}
+
+.myinfoH3 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 40px;
+    color: #1d1d1e;
+    fill: #1d1d1e;
+    margin: 0;
+}
+.myInfoDiv {
+    width: 88px;
+    margin-left: 12px;
+}
+
+.myInfoDivBtn {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    position: relative;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+    fill: #fff;
+    background-color: #1d1d1e;
 }
