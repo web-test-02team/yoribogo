@@ -18,4 +18,11 @@ public class MemberDAO {
     public Optional<MemberVO> login(MemberVO memberVO){
         return memberMapper.selectByLogin(memberVO);
     }
+
+    public Optional<MemberVO> searchEmail(MemberVO memberVO){
+        return  memberMapper.selectByEmail(memberVO);
+    }
+    public void change(String memberEmail,String memberPassword){
+        memberMapper.update(memberEmail,memberPassword);
+    }
 }

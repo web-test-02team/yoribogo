@@ -220,5 +220,14 @@
     </div>
   </div>
 </body>
+<script th:inline="javascript">
+  const flag = [[${login}]];
+  if(flag !== null){
+    const hidden=document.querySelector(".hiddenWrong");
+    emailCheck.innerText = "이미 가입된 이메일입니다..";
+    emailCheck.style.color = "red";
+    hidden.style.display = "flex";
+  }
+</script>
 <script src="/js/join_login/emailJoin.js"></script>
 </html>
