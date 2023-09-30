@@ -4,7 +4,7 @@ const pw = document.querySelector("input[name='memberPassword']");
 const emailCheck = document.getElementById("emailCheck");
 const pwCheck = document.getElementById("pwCheck");
 const hiddenWrong=document.querySelectorAll(".hiddenWrong");
-// const myForm=document.getElementById("myForm");
+const kakaoLogin=document.querySelector(".kakaoLogin");
 // 이메일 경고
 email.addEventListener("input", () => {
     // Check if the input is empty
@@ -84,3 +84,6 @@ backButton.addEventListener("click",()=>{
     window.location.href = "http://localhost:10000";
 })
 
+kakaoLogin.addEventListener("click",()=>{
+    window.location.href="https://kauth.kakao.com/oauth/authorize?client_id=0cdd696caf865128ff39194361ad059c&redirect_uri=http://localhost:10000/kakao/login&response_type=code";
+})
