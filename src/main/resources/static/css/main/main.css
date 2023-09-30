@@ -686,7 +686,7 @@ ol {
 }
 .seeMore {
     position: relative;
-    width: 116px;
+    /*width: 116px;*/
     padding-left: 15px;
     padding-right: 15px;
     border-style: solid;
@@ -722,6 +722,7 @@ ol {
     height: 16px;
     color: #5b44ea;
     fill: #5b44ea;
+    margin-left: 4px;
 }
 .chellenge {
     margin-left: 16px;
@@ -1541,4 +1542,7 @@ ol {
     object-fit: cover;
     object-position: center center;
     border-radius: 9999px;
+}
+.loginClickButton:hover{
+    background-color: #f3f3f4;
 }

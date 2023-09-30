@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko" class="screenFull">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,10 +16,10 @@
           <div class="mainFull">
             <div class="requestCompleteBox">
               <p class="requestCompleteText">요리보고에 오신 것을 환영합니다.</p>
-              <h1 class="emailText">이메일을 인증하고<br>가입을 완료해주세요.</h1>
+              <h1 class="emailText">요리보고 오신것을<br> 진심으로 감사합니다.</h1>
               <p class="contentBox">
                 <!-- DB로 data 받아올 위치 -->
-                <strong class="joinEmail">example@gmail.com</strong>으로 전송된 <br>인증메일을 확인해주세요.
+                <strong class="joinEmail"></strong>
               </p>
             </div>
             <div class="mainButtonBox">
@@ -28,16 +27,6 @@
                 <button class="mainPageMove">로그인으로</button>
               </a>
             </div>
-            <div class="mailTextLine">
-              <hr class="line">
-              <p class="contentBoxText">인증 메일 링크가 만료되었나요?</p>
-              <hr class="line">
-            </div>
-            <div class="certiEmail">
-              <button id="openModal" class="certiEamilSend" onclick="openModal()">인증 메일 재발송</button>
-            </div>
-            <p class="noticeText">메일을 찾을 수 없다면 스팸 메일함을 확인해주세요.</p>
-          </div>
         </section>
       </div>
       <div class="hiddenBlock">
@@ -49,17 +38,16 @@
           </span>
         </div>
       </div>
-      <div id="modalWindowWrap" class="modalWindow">
-        <div class="shadoWindow">
-          <h4 class="sendFailure">메일 발송 실패</h4>
-          <div class="wrongText">잘못된 형식의 토큰입니다.</div>
-          <div class="sendFailureCheckLine">
-            <div class="sendFailureCheck">
-              <button class="sendCheckButton" onclick="closeModal()">확인</button>
-            </div>
-          </div>
-        </div>
-      </div>
+<!--      <div id="modalWindowWrap" class="modalWindow">-->
+<!--        <div class="shadoWindow">-->
+<!--          <h4 class="sendFailure">비밀번호 변경</h4>-->
+<!--          <div class="wrongText">비밀번호 변경이 완료 되었습니다.</div>-->
+<!--          <div class="sendFailureCheckLine">-->
+<!--            <div class="sendFailureCheck">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
 </body>

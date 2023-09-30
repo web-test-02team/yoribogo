@@ -11,4 +11,17 @@
                 FROM TBL_MEMBER
                 WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_PASSWORD = #{memberPassword}
         </select>
+
+        <select id="selectByEmail" resultType="memberVO">
+                SELECT ID, MEMBER_EMAIL, MEMBER_PASSWORD
+                FROM TBL_MEMBER
+                WHERE MEMBER_EMAIL = #{memberEmail}
+        </select>
+
+        <update id="update">
+                UPDATE TBL_MEMBER
+                SET MEMBER_PASSWORD = #{memberPassword}
+                WHERE MEMBER_EMAIL = #{memberEmail}
+        </update>
+
 </mapper>
