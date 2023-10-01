@@ -25,8 +25,8 @@ public class MemberServiceImpl implements MemberService {
             Optional<MemberVO> foundMember = getKaKaoMember(memberVO.getMemberKakaoEmail());
             if(id != null){
                 memberVO.setId(id);
-//                delete(foundMember.get().getId());
-//                synchronize(memberVO);
+                delete(foundMember.get().getId());
+                synchronize(memberVO);
                 return;
             }
 //          1-2. 최초 로그인 검사
@@ -79,4 +79,13 @@ public class MemberServiceImpl implements MemberService {
             memberDAO.setKaKaoProfile(memberVO);
         }
 
+    @Override
+    public void synchronize(MemberVO memberVO) {
+        memberDAO.updateBySync(memberVO);
+    }
+
+    @Override
+    public void delete(Long id) {
+        memberDAO.delete(id);
+    }
 }

@@ -85,4 +85,11 @@ public class MemberController {
 
     @GetMapping("introMain")
     public void goToIntroMain() {;}
+
+    //    로그아웃
+    @GetMapping("logout")
+    public RedirectView logout(HttpSession session){
+        session.invalidate();
+        return new RedirectView("/member/login");
+    }
 }
