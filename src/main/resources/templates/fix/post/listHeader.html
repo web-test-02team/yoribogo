@@ -26,9 +26,9 @@
                 <a class="paymentSystem" href="">헬프센터</a>
                 <div>
                     <!-- 로그인 안했을 때 -->
-                    <button type="button" class="loginButton" style="display: none;">로그인</button>
+                    <button type="button" class="loginButton" style="display: block;">로그인</button>
                     <!-- 로그인 했을 때 -->
-                    <div class="navLogin" style="display: block;">
+                    <div class="navLogin" style="display: none;">
                         <button type="button" class="memberImageWrap">
                         <span class="memberImagecontainer">
                           <!-- 유저정보의 프로필 이미지를 src에 작성 -->
@@ -61,7 +61,7 @@
                                     </button>
                                 </li>
                                 <!-- 카카오로그인 시 none 이메일 로그인시 block -->
-                                <li class="loginLi" style="display: none;">
+                                <li id="kakaoLinking" class="loginLi" style="display: none;">
                                     <button type="button" class="kakaoBtn">
                                         <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="kakao1">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 2C4.803 2 1.833 4.306 1.833 7.128a5.026 5.026 0 0 0 3.091 4.339l-.636 2.306c-.03.06 0 .151.06.181.061.061.182.061.243 0l2.697-1.79c.394.061.788.091 1.212.091 3.667 0 6.667-2.306 6.667-5.127C15.167 4.306 12.197 2 8.5 2Z"></path>

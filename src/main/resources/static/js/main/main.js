@@ -1,15 +1,15 @@
 // const loginButton = document.querySelector(".loginButton");
-// const postWrite = document.querySelector(".postWrite");
+const postWrite = document.querySelector(".postWrite");
 // const paymentSystem=document.querySelector(".paymentSystem")
 //로그인으로가기
 // loginButton.addEventListener("click", () => {
-//   window.location.href = "";
+//   window.location.href = "http://localhost:10000/member/login";
 // })
 
 //마이페이지로 가기
-// postWrite.addEventListener("click", () => {
-//   window.location.href = "";
-// })
+postWrite.addEventListener("click", () => {
+  window.location.href = "http://localhost:10000/mypage/myrecipe";
+})
 
 //헬프 센터 가기
 // paymentSystem.addEventListener("click",()=>{
@@ -17,15 +17,15 @@
 // });
 
 //레시피로 가기
-//const headlineOntent=document.querySelectorAll(".headlineOntent");
-//headlineOntent[0].addEventListener("click",()=>{
-//   window.location.href="";
-//})
+const headlineOntent=document.querySelectorAll(".headlineOntent");
+headlineOntent[0].addEventListener("click",()=>{
+  window.location.href="http://localhost:10000/post/recipelist";
+})
 
 //후기로 가기
-//headlineOntent[1].addEventListener("click",()=>{
-//   window.location.href="";
-//})
+headlineOntent[1].addEventListener("click",()=>{
+  window.location.href="http://localhost:10000/post/reviewlist";
+})
 
 // 요리 분류 선택시 색..등등 변경
 const categoryButton = document.getElementsByClassName("categoryButton");
