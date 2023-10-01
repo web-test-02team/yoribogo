@@ -44,4 +44,15 @@
                 SET MEMBER_KAKAO_PROFILE_URL = #{memberKakaoProfileUrl}
                 WHERE MEMBER_KAKAO_EMAIL = #{memberKakaoEmail}
         </update>
+
+        <delete id="delete">
+                DELETE FROM TBL_MEMBER
+                WHERE ID = #{id}
+        </delete>
+
+        <update id="updateBySync">
+                UPDATE TBL_MEMBER
+                SET MEMBER_KAKAO_EMAIL = #{memberKakaoEmail}, MEMBER_KAKAO_PROFILE_URL = #{memberKakaoProfileUrl}, MEMBER_LOGIN_CODE = 'KAKAO'
+                WHERE ID = #{id}
+        </update>
 </mapper>

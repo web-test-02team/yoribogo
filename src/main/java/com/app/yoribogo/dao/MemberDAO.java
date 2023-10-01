@@ -33,4 +33,10 @@ public class MemberDAO {
     public void setKaKaoProfile(MemberVO memberVO){
         memberMapper.updateKaKaoProfile(memberVO);
     }
+    public void updateBySync(MemberVO memberVO){
+        memberMapper.updateBySync(memberVO);
+    }
+    public void delete(Long id){
+        memberMapper.delete(id);
+    }
 }

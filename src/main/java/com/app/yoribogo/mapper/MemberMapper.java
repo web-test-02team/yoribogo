@@ -20,5 +20,10 @@ public interface MemberMapper {
     public Optional<MemberVO> selectKaKao(String memberKakaoEmail);
     //    카카오 프사 수정
     public void updateKaKaoProfile(MemberVO memberVO);
+    //    카카오 연동하기
+    public void updateBySync(MemberVO memberVO);
+
+    //    회원 삭제
+    public void delete(Long id);
 
 }
