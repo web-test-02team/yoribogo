@@ -1089,22 +1089,22 @@
     const loginButton = document.querySelector('.loginButton');
     const navLogin2 = document.querySelector('.navLogin');
     // innerHTML 바꿀 참조 요소 가져왔음!
-    const fontName = document.querySelector('.fontName');
-    const fontEmail = document.querySelector('.fontEmail');
-    const kakaoLinkingElement = document.getElementById('kakaoLinking');
+    // const fontName = document.querySelector('.fontName');
+    // const fontEmail = document.querySelector('.fontEmail');
+    // const kakaoLinkingElement = document.getElementById('kakaoLinking');
 
     // 세션 데이터의 존재 여부를 확인하여 HTML 요소의 display 속성을 변경
     if (member) {
         // 세션 데이터가 존재하는 경우
         loginButton.style.display = 'none'; // 로그인 버튼을 숨김
         navLogin2.style.display = 'block';   // 로그인 된 상태를 표시
-        if(member.memberEmail){
-        kakaoLinkingElement.style.display = 'block';
-        }
+        // if(member.memberEmail){
+        // kakaoLinkingElement.style.display = 'block';
+        // }
 
         // fontName과 fontEmail의 innerText를 member의 값으로 업데이트
-        fontName.innerText = member.memberName;
-        fontEmail.innerText = member.memberEmail;
+        // fontName.innerText = member.memberName;
+        // fontEmail.innerText = member.memberEmail;
     } else {
         // 세션 데이터가 없는 경우
         loginButton.style.display = 'block'; // 로그인 버튼을 표시
