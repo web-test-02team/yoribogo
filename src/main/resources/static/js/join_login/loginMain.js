@@ -85,5 +85,5 @@ backButton.addEventListener("click",()=>{
 })
 
 kakaoLogin.addEventListener("click",()=>{
-    window.location.href="https://kauth.kakao.com/oauth/authorize?client_id=0cdd696caf865128ff39194361ad059c&redirect_uri=http://localhost:10000/kakao/login&response_type=code";
+    window.location.href="https://kauth.kakao.com/oauth/authorize?client_id=7ad18f007d697b77f3604571c3940f5f&redirect_uri=http://localhost:10000/kakao/login&response_type=code";
 })
