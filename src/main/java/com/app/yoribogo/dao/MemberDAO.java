@@ -27,4 +27,10 @@ public class MemberDAO {
     public void change(String memberEmail,String memberPassword){
         memberMapper.update(memberEmail,memberPassword);
     }
+    public Optional<MemberVO> findByKakaoEmail(String memberKakaoEmail){
+        return memberMapper.selectKaKao(memberKakaoEmail);
+    }
+    public void setKaKaoProfile(MemberVO memberVO){
+        memberMapper.updateKaKaoProfile(memberVO);
+    }
 }

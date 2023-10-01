@@ -22,7 +22,7 @@ public class MemberController {
     public void goToEmailJoin(MemberVO memberVO) {;}
     @PostMapping("join")
     public RedirectView join(MemberVO memberVO,RedirectAttributes redirectAttributes){
-        memberService.join(memberVO, redirectAttributes);
+        memberService.join(memberVO, redirectAttributes,null);
 
         // 중복된 이메일이 없는 경우에만 joinComplete로 리다이렉트
         if (redirectAttributes.getFlashAttributes().containsKey("login")) {

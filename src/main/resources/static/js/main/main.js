@@ -276,14 +276,20 @@ function closeX(){
 // 로그인후 클릭 하면 나오는 이벤트
 const navLogin=document.querySelector(".navLogin");
 const loginClick=document.querySelector(".loginClick");
-navLogin.addEventListener("click",()=>{
+navLogin.addEventListener("click",(e)=>{
+    e.stopPropagation();
     if(loginClick.style.display=='none'){
         loginClick.style.display = 'block';
     }else{
         loginClick.style.display = 'none';
     }
 })
-
+document.addEventListener("click", (event) => {
+    // 로그인 창이 열려 있을 때만
+    if (loginClick.style.display !== 'none') {
+        loginClick.style.display = 'none';
+    }
+});
 function searchButton(){
     wrapNext.style.display="none"
     searchWrap.style.display="block"
