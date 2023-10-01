@@ -52,20 +52,20 @@ public class KaKaoController {
     private final KaKaoService kaKaoService;
     private final MemberService memberService;
 
-//    @GetMapping("/kakao/login")
-//    public RedirectView login(String code, HttpSession session, RedirectAttributes redirectAttributes){
-//        Long id = null;
-//        String token = kaKaoService.getKaKaoAccessToken(code);
-//        Optional<MemberVO> foundInfo = kaKaoService.getKaKaoInfo(token);
-//        if(foundInfo.isPresent()){
-//            if(session.getAttribute("member") != null){
-//                id = ((MemberVO)session.getAttribute("member")).getId();
-//            }
-//            memberService.join(foundInfo.get(), id);
-//           MemberVO memberVO = memberService.getKaKaoMember(foundInfo.get().getMemberKakaoEmail()).get();
-//            session.setAttribute("member", memberVO);
-//            return new RedirectView("/");
-//        }
-//        return new RedirectView("/member/login");
-//    }
+    @GetMapping("/kakao/login")
+    public RedirectView login(String code, HttpSession session){
+        Long id = null;
+        String token = kaKaoService.getKaKaoAccessToken(code);
+        Optional<MemberVO> foundInfo = kaKaoService.getKaKaoInfo(token);
+        if(foundInfo.isPresent()){
+            if(session.getAttribute("member") != null) {
+                id = ((MemberVO) session.getAttribute("member")).getId();
+            }
+            memberService.join(foundInfo.get(), null, id);
+            MemberVO memberVO = memberService.getKaKaoMember(foundInfo.get().getMemberKakaoEmail()).get();
+            session.setAttribute("member", memberVO);
+            return new RedirectView("/");
+        }
+        return new RedirectView("/member/login");
+    }
 }
