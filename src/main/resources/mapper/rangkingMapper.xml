@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.yoribogo.mapper.PostRangkingMapper">
+    <select id="selectByRangking" resultType="postVO">
+        SELECT POST_TITLE, POST_CONTENT, POST_LIKE_COUNT, POST_COMMENT_COUNT, TOTAL_COUNT
+        FROM (
+            SELECT P.POST_TITLE, P.POST_CONTENT, P.POST_LIKE_COUNT, P.POST_COMMENT_COUNT,
+            (P.POST_LIKE_COUNT + P.POST_COMMENT_COUNT) AS TOTAL_COUNT
+            FROM TBL_POST P
+            ORDER BY (P.POST_LIKE_COUNT + P.POST_COMMENT_COUNT) DESC
+        ) WHERE ROWNUM &lt;= 10
+
+    </select>
+</mapper>
+
+<!-- &lt;는 부등호(<)과 같은 의미/부등호(<)를 치환한 것-->
+<!--WHERE RANGKING &lt;= 10;-->
+
+
+
+<!--        SELECT POST_TITML, POST_CONTENT, POST_LIKE_COUNT, POST_COMMENT_COUNT FROM (
+            SELECT P.POST_LIKE_COUNT, P.POST_COMMENT_COUNT,
+            (P.POST_LIKE_COUNT + P.POST_COMMENT_COUNT) AS ROWNUM AS RANKING
+            FROM POST P
+            ORDER BY TOTAL_COUNT DESC
+        ) WHERE RANKING &lt;= 10;-->
