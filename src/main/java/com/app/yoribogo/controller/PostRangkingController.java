@@ -1,5 +1,6 @@
 package com.app.yoribogo.controller;
 
+import com.app.yoribogo.domain.PostDTO;
 import com.app.yoribogo.domain.PostVO;
 import com.app.yoribogo.mapper.PostRangkingMapper;
 import com.app.yoribogo.service.PostRangkingService;
@@ -23,7 +24,7 @@ public class PostRangkingController {
     @GetMapping("rangking")
     public void goToRangking(Model model){
 
-        List<PostVO> posts = postRangkingService.getByRangking();
+        List<PostDTO> posts = postRangkingService.getByRangking();
         model.addAttribute("posts", posts);
 
     }
