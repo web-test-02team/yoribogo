@@ -1083,7 +1083,7 @@
 <script th:inline="javascript">
     const member = [[${session.member}]];
     console.log(member);
-
+        const kakako=[[${kakao}]];
     // 세션 데이터의 존재 여부를 확인하여 HTML 요소의 display 속성을 변경
     if (member!==null) {
         const navLogin2 = document.querySelector('.navLogin');
@@ -1111,6 +1111,9 @@
         loginButton.addEventListener("click", () => {
             window.location.href = "http://localhost:10000/member/login";
         })
+    }
+    if(kakako!==null){
+        alert("이미 등록되어 있는 소셜 계정입니다. ")
     }
 </script>
 <script src="/js/main/main.js"></script>

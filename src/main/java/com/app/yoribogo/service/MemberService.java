@@ -3,6 +3,7 @@ package com.app.yoribogo.service;
 import com.app.yoribogo.domain.MemberVO;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface MemberService {
@@ -23,4 +24,7 @@ public interface MemberService {
 
     //    회원 삭제
     public void delete(Long id);
+
+    //카카오 이메일 중복
+    public List<MemberVO> kakaEmailALL();
 }

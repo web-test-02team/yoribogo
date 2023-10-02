@@ -55,4 +55,8 @@
                 SET MEMBER_KAKAO_EMAIL = #{memberKakaoEmail}, MEMBER_KAKAO_PROFILE_URL = #{memberKakaoProfileUrl}, MEMBER_LOGIN_CODE = 'KAKAO'
                 WHERE ID = #{id}
         </update>
+<!--       카카오 이메일 중복검사  -->
+        <select id="kakaEmail" resultType="memberVO">
+                SELECT MEMBER_KAKAO_EMAIL FROM TBL_MEMBER
+        </select>
 </mapper>
