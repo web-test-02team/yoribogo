@@ -23,9 +23,11 @@ public class MemberServiceImpl implements MemberService {
         //        1. 일반회원, 카카오회원 구분
         if(memberVO.getMemberKakaoProfileUrl() != null){ //카카오 로그인
             Optional<MemberVO> foundMember = getKaKaoMember(memberVO.getMemberKakaoEmail());
+            log.info("{}",id);
             if(id != null){
+                log.info("들어옴");
                 memberVO.setId(id);
-                delete(foundMember.get().getId());
+//                delete(foundMember.get().getId());
                 synchronize(memberVO);
                 return;
             }
