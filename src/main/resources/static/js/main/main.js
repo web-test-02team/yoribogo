@@ -1,7 +1,7 @@
 // const loginButton = document.querySelector(".loginButton");
 const postWrite = document.querySelector(".postWrite");
-// const paymentSystem=document.querySelector(".paymentSystem")
-//로그인으로가기
+// // const paymentSystem=document.querySelector(".paymentSystem")
+// //로그인으로가기
 // loginButton.addEventListener("click", () => {
 //   window.location.href = "http://localhost:10000/member/login";
 // })
@@ -274,22 +274,10 @@ function closeX(){
 }
 
 // 로그인후 클릭 하면 나오는 이벤트
-const navLogin=document.querySelector(".navLogin");
+// const navLogin=document.querySelector(".navLogin");
 const loginClick=document.querySelector(".loginClick");
-navLogin.addEventListener("click",(e)=>{
-    e.stopPropagation();
-    if(loginClick.style.display=='none'){
-        loginClick.style.display = 'block';
-    }else{
-        loginClick.style.display = 'none';
-    }
-})
-document.addEventListener("click", (event) => {
-    // 로그인 창이 열려 있을 때만
-    if (loginClick.style.display !== 'none') {
-        loginClick.style.display = 'none';
-    }
-});
+
+
 function searchButton(){
     wrapNext.style.display="none"
     searchWrap.style.display="block"

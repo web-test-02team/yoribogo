@@ -12,7 +12,7 @@
 <body>
     <nav class="mainBanner" th:fragment="list-nav">
         <div>
-            <a href="">
+            <a href="http://localhost:10000/">
                 <img src="/images/post/yoribogo_logo_orange.png" alt="로고 이미지" class="navLogo">
             </a>
         </div>
@@ -26,9 +26,9 @@
                 <a class="paymentSystem" href="">헬프센터</a>
                 <div>
                     <!-- 로그인 안했을 때 -->
-                    <button type="button" class="loginButton" style="display: block;">로그인</button>
+                    <button type="button" class="loginButton" th:if="${session.member == null}" style="display: block;">로그인</button>
                     <!-- 로그인 했을 때 -->
-                    <div class="navLogin" style="display: none;">
+                    <div class="navLogin"  th:if="${session.member != null}" style="display: block;;">
                         <button type="button" class="memberImageWrap">
                         <span class="memberImagecontainer">
                           <!-- 유저정보의 프로필 이미지를 src에 작성 -->
@@ -41,8 +41,8 @@
                                 <!-- 로그인 정보를 가지고와야함 -->
                                 <li class="loginLi">
                                     <div class="loginInfo">
-                                        <span th:text="${session.member.memberName}" class="fontName">박세준</span>
-                                        <span th:text="${session.member.memberEmail}" class="fontEmail">sejun1227@naver.com</span>
+                                        <span th:text="${session.member?.memberName}" class="fontName">박세준</span>
+                                        <span th:text="${session.member?.memberEmail}" class="fontEmail">sejun1227@naver.com</span>
                                     </div>
                                 </li>
                                 <li class="loginLi">
