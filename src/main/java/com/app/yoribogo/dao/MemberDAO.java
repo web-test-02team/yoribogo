@@ -5,6 +5,7 @@ import com.app.yoribogo.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -38,5 +39,8 @@ public class MemberDAO {
     }
     public void delete(Long id){
         memberMapper.delete(id);
+    }
+    public List<MemberVO> kakaEmailALL(){
+      return  memberMapper.kakaEmail();
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Optional;
 
 /*
@@ -53,7 +54,7 @@ public class KaKaoController {
     private final MemberService memberService;
 
     @GetMapping("/kakao/login")
-    public RedirectView login(String code, HttpSession session){
+    public RedirectView login(String code, HttpSession session, RedirectAttributes redirectAttributes){
         Long id = null;
         String token = kaKaoService.getKaKaoAccessToken(code);
         Optional<MemberVO> foundInfo = kaKaoService.getKaKaoInfo(token);
@@ -62,11 +63,18 @@ public class KaKaoController {
                 id = ((MemberVO) session.getAttribute("member")).getId();
                 log.info("ㅎㅎ");
             }
-            memberService.join(foundInfo.get(), null, id);
             log.info("id:{}",id);
-            MemberVO memberVO = memberService.getKaKaoMember(foundInfo.get().getMemberKakaoEmail()).get();
-            session.setAttribute("member", memberVO);
-            return new RedirectView("/");
+            memberService.join(foundInfo.get(), redirectAttributes, id);
+            if(redirectAttributes.getFlashAttributes().containsKey("kakao")){
+                log.info("여기들어옴");
+                redirectAttributes.addFlashAttribute("kakao", false);
+                return new RedirectView("/");
+            }
+            else {
+                MemberVO memberVO = memberService.getKaKaoMember(foundInfo.get().getMemberKakaoEmail()).get();
+                session.setAttribute("member", memberVO);
+                return new RedirectView("/");
+            }
         }
         return new RedirectView("/member/login");
     }
