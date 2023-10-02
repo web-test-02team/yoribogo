@@ -1,5 +1,6 @@
 package com.app.yoribogo.dao;
 
+import com.app.yoribogo.domain.PostDTO;
 import com.app.yoribogo.domain.PostVO;
 import com.app.yoribogo.mapper.PostRangkingMapper;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,7 @@ public class PostRangkingDAO {
 
     private final PostRangkingMapper postRangkingMapper;
 
-     public List<PostVO> postRangking(){
+     public List<PostDTO> postRangking(){
 
         return postRangkingMapper.selectByRangking();
     }
