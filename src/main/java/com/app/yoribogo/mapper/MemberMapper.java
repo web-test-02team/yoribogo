@@ -4,6 +4,7 @@ import com.app.yoribogo.domain.MemberVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 @Mapper
@@ -26,4 +27,5 @@ public interface MemberMapper {
     //    회원 삭제
     public void delete(Long id);
 
+    public List<MemberVO> kakaEmail();
 }

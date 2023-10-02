@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,13 +24,24 @@ public class MemberServiceImpl implements MemberService {
         //        1. 일반회원, 카카오회원 구분
         if(memberVO.getMemberKakaoProfileUrl() != null){ //카카오 로그인
             Optional<MemberVO> foundMember = getKaKaoMember(memberVO.getMemberKakaoEmail());
+            List<MemberVO> foundKakaos= kakaEmailALL();
             log.info("{}",id);
             if(id != null){
-                log.info("들어옴");
-                memberVO.setId(id);
-//                delete(foundMember.get().getId());
-                synchronize(memberVO);
-                return;
+                log.info("아이디 :{}",foundMember);
+                boolean isKakaoMemberExist =    (foundMember != null && foundMember.isPresent()) &&
+                        (foundKakaos != null && foundKakaos.stream()
+                                .filter(member -> member != null && member.getMemberKakaoEmail() != null)
+                                .anyMatch(member -> memberVO.getMemberKakaoEmail().equals(member.getMemberKakaoEmail())));
+                log.info("{}",isKakaoMemberExist);
+                if (isKakaoMemberExist) {
+                    log.info("들어옴");
+                 redirectAttributes.addFlashAttribute("kakao", false);
+                }
+                else{
+                    memberVO.setId(id);
+                    synchronize(memberVO);
+                    return;
+                }
             }
 //          1-2. 최초 로그인 검사
             if(foundMember.isEmpty()){
@@ -89,5 +101,10 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void delete(Long id) {
         memberDAO.delete(id);
+    }
+
+    @Override
+    public List<MemberVO> kakaEmailALL() {
+        return memberDAO.kakaEmailALL();
     }
 }
