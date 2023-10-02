@@ -60,8 +60,10 @@ public class KaKaoController {
         if(foundInfo.isPresent()){
             if(session.getAttribute("member") != null) {
                 id = ((MemberVO) session.getAttribute("member")).getId();
+                log.info("ㅎㅎ");
             }
             memberService.join(foundInfo.get(), null, id);
+            log.info("id:{}",id);
             MemberVO memberVO = memberService.getKaKaoMember(foundInfo.get().getMemberKakaoEmail()).get();
             session.setAttribute("member", memberVO);
             return new RedirectView("/");
