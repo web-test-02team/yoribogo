@@ -410,5 +410,32 @@
     <div class="sharingModalshadow"></div>
 </div>
 </body>
+    <script th:inline="javascript">
+        const member = [[${session.member}]];
+        if (member!==null) {
+        const navLogin = document.querySelector(".loginImg");
+        const loginClick = document.querySelector(".loginClick");
+        navLogin.style.display='block';
+        navLogin.addEventListener("click", () => {
+        if (loginClick.style.display == 'none') {
+        loginClick.style.display = 'block';
+    } else {
+        loginClick.style.display = 'none';
+    }
+    })
+        document.addEventListener("click", (event) => {
+        // 로그인 창이 열려 있을 때만
+        if (loginClick.style.display !== 'none') {
+        loginClick.style.display = 'none';
+    }
+    })
+    }else{
+        const loginButton = document.querySelector('.notLoginButton');
+        // 세션 데이터가 없는 경우
+        loginButton.addEventListener("click", () => {
+        window.location.href = "http://localhost:10000/member/login";
+    })
+    }
+</script>
 <script src="/js/main/introHeaderLogin.js"></script>
 </html>

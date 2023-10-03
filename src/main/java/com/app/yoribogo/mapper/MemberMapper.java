@@ -26,6 +26,16 @@ public interface MemberMapper {
 
     //    회원 삭제
     public void delete(Long id);
-
+//카카오이메일 찾기
     public List<MemberVO> kakaEmail();
+//게시글 업데이트
+     public void updateALL(Long oldMemberId,Long newMemberId);
+     //memberID로 된거 다업데이트
+    public void updatePurchase(Long oldMemberId,Long newMemberId);
+
+    public void updateLike(Long oldMemberId,Long newMemberId);
+
+    public void updateComment(Long oldMemberId,Long newMemberId);
+
+
 }

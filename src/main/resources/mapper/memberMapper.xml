@@ -57,6 +57,31 @@
         </update>
 <!--       카카오 이메일 중복검사  -->
         <select id="kakaEmail" resultType="memberVO">
-                SELECT MEMBER_KAKAO_EMAIL FROM TBL_MEMBER
+                SELECT ID,MEMBER_KAKAO_EMAIL ,MEMBER_EMAIL FROM TBL_MEMBER
         </select>
+
+        <update id="updateALL">
+        UPDATE TBL_POST
+        SET MEMBER_ID = #{newMemberId}
+        WHERE MEMBER_ID = #{oldMemberId}
+        </update>
+
+        <update id="updatePurchase">
+           UPDATE TBL_PURCHASE
+           SET MEMBER_ID=#{newMemberId}
+           WHERE MEMBER_ID =#{oldMemberId}
+        </update>
+
+        <update id="updateLike">
+                UPDATE TBL_LIKE
+                SET MEMBER_ID=#{newMemberId}
+                WHERE MEMBER_ID =#{oldMemberId}
+        </update>
+
+        <update id="updateComment">
+                UPDATE TBL_COMMENT
+                SET MEMBER_ID=#{newMemberId}
+                WHERE MEMBER_ID =#{oldMemberId}
+        </update>
+
 </mapper>

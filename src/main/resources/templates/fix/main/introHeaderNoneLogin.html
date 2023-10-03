@@ -20,11 +20,11 @@
                 </div>
             </div>
             <!-- 로그인 안했을때  -->
-            <div class="notLogin" style="display: none;">
-                <button type="button" class="notLoginButton">로그인</button>
+            <div class="notLogin">
+                <button type="button" class="notLoginButton" th:if="${session.member == null}" style="display: block;">로그인</button>
             </div>
             <!-- 여기까지 -->
-            <div class="loginImg" style="display: block;">
+            <div class="loginImg" th:if="${session.member != null}" style="display: block;">
                 <div class="positonRelative">
                     <button class="loginButton">
                         <!-- 프로필 이미지 경로 바꿔야합니다 -->
@@ -38,8 +38,9 @@
                             <!-- 로그인 정보를 가지고와야함 -->
                             <li class="loginLi">
                                 <div class="loginInfo">
-                                    <span class="fontName">박세준</span>
-                                    <span class="fontEmail">sejun1227@naver.com</span>
+                                    <span th:text="${session.member.memberName}" class="fontName">사용자 이름</span>
+                                    <span th:if="${session.member.memberEmail  != null}" th:text="${session.member.memberEmail }" class="fontEmail">사용자 이메일</span>
+                                    <span th:if="${session.member.memberEmail  == null and session.member.memberKakaoEmail != null}" th:text="${session.member.memberKakaoEmail}" class="fontEmail">카카오 이메일</span>
                                 </div>
                             </li>
                             <!-- 이건 짜피 안보이는데 왜 넣어논지 모르겠어요 -->
@@ -59,7 +60,7 @@
                                 <button type="button" class="loginClickButton">헬프센터</button>
                             </li>
                             <!-- 카카오 계정 연걸 -->
-                            <li tabindex="-1" class="loginLi" style="display: block;">
+                            <li th:if="${session.member.memberKakaoEmail eq null}" class="loginLi" style="display: block;">
                                 <button type="button" class="kakaoBtn">
                                     <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="kakao1">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 2C4.803 2 1.833 4.306 1.833 7.128a5.026 5.026 0 0 0 3.091 4.339l-.636 2.306c-.03.06 0 .151.06.181.061.061.182.061.243 0l2.697-1.79c.394.061.788.091 1.212.091 3.667 0 6.667-2.306 6.667-5.127C15.167 4.306 12.197 2 8.5 2Z">
@@ -73,9 +74,11 @@
                                 </button>
                             </li>
                             <li class="loginLi">
+                                <a href="/member/logout">
                                 <button type="button" class="loginClickButton">
                                     로그아웃
                                 </button>
+                                </a>
                             </li>
                         </ul>
                     </div>
