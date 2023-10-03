@@ -43,4 +43,22 @@ public class MemberDAO {
     public List<MemberVO> kakaEmailALL(){
       return  memberMapper.kakaEmail();
     }
+
+    public void updateById(Long oldMemberId,Long newMemberId){
+         memberMapper.updateALL(oldMemberId,newMemberId);
+    }
+
+    public void updatePurchase(Long oldMemberId,Long newMemberId){
+        memberMapper.updatePurchase(oldMemberId,newMemberId);
+    }
+
+    public void updateLike(Long oldMemberId,Long newMemberId){
+        memberMapper.updateLike(oldMemberId,newMemberId);
+
+    }
+
+    public void updateComment(Long oldMemberId,Long newMemberId){
+        memberMapper.updateComment(oldMemberId,newMemberId);
+    }
+
 }

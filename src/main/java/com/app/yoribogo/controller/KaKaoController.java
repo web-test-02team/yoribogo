@@ -61,9 +61,7 @@ public class KaKaoController {
         if(foundInfo.isPresent()){
             if(session.getAttribute("member") != null) {
                 id = ((MemberVO) session.getAttribute("member")).getId();
-                log.info("ㅎㅎ");
             }
-            log.info("id:{}",id);
             memberService.join(foundInfo.get(), redirectAttributes, id);
             if(redirectAttributes.getFlashAttributes().containsKey("kakao")){
                 log.info("여기들어옴");

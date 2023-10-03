@@ -19,4 +19,10 @@ public class MemberVO  implements Serializable{
     private String memberProfilePath;
     private boolean memberStatus;
     private String memberLoginCode;
+    private Long oldMemberId;
+    private Long newMemberId;
+    private String memberBackgroundName;
+    private String memberBackgroundPath;
+    private String memberOneLineIntro;
+    private String memberIntroduction;
 }
