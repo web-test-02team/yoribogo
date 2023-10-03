@@ -10,3 +10,11 @@ spring:
       jdbc-url: jdbc:oracle:thin:@//43.201.19.7:1521/XE
       username: hr
       password: hr
+
+#multipart
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 40MB
+      max-file-size: 40MB
+      file-size-threshold: 100MB
