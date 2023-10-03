@@ -27,4 +27,12 @@ public interface MemberService {
 
     //카카오 이메일 중복
     public List<MemberVO> kakaEmailALL();
+
+    public void updateById(Long oldMemberId,Long newMemberId);
+
+    public void updatePurchase(Long oldMemberId,Long newMemberId);
+
+    public void updateLike(Long oldMemberId,Long newMemberId);
+
+    public void updateComment(Long oldMemberId,Long newMemberId);
 }

@@ -39,16 +39,16 @@ const closeBTN = document.querySelector(".close")
 closeBTN.addEventListener("click", () => {
     sharingDIV.style.display = "none";
 })
-// 로그인후 클릭 하면 나오는 이벤트
-const loginImg = document.querySelector(".loginImg");
-const loginClick = document.querySelector(".loginClick");
-loginImg.addEventListener("click", () => {
-    if (loginClick.style.display == 'none') {
-        loginClick.style.display = 'block';
-    } else {
-        loginClick.style.display = 'none';
-    }
-})
+// // 로그인후 클릭 하면 나오는 이벤트
+// let loginImg = document.querySelector(".loginImg");
+// const loginClick = document.querySelector(".loginClick");
+// loginImg.addEventListener("click", () => {
+//     if (loginClick.style.display == 'none') {
+//         loginClick.style.display = 'block';
+//     } else {
+//         loginClick.style.display = 'none';
+//     }
+// })
 //카카오 로그인시..
 // const kakaoBtn=document.querySelector(".kakaoBtn");
 
