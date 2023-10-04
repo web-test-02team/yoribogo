@@ -26,9 +26,10 @@ document.addEventListener("click", (event) => {
 });
 
 // 프로필 사진 업로드
-const imageInput = document.querySelector("input[name=uploadFile]");
+const imageFile = document.querySelector(".imageFile");
 const myProfile = document.querySelector(".myProfile");
-imageInput.addEventListener("change", (e) => {
+const fileForm = document.querySelector("form[name='file-form']");
+imageFile.addEventListener("change", (e) => {
     const file = e.target.files[0];
     const name = file.name;
     const formData = new FormData();
@@ -47,45 +48,84 @@ imageInput.addEventListener("change", (e) => {
             date = date < 10 ? '0' + date : date;
             let fileName = `${year}/${month}/${date}/t_${uuids[0]}_${name}`;
             myProfile.setAttribute("src", `/file/display?fileName=${fileName}`);
-            // let input = document.createElement("input");
-            // input.name = "uuid";
-            // input.value = uuids[0];
-            // input.type = "hidden";
-            // form.append(input);
+            let input = document.createElement("input");
+            input.name = "uuid";
+            input.value = uuids[0];
+            input.type = "hidden";
+            fileForm.append(input);
         })
 })
 
 const flex2Btn = document.querySelector(".flex2Btn");
 flex2Btn.addEventListener("click", () => {
-    imageInput.click();
+    imageFile.click();
 })
 
 // 커버 이미지 업로드
-const coverImageInput = document.getElementById("coverImageInput");
-const dashedDiv = document.querySelector(".dashedDiv");
+const backgroundFile = document.querySelector(".backgroundFile");
+const backgroundImg = document.querySelector(".backgroundImg");
 
 // 이미지 업로드 시 동작할 함수
-coverImageInput.addEventListener("change", function () {
-    dashedDiv.innerHTML = "";
-    const file = coverImageInput.files[0];
+backgroundFile.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    const name = file.name;
+    const formData = new FormData();
+    formData.append("uploadFile", file);
 
-    if (file) {
-        const reader = new FileReader();
 
-        reader.onload = function (e) {
-            dashedDiv.style.backgroundImage = `url('${e.target.result}')`;
+    fetch("/file/upload", {
+        method: "POST",
+        body: formData
+    }).then((response) => response.json())
+        .then((uuids) => {
+            let now = new Date();
+            let year = now.getFullYear();
+            let month = now.getMonth() + 1;
+            let date = now.getDate();
+            month = month < 10 ? '0' + month : month;
+            date = date < 10 ? '0' + date : date;
+            let fileName = `${year}/${month}/${date}/t_${uuids[0]}_${name}`;
+            backgroundImg.setAttribute("src", `/file/display?fileName=${fileName}`);
+            let input = document.createElement("input");
+            input.name = "uuid";
+            input.value = uuids[0];
+            input.type = "hidden";
+            fileForm.append(input);
+        })
+})
+// backgroundFile.addEventListener("change", function () {
+//     dashedDiv.innerHTML = "";
+//     const file = backgroundFile.files[0];
+//
+//     if (file) {
+//         const reader = new FileReader();
+//
+//         reader.onload = function (e) {
+//             dashedDiv.style.backgroundImage = `url('${e.target.result}')`;
+//
+//             // Add this part to set the image width and height to 100%
+//             const img = new Image();
+//             img.src = e.target.result;
+//             img.onload = function () {
+//                 dashedDiv.style.backgroundSize = "100% 100%";
+//             };
+//         };
+//
+//         reader.readAsDataURL(file);
+//     }
+// });
 
-            // Add this part to set the image width and height to 100%
-            const img = new Image();
-            img.src = e.target.result;
-            img.onload = function () {
-                dashedDiv.style.backgroundSize = "100% 100%";
-            };
-        };
+const margin8Btn = document.querySelector(".margin8Btn");
+margin8Btn.addEventListener("click", () => {
+    backgroundFile.click();
+})
 
-        reader.readAsDataURL(file);
-    }
-});
+// 수정버튼 클릭 시 form태그 사용
+const myInfoDivBtn = document.querySelector(".myInfoDivBtn");
+
+myInfoDivBtn.addEventListener("click", () => {
+    fileForm.submit();
+})
 
 // // 유효성 검사
 // const urlTitle = document.getElementById("urlTitle");

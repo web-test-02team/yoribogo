@@ -18,8 +18,12 @@
                     <div class="surfaceInner">
                         <div class="flexCol">
                             <div class="margin12">
-                                <img th:if="${session.member.memberKakaoProfileUrl != null}" th:src="${session.member.memberKakaoProfileUrl}" alt="프로필 이미지" decoding="async" data-nimg="fill" class="rounded-full"/>
-                                <img th:unless="${session.member.memberKakaoProfileUrl != null}" th:src="@{/images/post/basicsImage.png}" alt="프로필 이미지" decoding="async" data-nimg="fill" class="rounded-full"/>
+                                <button class="profileImageBTN" type="button" style="width: 68px; height: 68px;">
+                                    <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                        <img th:src="@{${session.member.memberProfileName != null ? '/file/display?fileName=' + session.member.memberProfilePath  + '/t_' + session.member.memberProfileName : (session.member.memberKakaoProfileUrl != null ? session.member.memberKakaoProfileUrl : '/images/post/basicsImage.png')}}" alt="프로필 이미지" decoding="async" data-nimg="fill" class="rounded-full">
+                                    </span>
+                                    <span class="profileImageSpan"></span>
+                                </button>
                             </div>
                             <h2 th:text="${session.member.memberName}" class="userName"></h2>
                             <a href="/member/introMain">
@@ -98,13 +102,14 @@
                             <div class="flex">
                                 <div class="flex1">
                                     <span class="profileImg">
-                                        <img th:src="${session.member.memberProfileName != null ? session.member.memberProfileName : (session.member.memberKakaoProfileUrl != null ? session.member.memberKakaoProfileUrl : '/images/post/basicsImage.png')}" alt="프로필이미지" class="myProfile"/>
+<!--                                        <img th:src="${session.member.memberProfileName != null ? session.member.memberProfilePath + '/' + session.member.memberProfileName : (session.member.memberKakaoProfileUrl != null ? session.member.memberKakaoProfileUrl : '/images/post/basicsImage.png')}" alt="프로필이미지" class="myProfile"/>-->
+                                        <img th:src="@{${session.member.memberProfileName != null ? '/file/display?fileName=' + session.member.memberProfilePath  + '/t_' + session.member.memberProfileName : (session.member.memberKakaoProfileUrl != null ? session.member.memberKakaoProfileUrl : '/images/post/basicsImage.png')}}" alt="프로필이미지" class="myProfile"/>
                                     </span>
                                 </div>
                                 <div class="flex2">
                                     <div class="flex2Margin">
                                         <button type="button" class="flex2Btn">
-                                            이미지업로드
+                                            이미지 업로드
                                         </button>
                                     </div>
                                     <p class="flex2P">
@@ -127,14 +132,14 @@
                         <div class="infoDiv4">
                             <div class="info4Inner">
                                 <div class="dashedDiv">
-                                    <svg viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg" class="svgCover">
-                                        <path d="M27.782 19.785c1.154-2.172 4.29-2.108 5.354.11l6.68 13.917c1.275 2.655-.66 5.731-3.606 5.731H9.882c-1.506 0-2.472-1.6-1.77-2.932l4.998-9.486a3 3 0 0 1 4.765-.733l4.192 4.151 5.715-10.758ZM19.067 15.543a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" fill="#C2B8FF"></path>
-                                    </svg>
+                                    <img src="/images/myPage/backgroundNull.png" class="svgCover" th:if="${session.member.memberBackgroundName == null}">
+                                    <span class="backgroundSpan" th:unless="${session.member.memberBackgroundName == null}">
+                                        <img alt="커버 이미지" th:src="@{/file/display(fileName=${session.member.memberBackgroundPath} + '/t_' + ${session.member.memberBackgroundName})}" decoding="async" data-nimg="fill" class="backgroundImg">
+                                    </span>
                                 </div>
                                 <div class="margin8">
                                     <button type="button" class="margin8Btn">
                                         이미지업로드
-                                        <input type="file" accept="image/png,image/jpeg,image/jpg" class="margin8File" id="coverImageInput"/>
                                     </button>
                                 </div>
                                 <p class="margin8P">
@@ -233,7 +238,24 @@
     </div>
     <form th:action="@{/mypage/myinfo}" name="file-form" method="post" enctype="multipart/form-data">
         <input type="file" accept="image/png,image/jpeg,image/jpg" name="uploadFile" class="imageFile"/>
+        <input type="file" accept="image/png,image/jpeg,image/jpg" name="uploadFile" class="backgroundFile"/>
     </form>
 </body>
+<script th:inline="javascript">
+    document.getElementById('backgroundFile').addEventListener('change', function() {
+        // 여기에 change 이벤트가 발생했을 때 처리할 내용을 작성합니다.
+        // 예를 들어, span 태그를 숨기거나 보이게 하는 코드를 추가할 수 있습니다.
+        let svgElement = document.querySelector('.svgCover');
+        let spanElement = document.querySelector('.backgroundSpan');
+
+        if (this.value) {
+            svgElement.style.display = 'none';  // 파일 선택 시, svg 숨김
+            spanElement.style.display = 'block';  // 파일 선택 시, span 보임
+        } else {
+            svgElement.style.display = 'block';  // 파일 선택 취소 시, svg 보임
+            spanElement.style.display = 'none';  // 파일 선택 취소 시, span 숨김
+        }
+    });
+</script>
 <script src="/js/mypage/myInfo.js"></script>
 </html>

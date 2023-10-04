@@ -35,9 +35,15 @@ public class FileController {
             uuids.add(UUID.randomUUID().toString());
             uploadFiles.get(i).transferTo(new File(rootPath, uuids.get(i) + "_" + uploadFiles.get(i).getOriginalFilename()));
             if(uploadFiles.get(i).getContentType().startsWith("image")){
-                FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuids.get(i) + "_" + uploadFiles.get(i).getOriginalFilename()));
-                Thumbnailator.createThumbnail(uploadFiles.get(i).getInputStream(), out, 200, 200);
-                out.close();
+                if(i == 0){
+                    FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuids.get(i) + "_" + uploadFiles.get(i).getOriginalFilename()));
+                    Thumbnailator.createThumbnail(uploadFiles.get(i).getInputStream(), out, 200, 200);
+                    out.close();
+                }else {
+                    FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuids.get(i) + "_" + uploadFiles.get(i).getOriginalFilename()));
+                    Thumbnailator.createThumbnail(uploadFiles.get(i).getInputStream(), out, 800, 296);
+                    out.close();
+                }
             }
         }
 
