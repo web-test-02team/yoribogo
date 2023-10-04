@@ -41,11 +41,9 @@
                                 <!-- 로그인 정보를 가지고와야함 -->
                                 <li class="loginLi">
                                     <div class="loginInfo">
-                                        <span th:if="${session.member != null}">
                                             <span th:text="${session.member.memberName}" class="fontName">사용자 이메일</span>
                                             <span th:if="${session.member.memberEmail  != null}" th:text="${session.member.memberEmail }" class="fontEmail">박세준</span>
                                             <span th:if="${session.member.memberEmail  == null and session.member.memberKakaoEmail != null}" th:text="${session.member.memberKakaoEmail}" class="fontEmail">카카오 이메일</span>
-                                        </span>
                                     </div>
                                 </li>
                                 <li class="loginLi">
