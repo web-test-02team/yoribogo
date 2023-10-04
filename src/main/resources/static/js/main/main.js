@@ -1,5 +1,4 @@
 // const loginButton = document.querySelector(".loginButton");
-const postWrite = document.querySelector(".postWrite");
 const postRanking = document.querySelector(".seeMore");
 // // const paymentSystem=document.querySelector(".paymentSystem")
 // //로그인으로가기
@@ -7,10 +6,7 @@ const postRanking = document.querySelector(".seeMore");
 //   window.location.href = "http://localhost:10000/member/login";
 // })
 
-//마이페이지로 가기
-postWrite.addEventListener("click", () => {
-  window.location.href = "http://localhost:10000/mypage/myrecipe";
-})
+
 
 //헬프 센터 가기
 // paymentSystem.addEventListener("click",()=>{
@@ -305,13 +301,13 @@ function closeX(){
 // })
 
 // 검색창 시간
-// const ingiTime=document.querySelector(".ingiTime");
-// const currentTime = new Date();
-// const hours = currentTime.getHours()
-// if (hours===0) {
-//   hours === 24;
-// }
-// ingiTime.innerText=`${hours}:00 기준`;
+const ingiTime=document.querySelector(".ingiTime");
+const currentTime = new Date();
+const hours = currentTime.getHours()
+if (hours===0) {
+  hours === 24;
+}
+ingiTime.innerText=`${hours}:00 기준`;
 
 // HTML 요소 가져오기
 const categoryButtons = document.querySelectorAll(".categoryButton");

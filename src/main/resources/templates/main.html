@@ -520,102 +520,11 @@
                 </header>
                 <div class="ingi">
                     <ol class="ingiRanking">
-                        <li class="ingiList">
-                            <span class="ranking">1</span>
+                        <li th:each="searchedRecipe, iterStat  : ${searchedRecipes}" th:object="${searchedRecipe}" class="ingiList">
+                            <span class="ranking" th:text="${iterStat.count}"></span>
                             <button type="button">
                                 <a>
-                    <span class="rankingContent">
-                      된장찌개
-                    </span>
-                                </a>
-                            </button>
-                        </li>
-                        <li class="ingiList">
-                            <span class="ranking">2</span>
-                            <button type="button">
-                                <a>
-                    <span class="rankingContent">
-                      오이무침
-                    </span>
-                                </a>
-                            </button>
-                        </li>
-                        <li class="ingiList">
-                            <span class="ranking">3</span>
-                            <button type="button">
-                                <a>
-                    <span class="rankingContent">
-                      돈까스
-                    </span>
-                                </a>
-                            </button>
-                        </li>
-                        <li class="ingiList">
-                            <span class="ranking">4</span>
-                            <button type="button">
-                                <a>
-                    <span class="rankingContent">
-                      우연
-                    </span>
-                                </a>
-                            </button>
-                        </li>
-                        <li class="ingiList">
-                            <span class="ranking">5</span>
-                            <button type="button">
-                                <a>
-                    <span class="rankingContent">
-                      레디
-                    </span>
-                                </a>
-                            </button>
-                        </li>
-                        <li class="ingiList">
-                            <span class="ranking">6</span>
-                            <button type="button">
-                                <a>
-                    <span class="rankingContent">
-                      서윤후
-                    </span>
-                                </a>
-                            </button>
-                        </li>
-                        <li class="ingiList">
-                            <span class="ranking">7</span>
-                            <button type="button">
-                                <a>
-                    <span class="rankingContent">
-                      뽀이
-                    </span>
-                                </a>
-                            </button>
-                        </li>
-                        <li class="ingiList">
-                            <span class="ranking">8</span>
-                            <button type="button">
-                                <a>
-                    <span class="rankingContent">
-                      코바늘
-                    </span>
-                                </a>
-                            </button>
-                        </li>
-                        <li class="ingiList">
-                            <span class="ranking">9</span>
-                            <button type="button">
-                                <a>
-                    <span class="rankingContent">
-                      금개
-                    </span>
-                                </a>
-                            </button>
-                        </li>
-                        <li class="ingiList">
-                            <span class="ranking">10</span>
-                            <button type="button">
-                                <a>
-                    <span class="rankingContent">
-                      요리보고
+                    <span th:text="${iterStat.count % 3 == 0 ? searchedRecipe.memberName : searchedRecipe.postTitle}" class="rankingContent">
                     </span>
                                 </a>
                             </button>
@@ -653,6 +562,22 @@
     const member = [[${session.member}]];
     console.log(member);
         const kakako=[[${kakao}]];
+
+
+    //마이페이지로 가기
+    const postWrite = document.querySelector(".postWrite");
+
+    // 마이페이지로 가기
+    postWrite.addEventListener("click", () => {
+        // 세션 멤버가 존재하는 경우에만 마이페이지로 이동
+        if (member) {
+            window.location.href = "http://localhost:10000/mypage/myrecipe";
+        } else {
+            // 세션 멤버가 없는 경우 로그인 페이지로 이동
+            window.location.href = "http://localhost:10000/member/login";
+        }
+    });
+
     // 세션 데이터의 존재 여부를 확인하여 HTML 요소의 display 속성을 변경
     if (member!==null) {
         const navLogin2 = document.querySelector('.navLogin');

@@ -97,10 +97,15 @@ public class MainController {
 //    //    새로운 요리를 만나보세요
     List<PostDTO> newRecipes = mainService.showNewRecipes();
     model.addAttribute("newRecipes", newRecipes);
-//
+
 //    //    요리 분류
     List<PostDTO> allRecipes = mainService.showAllRecipes();
     model.addAttribute("allRecipes", allRecipes);
+
+//    인기 검색어
+//
+   List<PostDTO> searchedRecipes =  mainService.searchRecipes();
+   model.addAttribute("searchedRecipes", searchedRecipes);
 
 
         return "main";
