@@ -17,4 +17,5 @@ public class PostDTO {
     private String categoryCId;
     private String memberName;
     private String categoryCName;
+    private String categoryBName;
 }

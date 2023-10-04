@@ -73,12 +73,12 @@
                                     <div class="userImage" style="background: url(/images/post/writerImage1.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
                                     <div class="nameTimeHits">
                                         <!-- 닉네임 -->
-                                        <span class="nickname" th:text="*{memberId}">이공계연구원 코냉</span>
+                                        <span class="nickname" th:text="*{memberName}">이공계연구원 코냉</span>
                                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
                                             <circle cx="12" cy="12" r="4"></circle>
                                         </svg>
                                         <!-- 등록시간 기준 0시간, 0일, 0달, 0년 전으로 입력 -->
-                                        <span class="time" th:datetime="*{postDate}">1시간 전</span>
+                                        <span class="time" th:text="*{postDate} +''">1시간 전</span>
                                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="circle">
                                             <circle cx="12" cy="12" r="4"></circle>
                                         </svg>
