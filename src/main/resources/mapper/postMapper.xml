@@ -4,6 +4,5 @@
     <select id="selectByReviewList" resultType="postVO">
         SELECT ID, POST_TITLE, POST_CONTENT, POST_DATE, POST_HITS, POST_LIKE_COUNT, POST_COMMENT_COUNT, MEMBER_ID, CATEGORY_C_ID, POST_STATUS
         FROM TBL_POST
-        WHERE POST_TITLE=#{postTitle} AND POST_CONTENT= #{postContent} AND POST_DATE = #{postDate} AND POST_HITS =#{postHits} AND MEMBER_ID= #{memberId}
     </select>
 </mapper>

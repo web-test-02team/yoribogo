@@ -13,7 +13,7 @@ import java.util.List;
 public class PostDAO {
     private final PostMapper postMapper;
 
-    public List<PostVO> post(){
+    public List<PostVO> post() {
         return postMapper.selectByReviewList();
     }
 }
