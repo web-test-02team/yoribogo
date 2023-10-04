@@ -517,3 +517,185 @@ pre {
     object-position: center center;
     border-radius: 9999px;
 }
+
+/* 검색창 누른후 css */
+.searchWrap{
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    z-index: 30;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: #fff;
+}
+.searchNav{
+    top: 0px;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    background-color: #fff;
+}
+.searchMain{
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 22px;
+    padding-top: 151px;
+    max-width: 720px;
+    min-width: 350px;
+    width: 100%;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+}
+.searchNavIn{
+    padding-left: 26px;
+    padding-right: 26px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    justify-content: flex-end;
+    width: 100%;
+    display: flex;
+}
+.searchAgain{
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 12px;
+    padding-bottom: 12px
+}
+.close{
+    width: 24px;
+    height: 24px;
+    color: #333334;
+    fill: #333334;
+}
+.searchMax{
+    flex-direction: column;
+    max-width: 720px;
+    min-width: 320px;
+    width: 100%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    background-color: #fff;
+}
+.searchLabel{
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 53px;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    background-color: #f3f3f4;
+}
+.dodbogi{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    color: #1d1d1e;
+    fill: #1d1d1e;
+}
+.searchInput{
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    appearance: none;
+    width: 100%;
+    height: 40px;
+    background-color: #f3f3f4;
+}
+.ingi{
+    width: 100%;
+}
+.ingiHeader{
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+.ingiTitle{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: #1d1d1e;
+    fill: #1d1d1e;
+}
+.ingiTime{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #8a8a8b;
+    fill: #8a8a8b;
+}
+.ingiRanking{
+    grid-auto-flow: column;
+    display: grid;
+    column-gap: 64px;
+    row-gap: 18px;
+    grid-template-rows: repeat(5,minmax(0,1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-auto-flow: column;
+}
+.ingiList{
+    gap: 6px;
+    align-items: center;
+    display: flex;
+}
+.ranking{
+    min-width: 17px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #5b44ea;
+    fill: #5b44ea;
+}
+.rankingContent{
+    text-align: left;
+    overflow: hidden;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    color: #333334;
+    fill: #333334;
+    display: -webkit-box;
+    word-break: break-word;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.ingiEmoticon{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+}
+.cuteEmoticon{
+    width: 118px;
+    height: 82px;
+}
+.shape{
+    height: 40px;
+}
+.seaon{
+    border-top-width: 1px;
+    border-color: #e6e6e7;
+}
+.shapeSmall{
+    height: 28px;
+}
+.lately{
+    margin-top: 24px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #8a8a8b;
+    fill: #8a8a8b;
+}
