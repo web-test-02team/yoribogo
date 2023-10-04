@@ -643,5 +643,40 @@
         </div>
     </div>
 </body>
+<script th:inline="javascript">
+    const member = [[${session.member}]];
+    console.log(member);
+    const kakako=[[${kakao}]];
+    // 세션 데이터의 존재 여부를 확인하여 HTML 요소의 display 속성을 변경
+    if (member!==null) {
+        const navLogin2 = document.querySelector('.navLogin');
+        const loginClick=document.querySelector(".loginClick");
+        // 세션 데이터가 존재하는 경우
+        navLogin2.style.display = 'block';   // 로그인 된 상태를 표시
+        navLogin2.addEventListener("click",(e)=>{
+            e.stopPropagation();
+            if(loginClick.style.display=='none'){
+                loginClick.style.display = 'block';
+            }else{
+                loginClick.style.display = 'none';
+            }
+        })
+        document.addEventListener("click", (event) => {
+            // 로그인 창이 열려 있을 때만
+            if (loginClick.style.display !== 'none') {
+                loginClick.style.display = 'none';
+            }
+        })
+
+    } else {
+        const loginButton = document.querySelector('.loginButton');
+        // 세션 데이터가 없는 경우
+        loginButton.addEventListener("click", () => {
+            window.location.href = "http://localhost:10000/member/login";
+        })
+    }
+    if(kakako!==null){
+        alert("이미 등록되어 있는 소셜 계정입니다. ")
+    }
 <script src="/js/post/rangking.js"></script>
 </html>
