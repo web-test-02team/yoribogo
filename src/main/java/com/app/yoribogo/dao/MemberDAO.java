@@ -18,7 +18,6 @@ public class MemberDAO {
         memberMapper.insert(memberVO);
     }
     public Optional<MemberVO> login(MemberVO memberVO){
-
         return memberMapper.selectByLogin(memberVO);
     }
 
