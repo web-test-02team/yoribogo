@@ -15,7 +15,7 @@ public class PostServiceImpl implements PostService{
     private final PostDAO postDAO;
 
     @Override
-    public List<PostVO> getByReview(){
+    public List<PostVO> getByReview() {
         return postDAO.post();
     }
 }
