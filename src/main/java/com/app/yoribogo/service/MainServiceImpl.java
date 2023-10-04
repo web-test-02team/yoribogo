@@ -40,4 +40,7 @@ public class MainServiceImpl implements MainService {
     public List<PostDTO> showAllRecipes() {
         return mainDAO.selectAllRecipes();
     }
+
+    @Override
+    public List<PostDTO> searchRecipes() { return mainDAO.lookUpRecipes(); }
 }

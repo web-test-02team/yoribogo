@@ -23,4 +23,7 @@ public interface MainMapper {
 
 //    요리 분류
     public List<PostDTO> selectAll();
+
+//    인기검색어
+    public List<PostDTO> lookUp();
 }

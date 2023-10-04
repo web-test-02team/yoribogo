@@ -53,4 +53,15 @@
           INNER JOIN TBL_CATEGORY_C C ON P.CATEGORY_C_ID = C.ID
          ORDER BY DBMS_RANDOM.VALUE
     </select>
+
+    <select id="lookUp" resultType="postDTO">
+        SELECT *
+        FROM (
+                 SELECT P.ID, M.MEMBER_NAME, P.POST_TITLE, (P.POST_LIKE_COUNT + P.POST_COMMENT_COUNT) AS TOTAL_COUNT
+                 FROM TBL_POST P
+                          INNER JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
+                 ORDER BY TOTAL_COUNT DESC
+             )
+        WHERE ROWNUM &lt;= 10
+    </select>
 </mapper>

@@ -21,4 +21,7 @@ public interface MainService {
 
     //    요리 분류
     public List<PostDTO> showAllRecipes();
+
+    //    인기검색어
+    public List<PostDTO> searchRecipes();
 }

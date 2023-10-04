@@ -38,4 +38,7 @@ public class MainDAO {
     public List<PostDTO> selectAllRecipes(){
         return mainMapper.selectAll();
     }
+
+    //    인기검색어
+    public List<PostDTO> lookUpRecipes() { return mainMapper.lookUp();}
 }
