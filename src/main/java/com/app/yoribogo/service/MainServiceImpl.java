@@ -1,7 +1,7 @@
 package com.app.yoribogo.service;
 
 import com.app.yoribogo.dao.MainDAO;
-import com.app.yoribogo.domain.MemberVO;
+import com.app.yoribogo.domain.PostDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,27 +17,27 @@ public class MainServiceImpl implements MainService {
 
     private final MainDAO mainDAO;
     @Override
-    public List<MemberVO> showByWeeklyRecipe() {
+    public List<PostDTO> showByWeeklyRecipe() {
         return mainDAO.selectByWeeklyRecipe();
     }
 
     @Override
-    public List<MemberVO> showBestRecipe() {
+    public List<PostDTO> showBestRecipe() {
         return mainDAO.selectBestRecipe();
     }
 
     @Override
-    public Optional<MemberVO> showTodayRecipe() {
+    public Optional<PostDTO> showTodayRecipe() {
         return mainDAO.selectTodayRecipe();
     }
 
     @Override
-    public List<MemberVO> showNewRecipes() {
+    public List<PostDTO> showNewRecipes() {
         return mainDAO.selectNewCuisine();
     }
 
     @Override
-    public List<MemberVO> showAllRecipes() {
+    public List<PostDTO> showAllRecipes() {
         return mainDAO.selectAllRecipes();
     }
 }

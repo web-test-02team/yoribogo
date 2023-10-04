@@ -213,7 +213,7 @@
         <section>
             <header class="mainHeader">
                 <a class="headerWrap" href="">
-                    <h1 class="headerName">주간 인기 요리보고</h1>
+                    <h1 class="headerName">월간 추천 요리보고</h1>
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="next">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"></path></svg>
                 </a>
@@ -221,8 +221,8 @@
             <div class="photoFirst">
                 <div class="px">
                     <div class="swiperPointer" style="position: static">
-                        <div class="swiperWrap">
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
+                        <div  class="swiperWrap">
+                            <div th:each="weeklyRecipe : ${weeklyRecipes}" th:object="${weeklyRecipe}" class="mainSlide" style="width: 128px; margin-right: 12px;">
                                 <div>
                                     <button type="button" class="textLeft">
                                         <div class="relative">
@@ -235,202 +235,13 @@
                     </span>
                                             <div class="top"></div>
                                         </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
+                                        <h2 class="title" th:text="*{memberName}"></h2>
+                                        <p class="subtitle" th:text="*{categoryCName}"></p>
+                                        <p class="content" th:text="*{postTitle}"></p>
                                     </button>
                                 </div>
                             </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food1.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food2.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food3.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food4.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                                            <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"></span>
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food5.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      <div class="top"></div>
 
-                                       </div>
-                                        <h2 class="title">이동</h2>
-                                        <p class="subtitle">바뀜</p>
-                                        <p class="content">가보자 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food6.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">이동</h2>
-                                        <p class="subtitle">바뀜</p>
-                                        <p class="content">가보자 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food7.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">이동</h2>
-                                        <p class="subtitle">바뀜</p>
-                                        <p class="content">가보자 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food8.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">이동</h2>
-                                        <p class="subtitle">바뀜</p>
-                                        <p class="content">가보자 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food9.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">이동</h2>
-                                        <p class="subtitle">바뀜</p>
-                                        <p class="content">가보자 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                        <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                        </span>
-                        <img alt="뽀이bboi" sizes="100vw"
-                             src="/images/mainFood/food10.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                      </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">2번째이동</h2>
-                                        <p class="subtitle">바뀜</p>
-                                        <p class="content">가보자 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                         <!-- 이전 버튼이랑 다음 버튼 -->
                         <button type="button" class="before"
@@ -449,19 +260,20 @@
                 </div>
             </div>
         </section>
+<!--  BEST WEEK 시작          -->
         <section>
             <header class="headerRecipe">
                 <h1 class="popularityRecipe">Best Week</h1>
             </header>
             <div class="popularityWrap">
                 <ul class="popularityRecipeUl">
-                    <li class="firstList">
+                    <li th:each=" bestRecipe, recipeIndex : ${bestRecipes}" class="firstList">
                         <div>
                             <button type="button" class="textLeft">
                                 <div class="gap">
                                     <div class="substance">
-                                        <h2 class="overflowHidden fontTitle">요리보고 요리보고</h2>
-                                        <p class="overflowHiddenSubtitle">다들 파이팅 !!!!!</p>
+                                        <h2 th:text="${bestRecipe.postTitle}" class="overflowHidden fontTitle"></h2>
+                                        <p  th:text="${truncatedPostContents[recipeIndex.index]}" class="overflowHiddenSubtitle"></p>
                                     </div>
                                     <div class="photoRoundedWrap">
                       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
@@ -474,106 +286,13 @@
 <!--                                    relativeShadow -->
                                     <div class="relativeShadow" style="width: 18px; height: 18px; background: url(/images/mainFood/foodRank.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
                                     <div class="timeWrap">
-                                        <span class="line">경덕님</span>
+                                        <span th:text="${bestRecipe.memberName}" class="line"></span>
                                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="imgSize">
                                             <circle cx="12" cy="12" r="4"></circle></svg>
-                                        <span class="shrinkColorGray">4일전</span>
+                                        <span th:text="${daysAgo[recipeIndex.index]}" class="shrinkColorGray"></span>
                                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="imgSize">
                                             <circle cx="12" cy="12" r="4"></circle></svg>
-                                        <span class="shrinkColorGray">조회수 1467</span>
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="popularityList">
-                        <div>
-                            <button type="button" class="textLeft">
-                                <div class="gap">
-                                    <div class="substance">
-                                        <h2 class="overflowHidden fontTitle">요리보고 요리보고</h2>
-                                        <p class="overflowHiddenSubtitle">다들 파이팅 !!!!!</p>
-                                    </div>
-                                    <div class="photoRoundedWrap">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                          <img alt="" src="/images/mainFood/foodRank2.png" decoding="async" data-nimg="fill" class="photoRounded"
-                               style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                        </span>
-                                    </div>
-                                </div>
-                                <div class="time">
-                                    <div class="relativeShadow" style="width: 18px; height: 18px; background: url(/images/mainFood/foodRank2.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                                    <div class="timeWrap">
-                                        <span class="line">경덕님</span>
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="imgSize">
-                                            <circle cx="12" cy="12" r="4"></circle></svg>
-                                        <span class="shrinkColorGray">4일전</span>
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="imgSize">
-                                            <circle cx="12" cy="12" r="4"></circle></svg>
-                                        <span class="shrinkColorGray">조회수 1467</span>
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="popularityList">
-                        <div>
-                            <button type="button" class="textLeft">
-                                <div class="gap">
-                                    <div class="substance">
-                                        <h2 class="overflowHidden fontTitle">요리보고 요리보고</h2>
-                                        <p class="overflowHiddenSubtitle">다들 파이팅 !!!!!</p>
-                                    </div>
-                                    <div class="photoRoundedWrap">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                          <img alt="" src="/images/mainFood/food3.png" decoding="async" data-nimg="fill" class="photoRounded"
-                               style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                        </span>
-                                    </div>
-                                </div>
-                                <div class="time">
-                                    <div class="relativeShadow" style="width: 18px; height: 18px; background: url(/images/mainFood/food3.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                                    <div class="timeWrap">
-                                        <span class="line">경덕님</span>
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="imgSize">
-                                            <circle cx="12" cy="12" r="4"></circle></svg>
-                                        <span class="shrinkColorGray">4일전</span>
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="imgSize">
-                                            <circle cx="12" cy="12" r="4"></circle></svg>
-                                        <span class="shrinkColorGray">조회수 1467</span>
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="popularityList">
-                        <div>
-                            <button type="button" class="textLeft">
-                                <div class="gap">
-                                    <div class="substance">
-                                        <h2 class="overflowHidden fontTitle">요리보고 요리보고</h2>
-                                        <p class="overflowHiddenSubtitle">다들 파이팅 !!!!!</p>
-                                    </div>
-                                    <div class="photoRoundedWrap">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                          <img alt="" src="/images/mainFood/food6.png" decoding="async" data-nimg="fill" class="photoRounded"
-                               style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                        </span>
-                                    </div>
-                                </div>
-                                <div class="time">
-                                    <div class="relativeShadow" style="width: 18px; height: 18px; background: url(/images/mainFood/food6.png) center center / cover no-repeat, rgb(255, 255, 255);"></div>
-                                    <div class="timeWrap">
-                                        <span class="line">경덕님</span>
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="imgSize">
-                                            <circle cx="12" cy="12" r="4"></circle></svg>
-                                        <span class="shrinkColorGray">4일전</span>
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="imgSize">
-                                            <circle cx="12" cy="12" r="4">
-                                            </circle>
-                                        </svg>
-                                        <span class="shrinkColorGray">조회수 1467
-                          </span>
+                                        <span th:text="${'조회수 ' + bestRecipe.postHits}" class="shrinkColorGray"></span>
                                     </div>
                                 </div>
                             </button>
@@ -613,11 +332,10 @@
                             <strong class="fontLabel" style="color: rgb(126, 105, 254);">
                                 오늘의 요리
                             </strong>
-                            <h2 class="h2Title">오늘 저녁은 떡볶이!!</h2>
+                            <h2 th:text="${'오늘의 저녁은 ' + truncatedTodayRecipeTitle + '!!'}" class="h2Title"></h2>
                         </div>
                         <div class="surface"></div>
-                        <p class="fontBodyCol">
-                            내용 입력해주세요
+                        <p  th:text="${truncatedTodayRecipeContent}" class="fontBodyCol">
                         </p>
                     </section>
                 </button>
@@ -638,7 +356,7 @@
                 <div class="px">
                     <div class="swiperPointer">
                         <div class="swiperWrap" >
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
+                            <div  th:each="newRecipe : ${newRecipes}" th:object="${newRecipe}" class="mainSlide" style="width: 128px; margin-right: 12px;">
                                 <div>
                                     <button type="button" class="textLeft">
                                         <div class="relative">
@@ -651,85 +369,9 @@
                     </span>
                                             <div class="top"></div>
                                         </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                      <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                      </span>
-                      <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food12.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                           style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                    </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                      <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                      </span>
-                      <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food13.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                           style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                    </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                      <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                      </span>
-                      <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food14.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                           style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                    </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                      <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                      </span>
-                      <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food15.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                           style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                    </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
+                                        <h2 class="title" th:text="*{memberName}"></h2>
+                                        <p class="subtitle" th:text="*{categoryCName}"></p>
+                                        <p class="content" th:text="*{postTitle}"></p>
                                     </button>
                                 </div>
                             </div>
@@ -767,37 +409,37 @@
             <div class="category">
                 <ul class="categoryUlist">
                     <li class="categoryListFirst">
-                        <button type="botton" class="categoryButton clicked">전체</button>
+                        <button type="button" data-category="all" class="categoryButton clicked">전체</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">한식</button>
+                        <button type="button" data-category="한식" class="categoryButton">한식</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">일식</button>
+                        <button type="button" data-category="일식" class="categoryButton">일식</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">중식</button>
+                        <button type="button" data-category="중식" class="categoryButton">중식</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">양식</button>
+                        <button type="button" data-category="양식" class="categoryButton">양식</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">야식</button>
+                        <button type="button" data-category="야식" class="categoryButton">야식</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">브런치</button>
+                        <button type="button" data-category="브런치" class="categoryButton">브런치</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">분식</button>
+                        <button type="button" data-category="분식" class="categoryButton">분식</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">디저트</button>
+                        <button type="button" data-category="디저트" class="categoryButton">디저트</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">다이어트 식단</button>
+                        <button type="button" data-category="다이어트" class="categoryButton">다이어트 식단</button>
                     </li>
                     <li class="categoryList">
-                        <button type="botton" class="categoryButton">기타</button>
+                        <button type="button" data-category="others" class="categoryButton">기타</button>
                     </li>
                 </ul>
             </div>
@@ -805,7 +447,9 @@
                 <div class="px">
                     <div class="swiperPointer">
                         <div class="swiperWrap">
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
+
+                            <div th:each="allRecipe : ${allRecipes}" th:object="${allRecipe}"  th:attr="data-category=${allRecipe.categoryCName}"
+                                 class="mainSlide categorySlide" style="width: 128px; margin-right: 12px;">
                                 <div>
                                     <button type="button" class="textLeft">
                                         <div class="relative">
@@ -818,87 +462,12 @@
                     </span>
                                             <div class="top"></div>
                                         </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
+                                        <h2 class="title" th:text="*{memberName}"></h2>
+                                        <p class="subtitle" th:text="*{categoryCName}"></p>
+                                        <p class="content" th:text="*{postTitle}"></p>
                                     </button>
                                 </div>
                             </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                      <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                      </span>
-                      <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food17.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                           style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                    </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                      <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                      </span>
-                      <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food18.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                           style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                    </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                      <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                      </span>
-                      <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food19.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                           style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                    </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mainSlide" style="width: 128px; margin-right: 12px;">
-                                <div>
-                                    <button type="button" class="textLeft">
-                                        <div class="relative">
-                      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                      <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
-                      </span>
-                      <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food20.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                           style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                    </span>
-                                            <div class="top"></div>
-                                        </div>
-                                        <h2 class="title">뽀이bboi</h2>
-                                        <p class="subtitle">예술</p>
-                                        <p class="content">뜨개러들의 마음 어쩌고 저쩌고</p>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                         <button type="button" class="before"
@@ -915,7 +484,6 @@
                         </button>
                     </div>
                 </div>
-            </div>
         </section>
     </main>
     <!-- footer -->
@@ -1080,6 +648,7 @@
     </div>
 </div>
 </body>
+
 <script th:inline="javascript">
     const member = [[${session.member}]];
     console.log(member);

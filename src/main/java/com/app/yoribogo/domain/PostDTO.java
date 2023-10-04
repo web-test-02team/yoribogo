@@ -10,11 +10,11 @@ public class PostDTO {
     private String postTitle;
     private String postContent;
     private String postDate;
-    private Long postViewCount;
+    private Long postHits;
     private Long postLikeCount;
     private Long postCommentCount;
-    private String postImagePath;
     private String memberId;
     private String categoryCId;
     private String memberName;
+    private String categoryCName;
 }

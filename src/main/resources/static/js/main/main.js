@@ -1,5 +1,6 @@
 // const loginButton = document.querySelector(".loginButton");
 const postWrite = document.querySelector(".postWrite");
+const postRanking = document.querySelector(".seeMore");
 // // const paymentSystem=document.querySelector(".paymentSystem")
 // //로그인으로가기
 // loginButton.addEventListener("click", () => {
@@ -25,6 +26,11 @@ headlineOntent[0].addEventListener("click",()=>{
 //후기로 가기
 headlineOntent[1].addEventListener("click",()=>{
   window.location.href="http://localhost:10000/post/reviewlist";
+})
+
+//랭킹페이지 가기
+postRanking.addEventListener("click",()=>{
+  window.location.href="http://localhost:10000/rangking/rangking";
 })
 
 // 요리 분류 선택시 색..등등 변경
@@ -306,3 +312,34 @@ function closeX(){
 //   hours === 24;
 // }
 // ingiTime.innerText=`${hours}:00 기준`;
+
+// HTML 요소 가져오기
+const categoryButtons = document.querySelectorAll(".categoryButton");
+const recipeItems = document.querySelectorAll(".mainSlide.categorySlide");
+
+
+
+// 카테고리 버튼에 클릭 이벤트 리스너 추가
+// 카테고리 버튼에 클릭 이벤트 리스너 추가
+categoryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const selectedCategory = button.getAttribute("data-category");
+
+        // 모든 레시피 아이템을 숨김
+        recipeItems.forEach((recipeItem) => {
+            recipeItem.style.display = "none";
+        });
+
+        // 선택한 카테고리에 해당하는 레시피 아이템만 표시
+        recipeItems.forEach((recipeItem) => {
+            const itemCategory = recipeItem.getAttribute("data-category");
+            if (itemCategory === selectedCategory || selectedCategory === "all" || (selectedCategory === "others" && itemCategory !== "한식" && itemCategory !== "일식" && itemCategory !== "중식" && itemCategory !== "양식" && itemCategory !== "야식" && itemCategory !== "브런치" && itemCategory !== "분식" && itemCategory !== "디저트" && itemCategory !== "다이어트 식단")) {
+                recipeItem.style.display = "block";
+            }
+        });
+
+    });
+});
+
+
+

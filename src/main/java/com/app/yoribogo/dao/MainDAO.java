@@ -1,6 +1,6 @@
 package com.app.yoribogo.dao;
 
-import com.app.yoribogo.domain.MemberVO;
+import com.app.yoribogo.domain.PostDTO;
 import com.app.yoribogo.mapper.MainMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -14,28 +14,28 @@ public class MainDAO {
     public final MainMapper mainMapper;
 
 //    주간 인기 요리보고
-    public List<MemberVO> selectByWeeklyRecipe(){
+    public List<PostDTO> selectByWeeklyRecipe(){
         return mainMapper.select();
     }
 
 //    Best Week
 
-    public List<MemberVO> selectBestRecipe(){
+    public List<PostDTO> selectBestRecipe(){
         return mainMapper.selectBest();
     }
 
     //    오늘의 요리
-    public Optional<MemberVO> selectTodayRecipe(){
+    public Optional<PostDTO> selectTodayRecipe(){
         return mainMapper.selectToday();
     }
 
     //    새로운 요리를 만나보세요
-    public List<MemberVO> selectNewCuisine(){
+    public List<PostDTO> selectNewCuisine(){
         return mainMapper.selectNewRecipe();
     }
 
     //    요리 분류
-    public List<MemberVO> selectAllRecipes(){
+    public List<PostDTO> selectAllRecipes(){
         return mainMapper.selectAll();
     }
 }
