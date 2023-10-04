@@ -16,14 +16,14 @@ const warningWindow = document.querySelector(".warningWindow")
 
 // 로그인 버튼 클릭 시 로그인 화면으로 이동
 loginButton.addEventListener("click", () => {
-    window.location.href = "";
+    window.location.href = "/member/login";
 })
 // 로그인후 클릭 하면 나오는 이벤트
 const navLogin=document.querySelector(".navLogin");
 const loginClick=document.querySelector(".loginClick");
 
 navLogin.addEventListener("click",()=>{
-    if(loginClick.style.display=='none'){
+    if(loginClick.style.display==='none'){
         loginClick.style.display = 'block';
     }else{
         loginClick.style.display = 'none';

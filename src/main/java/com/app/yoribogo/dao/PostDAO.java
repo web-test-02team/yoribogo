@@ -1,6 +1,7 @@
 package com.app.yoribogo.dao;
 
 
+import com.app.yoribogo.domain.PostDTO;
 import com.app.yoribogo.domain.PostVO;
 import com.app.yoribogo.mapper.PostMapper;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.List;
 public class PostDAO {
     private final PostMapper postMapper;
 
-    public List<PostVO> post(){
+    public List<PostDTO> post() {
         return postMapper.selectByReviewList();
     }
 }

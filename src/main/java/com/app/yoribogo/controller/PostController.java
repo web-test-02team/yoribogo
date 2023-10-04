@@ -1,7 +1,7 @@
 package com.app.yoribogo.controller;
 
 
-import com.app.yoribogo.domain.PostVO;
+import com.app.yoribogo.domain.PostDTO;
 import com.app.yoribogo.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class PostController {
 
     public void goToReviewList(Model model) {
 
-        List<PostVO> posts=postService.getByReview();
+        List<PostDTO> posts=postService.getByReview();
         model.addAttribute("posts",posts);
 
         }

@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yoribogo.mapper.PostMapper">
-    <select id="selectByReviewList" resultType="postVO">
-        SELECT ID, POST_TITLE, POST_CONTENT, POST_DATE, POST_HITS, POST_LIKE_COUNT, POST_COMMENT_COUNT, MEMBER_ID, CATEGORY_C_ID, POST_STATUS
-        FROM TBL_POST
-        WHERE POST_TITLE=#{postTitle} AND POST_CONTENT= #{postContent} AND POST_DATE = #{postDate} AND POST_HITS =#{postHits} AND MEMBER_ID= #{memberId}
+    <select id="selectByReviewList" resultType="postDTO">
+        SELECT P.*, M.MEMBER_NAME
+        FROM TBL_POST P
+        JOIN TBL_MEMBER M ON P.MEMBER_ID=M.ID
     </select>
+
+    <select id="selectByRead" resultType="postDTO">
+        SELECT P.*, B.CATEGORY_B_NAME
+        FROM TBL_POST P
+        JOIN TBL_CATEGORY_C C ON P.CATEGORY_C_ID=C.ID
+        JOIN TBL_CATEGORY_B B ON C.CATEGORY_B_ID=B.ID
+    </select>
+
+    <update id="updatePostHits" parameterType="int">
+           UPDATE TBL_POST P
+           SET POST_HITS= POST_HITS + 1
+           WHERE P.ID=#{PostId}
+    </update>
+
 </mapper>
