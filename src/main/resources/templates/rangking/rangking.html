@@ -647,6 +647,22 @@
     const member = [[${session.member}]];
     console.log(member);
     const kakako=[[${kakao}]];
+
+
+    //마이페이지로 가기
+    const postWrite = document.querySelector(".postWrite");
+
+    // 마이페이지로 가기
+    postWrite.addEventListener("click", () => {
+        // 세션 멤버가 존재하는 경우에만 마이페이지로 이동
+        if (member) {
+            window.location.href = "http://localhost:10000/mypage/myrecipe";
+        } else {
+            // 세션 멤버가 없는 경우 로그인 페이지로 이동
+            window.location.href = "http://localhost:10000/member/login";
+        }
+    });
+
     // 세션 데이터의 존재 여부를 확인하여 HTML 요소의 display 속성을 변경
     if (member!==null) {
         const navLogin2 = document.querySelector('.navLogin');

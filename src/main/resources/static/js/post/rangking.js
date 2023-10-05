@@ -1,4 +1,4 @@
-const loginButton = document.querySelector(".loginButton");
+// const loginButton = document.querySelector(".loginButton");
 // const postWrite = document.querySelector(".postWrite");
 // const mainPage = document.querySelector(".mainPage");
 // const reviewPage = document.querySelector(".reviewPage");
@@ -15,17 +15,17 @@ const loginButton = document.querySelector(".loginButton");
 // const warningWindow = document.querySelector(".warningWindow")
 
 // const loginButton = document.querySelector(".loginButton");
-const postWrite = document.querySelector(".postWrite");
+// const postWrite = document.querySelector(".postWrite");
 // const paymentSystem=document.querySelector(".paymentSystem")
 //로그인으로가기
-loginButton.addEventListener("click", () => {
-    window.location.href = "http://localhost:10000/member/login";
-})
+// loginButton.addEventListener("click", () => {
+//     window.location.href = "http://localhost:10000/member/login";
+// })
 
 //마이페이지로 가기
-postWrite.addEventListener("click", () => {
-    window.location.href = "http://localhost:10000/mypage/myrecipe";
-})
+// postWrite.addEventListener("click", () => {
+//     window.location.href = "http://localhost:10000/mypage/myrecipe";
+// })
 
 // 로그인 버튼 클릭 시 로그인 화면으로 이동
 // loginButton.addEventListener("click", () => {

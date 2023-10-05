@@ -16,17 +16,17 @@ const postRanking = document.querySelector(".seeMore");
 //레시피로 가기
 const headlineOntent=document.querySelectorAll(".headlineOntent");
 headlineOntent[0].addEventListener("click",()=>{
-  window.location.href="http://localhost:10000/post/recipelist";
+    window.location.href="http://localhost:10000/post/recipelist";
 })
 
 //후기로 가기
 headlineOntent[1].addEventListener("click",()=>{
-  window.location.href="http://localhost:10000/post/reviewlist";
+    window.location.href="http://localhost:10000/post/reviewlist";
 })
 
 //랭킹페이지 가기
 postRanking.addEventListener("click",()=>{
-  window.location.href="http://localhost:10000/rangking/rangking";
+    window.location.href="http://localhost:10000/rangking/rangking";
 })
 
 // 요리 분류 선택시 색..등등 변경
@@ -305,7 +305,7 @@ const ingiTime=document.querySelector(".ingiTime");
 const currentTime = new Date();
 const hours = currentTime.getHours()
 if (hours===0) {
-  hours === 24;
+    hours === 24;
 }
 ingiTime.innerText=`${hours}:00 기준`;
 
