@@ -1,5 +1,6 @@
 package com.app.yoribogo.service;
 
+import com.app.yoribogo.domain.MemberDTO;
 import com.app.yoribogo.domain.MemberVO;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -35,4 +36,6 @@ public interface MemberService {
     public void updateLike(Long oldMemberId,Long newMemberId);
 
     public void updateComment(Long oldMemberId,Long newMemberId);
+
+    public List<MemberDTO> findByMember(Long id);
 }

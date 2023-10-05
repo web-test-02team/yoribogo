@@ -1,5 +1,6 @@
 package com.app.yoribogo.dao;
 
+import com.app.yoribogo.domain.MemberDTO;
 import com.app.yoribogo.domain.MemberVO;
 import com.app.yoribogo.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
@@ -59,5 +60,7 @@ public class MemberDAO {
     public void updateComment(Long oldMemberId,Long newMemberId){
         memberMapper.updateComment(oldMemberId,newMemberId);
     }
-
+    public List<MemberDTO> findByMember(Long memberId){
+        return memberMapper.select(memberId);
+    }
 }

@@ -64,7 +64,6 @@ public class KaKaoController {
             }
             memberService.join(foundInfo.get(), redirectAttributes, id);
             if(redirectAttributes.getFlashAttributes().containsKey("kakao")){
-                log.info("여기들어옴");
                 redirectAttributes.addFlashAttribute("kakao", false);
                 return new RedirectView("/");
             }

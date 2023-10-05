@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 @SpringBootTest
 @Slf4j
 public class MemberMapperTest {
@@ -32,4 +34,5 @@ public class MemberMapperTest {
         memberVO.setMemberPassword("1234");
         memberMapper.selectByLogin(memberVO).map(MemberVO::toString).ifPresent(log::info);
     }
+
 }

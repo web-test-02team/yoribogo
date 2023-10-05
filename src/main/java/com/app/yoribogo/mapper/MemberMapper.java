@@ -1,5 +1,6 @@
 package com.app.yoribogo.mapper;
 
+import com.app.yoribogo.domain.MemberDTO;
 import com.app.yoribogo.domain.MemberVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -26,9 +27,9 @@ public interface MemberMapper {
 
     //    회원 삭제
     public void delete(Long id);
-//카카오이메일 찾기
+    //카카오이메일 찾기
     public List<MemberVO> kakaEmail();
-//게시글 업데이트
+    //게시글 업데이트
      public void updateALL(Long oldMemberId,Long newMemberId);
      //memberID로 된거 다업데이트
     public void updatePurchase(Long oldMemberId,Long newMemberId);
@@ -36,6 +37,7 @@ public interface MemberMapper {
     public void updateLike(Long oldMemberId,Long newMemberId);
 
     public void updateComment(Long oldMemberId,Long newMemberId);
-
+//회원 게시글 조인 조회
+    public List<MemberDTO> select(Long memberId);
 
 }

@@ -1,6 +1,7 @@
 package com.app.yoribogo.service;
 
 import com.app.yoribogo.dao.MemberDAO;
+import com.app.yoribogo.domain.MemberDTO;
 import com.app.yoribogo.domain.MemberVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,40 +21,36 @@ public class MemberServiceImpl implements MemberService {
     private final MemberDAO memberDAO;
     @Override
     public void join(MemberVO memberVO, RedirectAttributes redirectAttributes,Long id) {
-
         //        1. 일반회원, 카카오회원 구분
         if(memberVO.getMemberKakaoProfileUrl() != null){ //카카오 로그인
             Optional<MemberVO> foundMember = getKaKaoMember(memberVO.getMemberKakaoEmail());
 //            카카오와 memberEmail 리스트
             List<MemberVO> foundKakaos= kakaEmailALL();
-//           foundMember 연동할때 들어오는 내 카카카오 이메일
-            log.info("리스트{}",foundMember);
+//           foundMember 카카오계정 가지고옴 db에서 연동할때 는 null
 //            연동을 누른 녀석은 id
             log.info("id:{}",id);
             if (id != null) {
-              String kakaoEmail = foundMember.map(MemberVO::getMemberKakaoEmail).orElse(null);
-                    log.info("{}",kakaoEmail);
-                 if (kakaoEmail != null && foundKakaos.stream()
-                             .anyMatch(member -> member != null && member.getMemberKakaoEmail() != null &&
-                                                  kakaoEmail.equals(member.getMemberKakaoEmail()) &&
-                                             member.getMemberEmail() == null)) {
-                     log.info("음...");
-                     // Kakao 이메일이 같고, memberEmail이 null인 경우
-                     Long oldId=foundMember.get().getId();
-                     updateComment(oldId, id);
-                     updateLike(oldId, id);
-                     updatePurchase(oldId, id);
-                     updateById(oldId, id);
-                     memberVO.setId(id);
-                     delete(oldId);
-                     synchronize(memberVO);
-                     return;
-                                 } else {
-                 // Kakao 이메일이 같지만, memberEmail이 null이 아닌 경우 또는 Kakao 이메일이 일치하지 않는 경우
-                     log.info("들어옴");
-                        redirectAttributes.addFlashAttribute("kakao", false);
+                String kakaoEmail = memberVO.getMemberKakaoEmail();
+                if (foundKakaos.stream().noneMatch(member ->
+                        member != null && member.getMemberKakaoEmail() != null &&
+                                kakaoEmail != null && kakaoEmail.equals(member.getMemberKakaoEmail()) &&
+                                member.getMemberEmail() != null)) {
+                    // 리스트에서 카카오 이메일과 일치하고, 멤버 이메일이 null인 경우
+                    log.info("음...");
+                    Long oldId = foundMember.get().getId();
+                    updateComment(oldId, id);
+                    updateLike(oldId, id);
+                    updatePurchase(oldId, id);
+                    updateById(oldId, id);
+                    memberVO.setId(id);
+                    delete(oldId);
+                    synchronize(memberVO);
+                    // 여기에 추가 작업을 수행하세요
+                } else {
+                    // 리스트에서 카카오 이메일과 일치하지 않거나, 멤버 이메일이 null이 아닌 경우
+                    redirectAttributes.addFlashAttribute("kakao", false);
                         return;
-                  }
+                }
             }
 //          1-2. 최초 로그인 검사
             if(foundMember.isEmpty()){
@@ -138,5 +135,10 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void updateComment(Long oldMemberId, Long newMemberId) {
         memberDAO.updateComment(oldMemberId,newMemberId);
+    }
+
+    @Override
+    public List<MemberDTO> findByMember(Long memberId) {
+        return memberDAO.findByMember(memberId);
     }
 }

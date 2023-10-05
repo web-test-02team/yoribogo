@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yoribogo.mapper.MemberMapper">
         <insert id="insert">
-                /*카카오 로그인 일때 null */
                 <choose>
                         <when test="memberPassword == null">
                                 INSERT INTO TBL_MEMBER(ID, MEMBER_NAME, MEMBER_LOGIN_CODE, MEMBER_KAKAO_EMAIL, MEMBER_KAKAO_PROFILE_URL)
@@ -55,7 +54,7 @@
                 SET MEMBER_KAKAO_EMAIL = #{memberKakaoEmail}, MEMBER_KAKAO_PROFILE_URL = #{memberKakaoProfileUrl}, MEMBER_LOGIN_CODE = 'KAKAO'
                 WHERE ID = #{id}
         </update>
-<!--       카카오 이메일 중복검사  -->
+
         <select id="kakaEmail" resultType="memberVO">
                 SELECT ID,MEMBER_KAKAO_EMAIL ,MEMBER_EMAIL FROM TBL_MEMBER
         </select>
@@ -83,5 +82,14 @@
                 SET MEMBER_ID=#{newMemberId}
                 WHERE MEMBER_ID =#{oldMemberId}
         </update>
+
+        <select id="select" resultType="memberDTO">
+                SELECT M.ID, P.ID, P.POST_TITLE, P.POST_CONTENT, P.POST_COMMENT_COUNT, M.MEMBER_NAME, M.MEMBER_ONE_LINE_INTRO, M.MEMBER_BACKGROUND_PATH, M.MEMBER_INTRODUCTION, M.MEMBER_BACKGROUND_NAME, M.MEMBER_PROFILE_NAME, M.MEMBER_PROFILE_PATH,P.POST_HITS,P.POST_DATE,M.MEMBER_EMAIL
+                FROM TBL_MEMBER M
+                JOIN TBL_POST P ON M.ID = P.MEMBER_ID
+                WHERE M.ID = #{memberId}
+                ORDER BY P.ID DESC
+        </select>
+
 
 </mapper>
