@@ -49,7 +49,7 @@ closeBTN.addEventListener("click", () => {
 //         loginClick.style.display = 'none';
 //     }
 // })
-//카카오 로그인시..
+// 카카오 로그인시..
 // const kakaoBtn=document.querySelector(".kakaoBtn");
 
 // 페이지 로드 시 초기화
