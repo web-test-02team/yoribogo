@@ -19,5 +19,6 @@
         <typeAlias type="com.app.yoribogo.domain.TagVO" alias="tagVO" />
         <typeAlias type="com.app.yoribogo.domain.TagsVO" alias="tagsVO" />
         <typeAlias type="com.app.yoribogo.domain.PostDTO" alias="postDTO" />
+        <typeAlias type="com.app.yoribogo.domain.MemberDTO" alias="memberDTO" />
     </typeAliases>
 </configuration>

@@ -1,20 +1,27 @@
 package com.app.yoribogo.controller;
 
 
+import com.app.yoribogo.domain.MemberDTO;
 import com.app.yoribogo.domain.MemberVO;
+import com.app.yoribogo.mapper.MemberMapper;
 import com.app.yoribogo.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import javax.sound.midi.MetaMessage;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/member/*")
+@Slf4j
 public class MemberController {
     private final MemberService memberService;
     //회원가입
@@ -83,8 +90,22 @@ public class MemberController {
     @GetMapping("mainPost")
     public void goToPost(){;}
 
-    @GetMapping("introMain")
-    public void goToIntroMain() {;}
+    @GetMapping("introMain/{memberId}")
+    public String goToIntroMain(@PathVariable Long memberId , Model model, HttpSession session) {
+        MemberVO sessionMember = (MemberVO) session.getAttribute("member");
+        if (sessionMember != null) {
+            List<MemberDTO> sessionFindMember = memberService.findByMember(sessionMember.getId());
+            log.info("{}", sessionFindMember);
+            model.addAttribute("sessionMember", sessionFindMember);
+            return "member/introMain";
+        } else {
+            // 세션에 "member"가 null인 경우 처리
+            List<MemberDTO> foundMember = memberService.findByMember(memberId);
+            log.info("{}", foundMember);
+            model.addAttribute("memberId", foundMember);
+            return "member/introMain"; // 로그인 페이지로 리다이렉트하는 예제
+        }
+    }
 
     //    로그아웃
     @GetMapping("logout")

@@ -25,10 +25,10 @@
                     <div class="middleImg" style="background: url(/images/food/food19.png) center center / cover no-repeat, rgb(255, 255, 255);">
                     </div>
                     <div class="middleContent">
-                        <p class="bigGeul">생방송 요리보고!</p>
+                        <p class="bigGeul" th:text="${sessionMember != null && sessionMember.size() > 0 ? sessionMember[0].memberName : (memberId != null && memberId.size() > 0 ? memberId[0].memberName : '기본값')}">생방송 요리보고!</p>
                         <div class="middleView">
                             <span class="viewCon">
-                              <strong class="viewNumber">346</strong>
+                              <strong class="viewNumber"  th:text="${sessionMember != null && sessionMember.size() > 0 ? sessionMember[0].postHits : (memberId != null && memberId.size() > 0 ? memberId[0].postHits : '0')}" >346</strong>
                               조회수
                             </span>
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgTeum">
@@ -40,7 +40,7 @@
                             포스트
                             </span>
                         </div>
-                        <p class="smallGeul">경계를 넘나드는 요리 사랑</p>
+                        <p class="smallGeul" th:text="${sessionMember != null && sessionMember.size() > 0 ? sessionMember[0].memberOneLineIntro : (memberId != null && memberId.size() > 0 ? memberId[0].memberOneLineIntro : '')}">생방송 요리보고!>경계를 넘나드는 요리 사랑</p>
                     </div>
                     <div class="jjogjiWrap">
                         <div>
@@ -68,7 +68,7 @@
 </div>
 <main class="mainBox">
     <div class="introPostTab">
-        <button value="" class="introButton">'오늘의 요리사' 소개
+        <button value="" class="introButton">소개
             <span class="underScore"></span>
         </button>
         <button class="postButton">포스트</button>
@@ -77,12 +77,11 @@
         <div>
             <div style="height:37px"></div>
             <div>
-                <h4 class="todayChef">오늘은 내가 요리사 소개</h4>
+                <h4 class="todayChef">한줄 소개</h4>
                 <div class="textBox">
-                    <div class="textBoxHidden">
+                    <div class="textBoxHidden" th:text="${sessionMember != null && sessionMember.size() > 0 ? (sessionMember[0].memberIntroduction != null ? sessionMember[0].memberIntroduction : '소개글을 써주세요') : (memberId != null && memberId.size() > 0 ? (memberId[0].memberIntroduction != null ? memberId[0].memberIntroduction : '소개글을 써주세요') : '소개글을 써주세요')}">
                         <p>
-                            안녕하세요~ 가정주부임에도 '오늘의 요리사'로 선정된 푸딩입니다. <br>
-                            음식점 사장님들과의 멋진 콜라보로 맛있는 음식으로 찾아뵙겠습니다. &nbsp;
+                           소개글을 써주세요 <br>
                         </p>
                         <p>&nbsp;</p>
                         <p>
@@ -134,7 +133,7 @@
                                         </div>
                                         <div class="hiddenImage">
                                             <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                                                 <img alt="" src="/image/loginImage/food21.png" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                                 <img alt="" src="/images/food/food21.png" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
                                             </span>
                                             <!-- <div class="lockImageArea">
                                               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="lock">
@@ -212,7 +211,7 @@
                                         </div>
                                         <div class="hiddenImage">
                           <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                              <img alt="" src="/image/loginImage/food22.png" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                              <img alt="" src="/images/food/food22.png" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
                           </span>
                                             <!-- <div class="lockImageArea">
                                               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="lock">
@@ -411,6 +410,8 @@
 </div>
 </body>
     <script th:inline="javascript">
+        const memberId=[[${memberId}]];
+        console.log(memberId);
         const member = [[${session.member}]];
         if (member!==null) {
         const navLogin = document.querySelector(".loginImg");
