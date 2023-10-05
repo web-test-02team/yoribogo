@@ -208,7 +208,7 @@
             </div>
         </div>
     </section>
-    <!-- main 주간인기요리보고 -->
+    <!-- main 월간인기요리보고 -->
     <main class="main">
         <section>
             <header class="mainHeader">
@@ -229,9 +229,11 @@
                       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
                       <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
                       </span>
-                      <img alt="뽀이bboi" sizes="100vw"
-                           src= "/images/mainFood/food17.png" decoding="async" data-nimg="responsive" class="roundedBig"
-                           style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                     <img alt="뽀이bboi" sizes="100vw"
+                         decoding="async" data-nimg="responsive" class="roundedBig"
+                          th:src="*{postFilePath}"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+
                     </span>
                                             <div class="top"></div>
                                         </div>
@@ -277,7 +279,7 @@
                                     </div>
                                     <div class="photoRoundedWrap">
                       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                        <img alt="" src="/images/mainFood/foodRank.png" decoding="async" data-nimg="fill" class="photoRounded"
+                        <img alt="" th:src="${bestRecipe.postFilePath}" decoding="async" data-nimg="fill" class="photoRounded"
                              style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
                       </span>
                                     </div>
@@ -322,7 +324,7 @@
                 <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 63.75% 0px 0px;">
               </span>
               <img alt="오늘의 요리 사진"
-                   src="/images/mainFood/foodDay.png" decoding="async" data-nimg="responsive" class="roundedBig" sizes="100vw"
+                   th:src="${todayRecipe.postFilePath}" decoding="async" data-nimg="responsive" class="roundedBig" sizes="100vw"
                    style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
               </span>
                         <div class="full"></div>
@@ -364,7 +366,7 @@
                       <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
                       </span>
                       <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food11.png" decoding="async" data-nimg="responsive" class="roundedBig"
+                           th:src="*{postFilePath}" decoding="async" data-nimg="responsive" class="roundedBig"
                            style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
                     </span>
                                             <div class="top"></div>
@@ -457,7 +459,7 @@
                       <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;">
                       </span>
                       <img alt="뽀이bboi" sizes="100vw"
-                           src="/images/mainFood/food16.png" decoding="async" data-nimg="responsive" class="roundedBig"
+                           th:src="*{postFilePath}" decoding="async" data-nimg="responsive" class="roundedBig"
                            style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
                     </span>
                                             <div class="top"></div>

@@ -4,11 +4,12 @@
     <select id="select" resultType="postDTO">
         SELECT *
         FROM (
-        SELECT P.ID, M.MEMBER_NAME, P.POST_TITLE, C.CATEGORY_C_NAME
-        FROM TBL_POST P
-        INNER JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
-        INNER JOIN TBL_CATEGORY_C C ON P.CATEGORY_C_ID = C.ID
-        ORDER BY DBMS_RANDOM.VALUE
+                 SELECT P.ID, M.MEMBER_NAME, P.POST_TITLE, C.CATEGORY_C_NAME, F.POST_ID AS FILE_POST_ID, F.POST_FILE_PATH
+                 FROM TBL_POST P
+                  INNER JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
+                  INNER JOIN TBL_CATEGORY_C C ON P.CATEGORY_C_ID = C.ID
+                  LEFT JOIN TBL_POST_FILE F ON P.ID = F.POST_ID
+                 ORDER BY DBMS_RANDOM.VALUE
                       )
         WHERE ROWNUM &lt;= 16
     </select>
@@ -16,9 +17,10 @@
     <select id="selectBest" resultType="postDTO">
         SELECT *
         FROM (
-        SELECT P.ID, M.MEMBER_NAME, P.POST_TITLE, P.POST_CONTENT, P.POST_HITS, P.POST_DATE, (P.POST_LIKE_COUNT + P.POST_COMMENT_COUNT) AS TOTAL_COUNT
+        SELECT P.ID, M.MEMBER_NAME, P.POST_TITLE, P.POST_CONTENT, P.POST_HITS, F.POST_ID AS FILE_POST_ID, F.POST_FILE_PATH, P.POST_DATE, (P.POST_LIKE_COUNT + P.POST_COMMENT_COUNT) AS TOTAL_COUNT
         FROM TBL_POST P
         INNER JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
+        LEFT JOIN TBL_POST_FILE F ON P.ID = F.POST_ID
         ORDER BY TOTAL_COUNT DESC
         )
         WHERE ROWNUM &lt;= 4
@@ -27,8 +29,9 @@
     <select id="selectToday" resultType="postDTO">
         SELECT *
         FROM (
-        SELECT ID, POST_TITLE, POST_CONTENT
+        SELECT P.ID, P.POST_TITLE, P.POST_CONTENT, F.POST_ID AS FILE_POST_ID, F.POST_FILE_PATH
         FROM TBL_POST P
+        LEFT JOIN TBL_POST_FILE F ON P.ID = F.POST_ID
         ORDER BY DBMS_RANDOM.VALUE
              )
         WHERE ROWNUM &lt;= 1
@@ -37,20 +40,22 @@
     <select id="selectNewRecipe" resultType="postDTO">
         SELECT *
         FROM (
-                 SELECT P.ID, M.MEMBER_NAME, P.POST_TITLE, C.CATEGORY_C_NAME
+                 SELECT P.ID, M.MEMBER_NAME, P.POST_TITLE, C.CATEGORY_C_NAME, F.POST_ID AS FILE_POST_ID, F.POST_FILE_PATH
                  FROM TBL_POST P
-                          INNER JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
-                          INNER JOIN TBL_CATEGORY_C C ON P.CATEGORY_C_ID = C.ID
+                  INNER JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
+                  INNER JOIN TBL_CATEGORY_C C ON P.CATEGORY_C_ID = C.ID
+                  LEFT JOIN TBL_POST_FILE F ON P.ID = F.POST_ID
                  ORDER BY P.POST_DATE DESC
              )
         WHERE ROWNUM &lt;= 16
     </select>
 
     <select id="selectAll" resultType="postDTO">
-         SELECT P.ID, M.MEMBER_NAME, P.POST_TITLE, C.CATEGORY_C_NAME
+         SELECT P.ID, M.MEMBER_NAME, P.POST_TITLE, C.CATEGORY_C_NAME, F.POST_ID AS FILE_POST_ID, F.POST_FILE_PATH
          FROM TBL_POST P
           INNER JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
           INNER JOIN TBL_CATEGORY_C C ON P.CATEGORY_C_ID = C.ID
+          LEFT JOIN TBL_POST_FILE F ON P.ID = F.POST_ID
          ORDER BY DBMS_RANDOM.VALUE
     </select>
 
