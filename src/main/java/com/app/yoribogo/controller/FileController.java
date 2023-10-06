@@ -20,35 +20,89 @@ import java.util.UUID;
 @Slf4j
 @RequestMapping("/file/*")
 public class FileController {
-//    프로필 이미지 업로드
-    @PostMapping("upload")
+//    프로필 이미지 업로드 여러개
+    @PostMapping("profile-upload")
     @ResponseBody
-    public List<String> profileUpload(@RequestParam("uploadFile") List<MultipartFile> uploadFiles) throws IOException {
+    public String profileUpload(@RequestParam("uploadFile") List<MultipartFile> uploadFiles) throws IOException {
         String rootPath = "C:/upload/" + getPath();
-        List<String> uuids = new ArrayList<>();
+        String uuid = UUID.randomUUID().toString();
         File file = new File(rootPath);
         if (!file.exists()){
             file.mkdirs();
         }
 
-        for(int i=0; i<uploadFiles.size(); i++){
-            uuids.add(UUID.randomUUID().toString());
-            uploadFiles.get(i).transferTo(new File(rootPath, uuids.get(i) + "_" + uploadFiles.get(i).getOriginalFilename()));
-            if(uploadFiles.get(i).getContentType().startsWith("image")){
-                if(i == 0){
-                    FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuids.get(i) + "_" + uploadFiles.get(i).getOriginalFilename()));
-                    Thumbnailator.createThumbnail(uploadFiles.get(i).getInputStream(), out, 200, 200);
-                    out.close();
-                }else {
-                    FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuids.get(i) + "_" + uploadFiles.get(i).getOriginalFilename()));
-                    Thumbnailator.createThumbnail(uploadFiles.get(i).getInputStream(), out, 800, 296);
-                    out.close();
-                }
-            }
+        uploadFiles.get(0).transferTo(new File(rootPath, uuid + "_" + uploadFiles.get(0).getOriginalFilename()));
+        if(uploadFiles.get(0).getContentType().startsWith("image")){
+            FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuid + "_" + uploadFiles.get(0).getOriginalFilename()));
+            Thumbnailator.createThumbnail(uploadFiles.get(0).getInputStream(), out, 200, 200);
+            out.close();
         }
 
-        return uuids;
+        return uuid;
     }
+
+//    배경 이미지 업로드 여러개
+    @PostMapping("background-upload")
+    @ResponseBody
+    public String backgroundUpload(@RequestParam("uploadFile") List<MultipartFile> uploadFiles) throws IOException {
+        String rootPath = "C:/upload/" + getPath();
+        String uuid = UUID.randomUUID().toString();
+        File file = new File(rootPath);
+        if (!file.exists()){
+            file.mkdirs();
+        }
+
+        uploadFiles.get(0).transferTo(new File(rootPath, uuid + "_" + uploadFiles.get(0).getOriginalFilename()));
+        if(uploadFiles.get(0).getContentType().startsWith("image")){
+            FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuid + "_" + uploadFiles.get(0).getOriginalFilename()));
+            Thumbnailator.createThumbnail(uploadFiles.get(0).getInputStream(), out, 800, 296);
+            out.close();
+        }
+
+        return uuid;
+    }
+
+//    프로필 이미지 업로드 1개
+//    @PostMapping("profile-upload")
+//    @ResponseBody
+//    public String profileUpload(@RequestParam("profileUpload") MultipartFile profileUpload) throws IOException {
+//        String rootPath = "C:/upload/" + getPath();
+//        String uuid = UUID.randomUUID().toString();
+//        File file = new File(rootPath);
+//        if (!file.exists()){
+//            file.mkdirs();
+//        }
+//
+//        profileUpload.transferTo(new File(rootPath, uuid + "_" + profileUpload.getOriginalFilename()));
+//        if(profileUpload.getContentType().startsWith("image")){
+//            FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuid + "_" + profileUpload.getOriginalFilename()));
+//            Thumbnailator.createThumbnail(profileUpload.getInputStream(), out, 200, 200);
+//            out.close();
+//        }
+//
+//        return uuid;
+//    }
+
+//    배경 이미지 업로드 1개
+//    @PostMapping("background-upload")
+//    @ResponseBody
+//    public String backgroundUpload(@RequestParam("backgroundUpload") MultipartFile backgroundUpload) throws IOException {
+//        String rootPath = "C:/upload/" + getPath();
+//        String uuid = UUID.randomUUID().toString();
+//        File file = new File(rootPath);
+//        if (!file.exists()){
+//            file.mkdirs();
+//        }
+//
+//        backgroundUpload.transferTo(new File(rootPath, uuid + "_" + backgroundUpload.getOriginalFilename()));
+//        if(backgroundUpload.getContentType().startsWith("image")){
+//            FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuid + "_" + backgroundUpload.getOriginalFilename()));
+//            Thumbnailator.createThumbnail(backgroundUpload.getInputStream(), out, 800, 296);
+//            out.close();
+//        }
+//
+//        return uuid;
+//    }
 
     @GetMapping("display")
     @ResponseBody

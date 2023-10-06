@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yoribogo.mapper.MypageMapper">
-
     <update id="update">
         UPDATE TBL_MEMBER
-        SET MEMBER_PROFILE_NAME = #{memberProfileName}, MEMBER_PROFILE_PATH = #{memberProfilePath}
+        <set>
+            MEMBER_ONE_LINE_INTRO = #{memberOneLineIntro},
+            MEMBER_INTRODUCTION = #{memberIntroduction},
+            MEMBER_NAME = #{memberName}
+            <if test="memberProfileName != null and memberProfilePath != null">
+                , MEMBER_PROFILE_NAME = #{memberProfileName},
+                MEMBER_PROFILE_PATH = #{memberProfilePath}
+            </if>
+            <if test="memberBackgroundName != null and memberBackgroundPath != null">
+                , MEMBER_BACKGROUND_NAME = #{memberBackgroundName},
+                MEMBER_BACKGROUND_PATH = #{memberBackgroundPath}
+            </if>
+        </set>
         WHERE ID = #{id}
     </update>
 </mapper>

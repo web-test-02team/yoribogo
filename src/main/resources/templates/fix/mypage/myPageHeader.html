@@ -69,44 +69,55 @@
                     <ul class="profileUl">
                         <li tabindex="-1" class="undefined">
                             <div class="profileLi1">
-                                <span id="profileName">다인</span>
-                                <span id="profileEmail">dain1221@naver.com</span>
+                                <span id="profileName" th:text="${session.member.memberName}"></span>
+                                <span id="profileEmail" th:text="${session.member.memberEmail != null ? session.member.memberEmail : session.member.memberKakaoEmail}"></span>
                             </div>
                         </li>
                         <li tabindex="-1" class="undefined">
-                            <button type="button" class="profileModalBtns">마이페이지</button>
+                            <a href="/mypage/myrecipe">
+                                <button type="button" class="myPageBTN">마이페이지</button>
+                            </a>
                         </li>
                         <li tabindex="-1" class="undefined">
-                            <button type="button" class="profileModalBtns">내 정보 수정</button>
+                            <a href="/mypage/myinfo">
+                                <button type="button" class="myInfoBTN">내 정보 수정</button>
+                            </a>
                         </li>
                         <li tabindex="-1" class="undefined">
-                            <button type="button" class="profileModalBtns">쪽지함</button>
+                            <a href="/note/message">
+                                <button type="button" class="messageBTN">쪽지함</button>
+                            </a>
                         </li>
                         <li tabindex="-1" class="undefined">
-                            <button type="button" class="profileModalBtns">헬프센터</button>
+                            <a href="">
+                                <button type="button" class="helpCenterBTN">헬프센터</button>
+                            </a>
                         </li>
-
-                        <li tabindex="-1" class="undefined">
-                            <button type="button" class="kakaoBtn">
-                                <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="kakao1">
-                                    <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M8.5 2C4.803 2 1.833 4.306 1.833 7.128a5.026 5.026 0 0 0 3.091 4.339l-.636 2.306c-.03.06 0 .151.06.181.061.061.182.061.243 0l2.697-1.79c.394.061.788.091 1.212.091 3.667 0 6.667-2.306 6.667-5.127C15.167 4.306 12.197 2 8.5 2Z"
-                                    ></path>
-                                </svg>
-                                <p class="kakao2">카카오톡 계정 연동하고<br />간편하게 로그인</p>
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgKakao">
-                                    <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"
-                                    ></path>
-                                </svg>
-                            </button>
+                        <li tabindex="-1" th:if="${session.member.memberKakaoEmail eq null}" class="undefined">
+                            <a href="https://kauth.kakao.com/oauth/authorize?client_id=7ad18f007d697b77f3604571c3940f5f&redirect_uri=http://localhost:10000/kakao/login&response_type=code">
+                                <button type="button" class="kakaoBtn">
+                                    <svg viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" class="kakao1">
+                                        <path
+                                                fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M8.5 2C4.803 2 1.833 4.306 1.833 7.128a5.026 5.026 0 0 0 3.091 4.339l-.636 2.306c-.03.06 0 .151.06.181.061.061.182.061.243 0l2.697-1.79c.394.061.788.091 1.212.091 3.667 0 6.667-2.306 6.667-5.127C15.167 4.306 12.197 2 8.5 2Z"
+                                        ></path>
+                                    </svg>
+                                    <p class="kakao2">카카오톡 계정 연동하고<br/>간편하게 로그인</p>
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgKakao">
+                                        <path
+                                                fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M8.42 20.73a1.076 1.076 0 0 1-.13-1.587L14.832 12 8.289 4.857a1.076 1.076 0 0 1 .13-1.586 1.26 1.26 0 0 1 1.696.122L18 12l-7.885 8.607a1.26 1.26 0 0 1-1.695.122Z"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </a>
                         </li>
                         <li tabindex="-1" class="undefined">
-                            <button type="button" class="profileModalBtns">로그아웃</button>
+                            <a href="/member/logout">
+                                <button type="button" class="logoutBTN">로그아웃</button>
+                            </a>
                         </li>
                     </ul>
                 </div>
