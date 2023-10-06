@@ -224,6 +224,7 @@
                         <div  class="swiperWrap">
                             <div th:each="weeklyRecipe : ${weeklyRecipes}" th:object="${weeklyRecipe}" class="mainSlide" style="width: 128px; margin-right: 12px;">
                                 <div>
+                            <a href="">
                                     <button type="button" class="textLeft">
                                         <div class="relative">
                       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
@@ -241,6 +242,7 @@
                                         <p class="subtitle" th:text="*{categoryCName}"></p>
                                         <p class="content" th:text="*{postTitle}"></p>
                                     </button>
+                            </a>
                                 </div>
                             </div>
 
@@ -271,6 +273,7 @@
                 <ul class="popularityRecipeUl">
                     <li th:each=" bestRecipe, recipeIndex : ${bestRecipes}" class="firstList">
                         <div>
+                            <a href="">
                             <button type="button" class="textLeft">
                                 <div class="gap">
                                     <div class="substance">
@@ -298,6 +301,7 @@
                                     </div>
                                 </div>
                             </button>
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -318,6 +322,7 @@
             <div>
                 <div class="chellengeStart"></div>
                 <h1 class="hidden">추천 포스트</h1>
+                <a href="">
                 <button type="button" class="textLeftWfull">
                     <div class="relativeRound">
                <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
@@ -329,6 +334,7 @@
               </span>
                         <div class="full"></div>
                     </div>
+
                     <section class="flexCol">
                         <div>
                             <strong class="fontLabel" style="color: rgb(126, 105, 254);">
@@ -341,6 +347,7 @@
                         </p>
                     </section>
                 </button>
+                </a>
             </div>
         </section>
         <!-- 새로운 요리 section -->
@@ -360,6 +367,7 @@
                         <div class="swiperWrap" >
                             <div  th:each="newRecipe : ${newRecipes}" th:object="${newRecipe}" class="mainSlide" style="width: 128px; margin-right: 12px;">
                                 <div>
+                                    <a href="">
                                     <button type="button" class="textLeft">
                                         <div class="relative">
                       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
@@ -375,6 +383,7 @@
                                         <p class="subtitle" th:text="*{categoryCName}"></p>
                                         <p class="content" th:text="*{postTitle}"></p>
                                     </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -453,6 +462,7 @@
                             <div th:each="allRecipe : ${allRecipes}" th:object="${allRecipe}"  th:attr="data-category=${allRecipe.categoryCName}"
                                  class="mainSlide categorySlide" style="width: 128px; margin-right: 12px;">
                                 <div>
+                                    <a href="">
                                     <button type="button" class="textLeft">
                                         <div class="relative">
                       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
@@ -468,6 +478,7 @@
                                         <p class="subtitle" th:text="*{categoryCName}"></p>
                                         <p class="content" th:text="*{postTitle}"></p>
                                     </button>
+                                    </a>
                                 </div>
                             </div>
                             </div>
