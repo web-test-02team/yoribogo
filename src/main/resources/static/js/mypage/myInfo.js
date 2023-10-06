@@ -6,11 +6,9 @@ profileBtn.addEventListener("click", (event) => {
     event.stopPropagation(); // 클릭 이벤트 전파를 막습니다.
 
     if (!isShow) {
-        console.log(isShow);
         profileModal.style.display = "block";
         isShow = true;
     } else if (isShow) {
-        console.log(isShow);
         profileModal.style.display = "none";
         isShow = false;
     }
@@ -19,7 +17,6 @@ profileBtn.addEventListener("click", (event) => {
 // 전체 HTML을 클릭하는 이벤트 리스너 추가
 document.addEventListener("click", (event) => {
     if (isShow && event.target !== profileModal && event.target !== profileBtn) {
-        console.log(isShow);
         profileModal.style.display = "none";
         isShow = false;
     }
@@ -28,34 +25,35 @@ document.addEventListener("click", (event) => {
 // 프로필 사진 업로드
 const imageFile = document.querySelector(".imageFile");
 const myProfile = document.querySelector(".myProfile");
-const fileForm = document.querySelector("form[name='file-form']");
+const informationForm = document.querySelector("form[name='information-form']");
+let profileName;
+let profileUuid;
+let previousValue = '';
+
 imageFile.addEventListener("change", (e) => {
     const file = e.target.files[0];
-    const name = file.name;
+    profileName = file.name;
     const formData = new FormData();
     formData.append("uploadFile", file);
 
-    fetch("/file/upload", {
+    fetch("/file/profile-upload", {
         method: "POST",
         body: formData
-    }).then((response) => response.json())
-        .then((uuids) => {
+    }).then((response) => response.text())
+        .then((uuid) => {
+            profileUuid = uuid;
             let now = new Date();
             let year = now.getFullYear();
             let month = now.getMonth() + 1;
             let date = now.getDate();
             month = month < 10 ? '0' + month : month;
             date = date < 10 ? '0' + date : date;
-            let fileName = `${year}/${month}/${date}/t_${uuids[0]}_${name}`;
+            let fileName = `${year}/${month}/${date}/t_${profileUuid}_${profileName}`;
             myProfile.setAttribute("src", `/file/display?fileName=${fileName}`);
-            let input = document.createElement("input");
-            input.name = "uuid";
-            input.value = uuids[0];
-            input.type = "hidden";
-            fileForm.append(input);
         })
 })
 
+// 프로필 사진 쪽 이미지 업로드 클릭 시 발생하는 이벤트
 const flex2Btn = document.querySelector(".flex2Btn");
 flex2Btn.addEventListener("click", () => {
     imageFile.click();
@@ -64,160 +62,59 @@ flex2Btn.addEventListener("click", () => {
 // 커버 이미지 업로드
 const backgroundFile = document.querySelector(".backgroundFile");
 const backgroundImg = document.querySelector(".backgroundImg");
+const svgCover = document.querySelector(".svgCover");
+const backgroundSpan = document.querySelector(".backgroundSpan");
+let backgroundName;
+let backgroundUuid;
 
-// 이미지 업로드 시 동작할 함수
+// 커버 업로드 시 동작할 함수
 backgroundFile.addEventListener("change", (e) => {
+    svgCover.style.display = 'none';
+    backgroundSpan.style.display = 'block';
     const file = e.target.files[0];
-    const name = file.name;
+    backgroundName = file.name;
     const formData = new FormData();
     formData.append("uploadFile", file);
 
 
-    fetch("/file/upload", {
+    fetch("/file/background-upload", {
         method: "POST",
         body: formData
-    }).then((response) => response.json())
-        .then((uuids) => {
+    }).then((response) => response.text())
+        .then((uuid) => {
+            backgroundUuid = uuid;
             let now = new Date();
             let year = now.getFullYear();
             let month = now.getMonth() + 1;
             let date = now.getDate();
             month = month < 10 ? '0' + month : month;
             date = date < 10 ? '0' + date : date;
-            let fileName = `${year}/${month}/${date}/t_${uuids[0]}_${name}`;
+            let fileName = `${year}/${month}/${date}/t_${backgroundUuid}_${backgroundName}`;
             backgroundImg.setAttribute("src", `/file/display?fileName=${fileName}`);
-            let input = document.createElement("input");
-            input.name = "uuid";
-            input.value = uuids[0];
-            input.type = "hidden";
-            fileForm.append(input);
         })
 })
-// backgroundFile.addEventListener("change", function () {
-//     dashedDiv.innerHTML = "";
-//     const file = backgroundFile.files[0];
-//
-//     if (file) {
-//         const reader = new FileReader();
-//
-//         reader.onload = function (e) {
-//             dashedDiv.style.backgroundImage = `url('${e.target.result}')`;
-//
-//             // Add this part to set the image width and height to 100%
-//             const img = new Image();
-//             img.src = e.target.result;
-//             img.onload = function () {
-//                 dashedDiv.style.backgroundSize = "100% 100%";
-//             };
-//         };
-//
-//         reader.readAsDataURL(file);
-//     }
-// });
 
+// 커버 사진 쪽 이미지 업로드 클릭 시 발생하는 이벤트
 const margin8Btn = document.querySelector(".margin8Btn");
 margin8Btn.addEventListener("click", () => {
     backgroundFile.click();
 })
+// input 요소의 value를 파악하여 수정버튼 활성/비활성화
+const myInformationInput = document.querySelector('input[name="myInformation"]');
+const myInfoDivBtn = document.querySelector('.myInfoDivBtn');
 
-// 수정버튼 클릭 시 form태그 사용
-const myInfoDivBtn = document.querySelector(".myInfoDivBtn");
+function checkInputValue() {
+    if (myInformationInput.value.length === 0) {
+        myInfoDivBtn.disabled = true;
+    } else {
+        myInfoDivBtn.disabled = false;
+    }
+}
 
-myInfoDivBtn.addEventListener("click", () => {
-    fileForm.submit();
-})
+// input 요소의 값이 변경될 때마다 checkInputValue 함수를 실행
+myInformationInput.addEventListener('input', checkInputValue);
 
-// // 유효성 검사
-// const urlTitle = document.getElementById("urlTitle");
-// const urlInput = document.getElementById("urlInput");
-// const urlLabel = document.getElementsByClassName("info6Label")[2];
-// const validationWrap = document.querySelector(".validationWrap");
-// const makeLinkBtn = document.querySelector(".flexEndBtn");
-//
-// urlLabel.addEventListener("click", () => {
-//     console.log("클릭됨");
-// });
-//
-// function updateValidationAndButton() {
-//     const title = urlTitle.value;
-//     const url = urlInput.value;
-//     const urlPattern = /^https?:\/\/(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}(?:\/\S*)?$/;
-//
-//     if (title !== "") {
-//         if (url == "") {
-//             validationWrap.style.display = "none";
-//             urlLabel.style.borderWith = "1px";
-//             urlLabel.style.borderColor = "rgba(0,0,0,.1)";
-//         } else if (urlPattern.test(url)) {
-//             validationWrap.style.display = "none";
-//             sdf;
-//             makeLinkBtn.style.backgroundColor = "#fda942";
-//             makeLinkBtn.style.color = "#fff";
-//             makeLinkBtn.style.cursor = "pointer";
-//             urlLabel.style.borderWith = "1px";
-//             urlLabel.style.borderColor = "rgba(0,0,0,.1)";
-//         } else {
-//             validationWrap.style.display = "block";
-//             urlLabel.style.borderWith = "2px";
-//             urlLabel.style.borderColor = "#eb4545";
-//         }
-//     } else {
-//         if (urlPattern.test(url) || url == "") {
-//             validationWrap.style.display = "none";
-//             makeLinkBtn.style.backgroundColor = "#f3f3f4";
-//             makeLinkBtn.style.color = "#b9b9bb";
-//             urlLabel.style.borderWith = "1px";
-//             urlLabel.style.borderColor = "rgba(0,0,0,.1)";
-//         } else {
-//             validationWrap.style.display = "block";
-//             makeLinkBtn.style.backgroundColor = "#f3f3f4";
-//             makeLinkBtn.style.color = "#b9b9bb";
-//             urlLabel.style.borderWith = "2px";
-//             urlLabel.style.borderColor = "#eb4545";
-//         }
-//     }
-// }
-//
-// urlInput.addEventListener("input", function () {
-//     updateValidationAndButton();
-// });
-// urlTitle.addEventListener("input", function () {
-//     updateValidationAndButton();
-// });
-//
-// // SNS계정 유효성 검사
-// const urlLabels = document.querySelectorAll(".info6LabelUrls");
-// const validationWrapUrls = document.querySelectorAll(".validationWrapUrls");
-//
-// // Define a function to validate URLs
-// function validateURL(url) {
-//     // Regular expression for a simple URL validation
-//     const urlPattern = /^(https?:\/\/)?([\w.]+)\.([a-z]{2,6}\.?)(\/[\w./]*)*\/?$/i;
-//     return urlPattern.test(url);
-// }
-//
-// // Loop through each label and add an event listener to the input field
-// urlLabels.forEach((label, index) => {
-//     const input = label.querySelector(".labelText");
-//
-//     input.addEventListener("input", () => {
-//         const urlValue = input.value.trim(); // Get trimmed value
-//
-//         if (urlValue === "") {
-//             validationWrapUrls[index].style.display = "none";
-//             label.style.borderWith = "1px";
-//             label.style.borderColor = "rgba(0,0,0,.1)";
-//         } else if (validateURL(urlValue)) {
-//             validationWrapUrls[index].style.display = "none";
-//             label.style.borderWith = "1px";
-//             label.style.borderColor = "rgba(0,0,0,.1)";
-//         } else {
-//             validationWrapUrls[index].style.display = "block";
-//             label.style.borderWith = "2px";
-//             label.style.borderColor = "#eb4545";
-//         }
-//     });
-// });
+checkInputValue();
 
 // updateInputAndValidation 함수를 전역 범위에 정의합니다.
 function updateInputAndValidation(inputElement) {
@@ -262,3 +159,52 @@ function updateNameAndValidation(inputElement) {
     }
 }
 
+// 수정버튼 클릭 시 form태그 사용
+function nullProfileUuid(){
+    let profileInput = document.createElement("input");
+    profileInput.name = "uuid";
+    profileInput.value = "";
+    profileInput.type = "hidden";
+    informationForm.append(profileInput);
+}
+
+function notNullProfileUuid(){
+    let profileInput = document.createElement("input");
+    profileInput.name = "uuid";
+    profileInput.value = profileUuid;
+    profileInput.type = "hidden";
+    informationForm.append(profileInput);
+}
+function nullBackgroundUuid(){
+    let backgroundInput = document.createElement("input");
+    backgroundInput.name = "uuid";
+    backgroundInput.value = "";
+    backgroundInput.type = "hidden";
+    informationForm.append(backgroundInput);
+}
+function notNullBackgroundUuid(){
+    let backgroundInput = document.createElement("input");
+    backgroundInput.name = "uuid";
+    backgroundInput.value = backgroundUuid;
+    backgroundInput.type = "hidden";
+    informationForm.append(backgroundInput);
+}
+
+myInfoDivBtn.addEventListener("click", () => {
+
+    if(profileUuid == null && backgroundUuid != null) {
+        nullProfileUuid();
+        notNullBackgroundUuid();
+    }else if(profileUuid != null && backgroundUuid == null) {
+        notNullProfileUuid();
+        nullBackgroundUuid();
+    }else if(profileUuid != null && backgroundUuid != null){
+        notNullProfileUuid();
+        notNullBackgroundUuid();
+    }else{
+        nullProfileUuid();
+        nullBackgroundUuid();
+    }
+
+    informationForm.submit();
+})
