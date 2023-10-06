@@ -1060,7 +1060,7 @@ ul {
     fill: #666667;
 }
 
-.profileModalBtns {
+.myPageBTN, .myInfoBTN, .messageBTN, .helpCenterBTN, .logoutBTN {
     padding-left: 20px;
     padding-right: 20px;
     text-align: left;
@@ -1079,7 +1079,7 @@ ul {
     background-color: #fff;
 }
 
-.profileModalBtns:hover {
+.myPageBTN:hover, .myInfoBTN:hover, .messageBTN:hover, .helpCenterBTN:hover, .logoutBTN:hover {
     background-color: #908f8f2d;
     border-radius: 4px;
 }

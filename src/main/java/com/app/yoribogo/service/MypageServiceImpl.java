@@ -11,5 +11,5 @@ public class MypageServiceImpl implements MypageService {
     private final MypageDAO mypageDAO;
 
     @Override
-    public void imageModify(MemberVO memberVO) { mypageDAO.save(memberVO); }
+    public void myinfoModify(MemberVO memberVO) { mypageDAO.save(memberVO); }
 }
