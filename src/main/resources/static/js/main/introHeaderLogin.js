@@ -76,7 +76,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
     });
 });
-const postButton=document.querySelector(".postButton");
-postButton.addEventListener("click",()=>{
-    window.location.href="http://localhost:10000/member/mainPost";
-})
+const viewNumber=document.querySelector(".viewNumber");
+const listBorder=document.querySelectorAll(".listBorder");
+viewNumber.innerText=listBorder.length;

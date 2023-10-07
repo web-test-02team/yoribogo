@@ -1,5 +1,6 @@
 package com.app.yoribogo.mapper;
 
+import com.app.yoribogo.domain.MemberDTO;
 import com.app.yoribogo.domain.MemberVO;
 import com.app.yoribogo.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,10 @@ public class MemberMapperTest {
         memberVO.setMemberEmail("test@gmail.com");
         memberVO.setMemberPassword("1234");
         memberMapper.selectByLogin(memberVO).map(MemberVO::toString).ifPresent(log::info);
+    }
+    @Test
+    public void selectId() {
+        memberMapper.selectIdJoin(61L).map(MemberVO::toString).ifPresent(log::info);
     }
 
 }

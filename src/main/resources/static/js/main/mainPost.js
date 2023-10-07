@@ -127,13 +127,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
     });
 });
-const introButton=document.querySelector(".introButton");
-introButton.addEventListener("click",()=>{
-    window.location.href="http://localhost:10000/member/introMain";
-})
+
 const viewBtns=document.querySelectorAll(".viewBtn");
 viewBtns.forEach((viewBtn)=>{
     viewBtn.addEventListener("click",()=>{
         sharingDIV.style.display = "block";
     });
 });
+const h3Element = document.querySelector("h3.h3None");
+h3Element.classList.add("h3None");
