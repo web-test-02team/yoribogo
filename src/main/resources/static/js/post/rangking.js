@@ -31,6 +31,7 @@
 // loginButton.addEventListener("click", () => {
 //     window.location.href = "";
 // })
+
 // 로그인후 클릭 하면 나오는 이벤트
 const navLogin=document.querySelector(".navLogin");
 const loginClick=document.querySelector(".loginClick");

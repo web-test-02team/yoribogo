@@ -28,4 +28,5 @@ public class PostRangkingController {
         model.addAttribute("posts", posts);
 
     }
+
 }

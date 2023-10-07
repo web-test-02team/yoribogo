@@ -1,5 +1,5 @@
-const loginButton = document.querySelector(".loginButton");
-const postWrite = document.querySelector(".postWrite");
+// const loginButton = document.querySelector(".loginButton");
+// const postWrite = document.querySelector(".postWrite");
 const mainPage = document.querySelector(".mainPage");
 const reviewPage = document.querySelector(".reviewPage");
 const filterBtn = document.getElementById("filterBtn");
@@ -15,20 +15,22 @@ const warningWindowWrap = document.querySelector(".warningWindowWrap")
 const warningWindow = document.querySelector(".warningWindow")
 
 // 로그인 버튼 클릭 시 로그인 화면으로 이동
-loginButton.addEventListener("click", () => {
-    window.location.href = "";
-})
-// 로그인후 클릭 하면 나오는 이벤트
+// loginButton.addEventListener("click", () => {
+//     window.location.href = "";
+// })
+
+// 로그인 후 클릭 하면 나오는 이벤트
 const navLogin=document.querySelector(".navLogin");
 const loginClick=document.querySelector(".loginClick");
 
-navLogin.addEventListener("click",()=>{
-    if(loginClick.style.display=='none'){
-        loginClick.style.display = 'block';
-    }else{
-        loginClick.style.display = 'none';
-    }
-})
+// navLogin.addEventListener("click",()=>{
+//     if(loginClick.style.display=='none'){
+//         loginClick.style.display = 'block';
+//     }else{
+//         loginClick.style.display = 'none';
+//     }
+// })
+
 //검색 버튼, x 버튼 클릭 이벤트
 const wrapNext=document.querySelector("#__next");
 const searchWrap=document.querySelector(".searchWrap")
@@ -41,18 +43,22 @@ function closeX(){
     searchWrap.style.display="none"
     wrapNext.style.display="block";
 }
+
 // postWrite 클릭 시 이동
-postWrite.addEventListener("click", () => {
-    window.location.href = "";
-})
+// postWrite.addEventListener("click", () => {
+//     window.location.href = "";
+// })
+
 // 메인 카테고리 클릭 시 메인 페이지로 이동
 mainPage.addEventListener("click", () => {
-    window.location.href = "";
+    window.location.href = "http://localhost:10000";
 })
+
 // 후기 카테고리 클릭 시 후기 페이지로 이동
 reviewPage.addEventListener("click", () => {
-    window.location.href = "";
+    window.location.href = "http://localhost:10000/post/reviewlist";
 })
+
 // 필턴 클릭 시 필터 모달창 표시
 filterBtn.addEventListener("click", () => {
     filterContainer.style.display = "block";
@@ -60,6 +66,7 @@ filterBtn.addEventListener("click", () => {
         checkStatuses[i] = catagoryInput.checked;
     })
 })
+
 // 회색면 클릭 시 필터 모달창 닫기 - 필터 모달창 닫히면서 전 상태로 돌리기
 filterWrap.addEventListener("click", () => {
     filterContainer.style.display = "none";
@@ -67,6 +74,7 @@ filterWrap.addEventListener("click", () => {
         catagoryInput.checked = checkStatuses[i];
     })
 })
+
 // 카테고리 클릭 시 최소2개 이상 선택 경고창 표시
 function showWarningAndResetCatagoryInput(catagoryInput) {
     warningWindowWrap.style.display = 'flex';

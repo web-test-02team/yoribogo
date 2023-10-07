@@ -645,9 +645,10 @@
 </body>
 <script th:inline="javascript">
     const member = [[${session.member}]];
-    console.log(member);
+    // console.log(member);
     const kakako=[[${kakao}]];
-
+    const post=[[${posts}]];
+    console.log(post);
 
     //마이페이지로 가기
     const postWrite = document.querySelector(".postWrite");
