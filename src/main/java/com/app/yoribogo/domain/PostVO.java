@@ -17,4 +17,5 @@ public class PostVO implements Serializable {
     private Long postCommentCount;
     private String memberId;
     private String categoryCId;
+    private boolean postStatus;
 }
