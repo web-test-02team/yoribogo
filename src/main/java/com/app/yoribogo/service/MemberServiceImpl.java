@@ -36,16 +36,26 @@ public class MemberServiceImpl implements MemberService {
                                 kakaoEmail != null && kakaoEmail.equals(member.getMemberKakaoEmail()) &&
                                 member.getMemberEmail() != null)) {
                     // 리스트에서 카카오 이메일과 일치하고, 멤버 이메일이 null인 경우
-                    log.info("음...");
-                    Long oldId = foundMember.get().getId();
-                    updateComment(oldId, id);
-                    updateLike(oldId, id);
-                    updatePurchase(oldId, id);
-                    updateById(oldId, id);
-                    memberVO.setId(id);
-                    delete(oldId);
-                    synchronize(memberVO);
-                    // 여기에 추가 작업을 수행하세요
+                    Long oldId = null; // 초기값을 null로 설정
+                    if (foundMember.isPresent()) { // foundMember가 비어 있지 않은 경우에만 oldId 설정
+                        oldId = foundMember.get().getId();
+                    }
+                    if (oldId != null) {
+                        log.info("카카오db에 있을때");
+                        updateComment(oldId, id);
+                        updateLike(oldId, id);
+                        updatePurchase(oldId, id);
+                        updateById(oldId, id);
+                        memberVO.setId(id);
+                        delete(oldId);
+                        synchronize(memberVO);
+                        return;
+                    } else {
+                        log.info("카카오이메일이 db에없을때");
+                        memberVO.setId(id);
+                        synchronize(memberVO);
+                        return;
+                    }
                 } else {
                     // 리스트에서 카카오 이메일과 일치하지 않거나, 멤버 이메일이 null이 아닌 경우
                     redirectAttributes.addFlashAttribute("kakao", false);
@@ -74,7 +84,6 @@ public class MemberServiceImpl implements MemberService {
             memberVO.setMemberLoginCode("YORIBOGO");
             memberDAO.save(memberVO);
         }
-
     }
 
 
@@ -140,5 +149,10 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public List<MemberDTO> findByMember(Long memberId) {
         return memberDAO.findByMember(memberId);
+    }
+
+    @Override
+    public Optional<MemberVO> selectById(Long id) {
+        return memberDAO.selectById(id);
     }
 }

@@ -639,7 +639,7 @@ ul{
     color: #333334;
     fill: #333334;
 }
-.postListFirst{
+#first{
     margin-top: 0;
     max-width: 720px;
     margin-left: auto;

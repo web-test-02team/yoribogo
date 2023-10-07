@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class MemberDTO {
-    private Long memberId;
+    private Long Id;
     private String memberName;
     private String memberBackgroundName;
     private String memberBackgroundPath;
@@ -21,4 +21,9 @@ public class MemberDTO {
     private Long postHits;
     private Long postLikeCount;
     private Long postCommentCount;
+    private String postFileName;
+    private String postFilePath;
+    private String postFileUuid;
+    private String categoryCName;
+    private String categoryBName;
 }
