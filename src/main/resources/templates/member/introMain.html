@@ -13,7 +13,10 @@
 <div>
     <div class="navBigImg">
       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-        <img src="/images/food/food19.png" sizes="100vw" decoding="async" data-nimg="fill" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;">
+     <img th:if="${memberId[0].memberBackgroundPath != null}" th:src="${memberId[0].memberBackgroundPath}" alt="이미지"
+          style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 100%; height: 100%; object-fit: cover;">
+    <img th:if="${memberId[0].memberBackgroundPath == null}" src="/images/mainFood/cover_default.png" alt="기본 이미지"
+     style="background-color: rgba(0, 0, 0, 0.2); width: 100%; height: 100%;">
       </span>
         <div class="hiddenDiv"></div>
     </div>
@@ -22,15 +25,14 @@
             <div class="pixel">
                 <div class="middleWrap">
                     <!-- 프로필 사진 경로도!! -->
-                    <div class="middleImg" style="background: url(/images/food/food19.png) center center / cover no-repeat, rgb(255, 255, 255);">
-                    </div>
+                    <div class="middleImg" th:style="'background: ' + (${memberId[0].memberBackgroundPath != null} ? 'url(' + ${memberId[0].memberBackgroundPath} + ') center center / cover no-repeat, rgb(255, 255, 255)' : 'url(/images/mainFood/avatar_default.png) center center / cover no-repeat, rgb(255, 255, 255);')"></div>
                     <div class="middleContent">
-                        <p class="bigGeul" th:text="${sessionMember != null && sessionMember.size() > 0 ? sessionMember[0].memberName : (memberId != null && memberId.size() > 0 ? memberId[0].memberName : '기본값')}">생방송 요리보고!</p>
+                        <p class="bigGeul" th:text="${memberId[0].memberName}">생방송 요리보고!</p>
                         <div class="middleView">
-                            <span class="viewCon">
-                              <strong class="viewNumber"  th:text="${sessionMember != null && sessionMember.size() > 0 ? sessionMember[0].postHits : (memberId != null && memberId.size() > 0 ? memberId[0].postHits : '0')}" >346</strong>
-                              조회수
-                            </span>
+<!--                            <span class="viewCon">-->
+<!--                              <strong class="viewNumber">346</strong>-->
+<!--                              조회수-->
+<!--                            </span>-->
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgTeum">
                                 <circle cx="12" cy="12" r="4">
                                 </circle>
@@ -83,24 +85,23 @@
                         <p>
                            소개글을 써주세요 <br>
                         </p>
-                        <p>&nbsp;</p>
-                        <p>
-                            ♡구독을 하시면 저와 소통을 하실 수 있고 저의 다양한 음식을 시식할(맛보실)수 있습니다. <br>
-                            ♡현재 진행되고 있는
-                            <strong>월 멤버쉽 멤버 구독은&nbsp;09월 30일 오후 10시까지만 받고</strong>
-                            월 멤버쉽<strong>가입 기간이 종료</strong>됩니다!<br>
-                            ※ 이번 '오늘의 요리'로 선정된 레시피와 추가로 올라갈 다른 음식의 레시피까지 1+1으로 받고 싶으시다면
-                            <strong>09월 30일 오후 10시 전까지 멤버쉽 구독 부탁드립니다.</strong>
-                            <br>
-                            <strong>이번 '오늘의 요리'로 올라갈 레시피들은 월 구독이 아닌 레시피 1건당 구매로 진행</strong>
-                            예정이며,&nbsp;어떤 레시피가 올라갈지 미리 사진으로 공개됩니다!
-                        </p>
-                        <p>&nbsp;</p>
-                        <p>얼마나 입안 가득 풍미가 느껴지는 음식의 레시피가 올라올지 기대되지 않나요?<br>
-                            음식점 사장님들과 앞으로도 콜라보를 함께 할 수 있기를 바라봅니다.
-                        </p>
-                        <p>&nbsp;</p>
-                        <p>🚫창의적 레시피는 도용금지입니다.</p>
+<!--                        <p>&nbsp;</p>-->
+<!--                        <p>-->
+<!--                            ♡구독을 하시면 저와 소통을 하실 수 있고 저의 다양한 음식을 시식할(맛보실)수 있습니다. <br>-->
+<!--                            ♡현재 진행되고 있는-->
+<!--                            <strong>월 멤버쉽 멤버 구독은&nbsp;09월 30일 오후 10시까지만 받고</strong>-->
+<!--                            월 멤버쉽<strong>가입 기간이 종료</strong>됩니다!<br>-->
+<!--                            ※ 이번 '오늘의 요리'로 선정된 레시피와 추가로 올라갈 다른 음식의 레시피까지 1+1으로 받고 싶으시다면-->
+<!--                            <strong>09월 30일 오후 10시 전까지 멤버쉽 구독 부탁드립니다.</strong>-->
+<!--                            <br>-->
+<!--                            <strong>이번 '오늘의 요리'로 올라갈 레시피들은 월 구독이 아닌 레시피 1건당 구매로 진행</strong>-->
+<!--                            예정이며,&nbsp;어떤 레시피가 올라갈지 미리 사진으로 공개됩니다!-->
+<!--                        </p>-->
+<!--                        <p>&nbsp;</p>-->
+<!--                        <p>얼마나 입안 가득 풍미가 느껴지는 음식의 레시피가 올라올지 기대되지 않나요?<br>-->
+<!--                            음식점 사장님들과 앞으로도 콜라보를 함께 할 수 있기를 바라봅니다.-->
+<!--                        </p>-->
+<!--                        <p>🚫창의적 레시피는 도용금지입니다.</p>-->
                     </div>
                     <div type="button" class="emptySpace"></div>
                 </div>
@@ -109,13 +110,15 @@
             <h4 class="recentPost">
                 <div class="recentPostLine">
                     <span>최근 포스트</span>
-                    <a href="http://localhost:10000/member/mainPost" class="viewAll">전체보기</a>
+                    <a th:href="@{'/member/mainPost?id=' + ${memberId[0].id}}" class="viewAll">전체보기</a>
                 </div>
             </h4>
+            <th:block th:if="${#lists.size(memberId) != 0}">
             <ul class="listArea">
                 <ul class="postList">
                     <div class="line">
-                        <li class="listBorder">
+                        <th:block th:each="post,index :${memberId}">
+                        <li class="listBorder" >
                             <div>
                                 <button type="button" class="paidMember">
                                     <div class="paidMemberline">
@@ -128,12 +131,13 @@
                                             </svg>
                                             <span class="paidMemberButton">유료회원공개</span>
                                           </div> -->
-                                            <h2 class="paidMemberHidden">마라탕&마라샹궈</h2>
-                                            <p class="contentBox">화끈한 마라탕 함께 만들어봐요!</p>
+                                            <h2 th:text="${post.postTitle}" class="paidMemberHidden">마라탕&마라샹궈</h2>
+                                            <p th:text="${post.postContent}" class="contentBox">화끈한 마라탕 함께 만들어봐요!</p>
                                         </div>
                                         <div class="hiddenImage">
                                             <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                                                 <img alt="" src="/images/food/food21.png" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                                <img alt="" th:if="${post.postFilePath != null}" th:src="${post.postFilePath}" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 100%; height: 100%; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                                <img alt="" th:if="${post.postFilePath == null}" src="" style="display: none;">
                                             </span>
                                             <!-- <div class="lockImageArea">
                                               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="lock">
@@ -148,176 +152,180 @@
                                         <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">
                                         </div>
                                         <div class="nickName">
-                                            <span class="nickNameContent">푸딩</span>
+                                            <span class="nickNameContent" th:text="*{post.memberName}">푸딩</span>
                                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
                                                 <circle cx="12" cy="12" r="4"></circle>
                                             </svg>
-                                            <span class="content">10일 전</span>
+                                            <span class="content" th:text="${daysAgo[index.index]}">10일 전</span>
                                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
                                                 <circle cx="12" cy="12" r="4"></circle>
                                             </svg>
-                                            <span class="content">조회수 100</span>
+                                            <span class="content" th:text="'조회수 ' +${post.postCommentCount}">조회수 100</span>
                                         </div>
                                     </div>
                                 </button>
                             </div>
                         </li>
-                        <li class="listBorder">
-                            <div>
-                                <button type="button" class="freeMember">
-                                    <div class="freeMemberLine">
-                                        <div class="freeMemberText">
-                                            <h2 class="hiddenTitile">흔하지만 은근 맛을 내기 어려운 김치찌개</h2>
-                                            <p class="contentBox">
-                                                우리 일상에서 김치를 빼놓을 순 없죠!!! 마찬가지로 김치를 이용한 음식인 김치찌개 역시 자주
-                                                접하게 되는 음식인데요~ <br>흔하지만 쉽게 감칠맛 나는 김치찌개를 끓이는 것이 은근히
-                                                어렵습니다. <br>감칠맛은 있지만 조미료를 많이 사용하지 않은 김치찌개 레시피를 공유하려고 합니다.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="nickNameLine">
-                                        <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">
-                                        </div>
-                                        <div class="nickName">
-                                            <span class="nickNameContent">푸딩</span>
-                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
-                                                <circle cx="12" cy="12" r="4"></circle>
-                                            </svg>
-                                            <span class="content">14일 전</span>
-                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
-                                                <circle cx="12" cy="12" r="4"></circle>
-                                            </svg>
-                                            <span class="content">조회수 303</span>
-                                        </div>
-                                    </div>
-                                </button>
-                            </div>
-                        </li>
-                        <li class="listBorder">
-                            <div>
-                                <button type="button" class="paidMember">
-                                    <div class="paidMemberline">
-                                        <div class="paidMemberText">
-                                            <!-- <div class="paidMemberBox">
-                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="memberPaid">
-                                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M4 12.9a3.6 3.6 0 0 1 3.3-3.588V7.4a4.7 4.7 0 0 1 9.4 0v1.912a3.6 3.6 0 0 1 3.3 3.587v4.8a3.6 3.6 0 0 1-3.6 3.6H7.6A3.6 3.6 0 0 1 4 17.7v-4.8Zm10.9-5.5v1.9H9.1V7.4a2.9 2.9 0 0 1 5.8 0Zm-2.1 7a.8.8 0 0 0-1.6 0v1.4a.8.8 0 0 0 1.6 0v-1.4Z">
-                                              </path>
-                                            </svg>
-                                            <span class="paidMemberButton">유료회원공개</span>
-                                          </div> -->
-                                            <h2 class="paidMemberHidden">쌀국수&팟타이</h2>
-                                            <p class="contentBox">새콤달콤 짭조름한 팟타이와 담백한 쌀국수 레시피</p>
-                                        </div>
-                                        <div class="hiddenImage">
-                          <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                              <img alt="" src="/images/food/food22.png" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                          </span>
-                                            <!-- <div class="lockImageArea">
-                                              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="lock">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                  d="M4 12.9a3.6 3.6 0 0 1 3.3-3.588V7.4a4.7 4.7 0 0 1 9.4 0v1.912a3.6 3.6 0 0 1 3.3 3.587v4.8a3.6 3.6 0 0 1-3.6 3.6H7.6A3.6 3.6 0 0 1 4 17.7v-4.8Zm10.9-5.5v1.9H9.1V7.4a2.9 2.9 0 0 1 5.8 0Zm-2.1 7a.8.8 0 0 0-1.6 0v1.4a.8.8 0 0 0 1.6 0v-1.4Z">
-                                                </path>
-                                              </svg>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                    <div class="nickNameLine">
-                                        <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">
-                                        </div>
-                                        <div class="nickName">
-                                            <span class="nickNameContent">푸딩</span>
-                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
-                                                <circle cx="12" cy="12" r="4"></circle>
-                                            </svg>
-                                            <span class="content">17일 전</span>
-                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
-                                                <circle cx="12" cy="12" r="4"></circle>
-                                            </svg>
-                                            <span class="content">조회수 97</span>
-                                        </div>
-                                    </div>
-                                </button>
-                            </div>
-                        </li>
-                        <li class="listBorder">
-                            <div>
-                                <button type="button" class="freeMember">
-                                    <div class="freeMemberLine">
-                                        <div class="freeMemberText">
-                                            <h2 class="hiddenTitile">흔하지만 은근 맛을 내기 어려운 김치찌개</h2>
-                                            <p class="contentBox">
-                                                우리 일상에서 김치를 빼놓을 순 없죠!!! 마찬가지로 김치를 이용한 음식인 김치찌개 역시 자주
-                                                접하게 되는 음식인데요~ <br>흔하지만 쉽게 감칠맛 나는 김치찌개를 끓이는 것이 은근히
-                                                어렵습니다. <br>감칠맛은 있지만 조미료를 많이 사용하지 않은 김치찌개 레시피를 공유하려고 합니다.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="nickNameLine">
-                                        <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">
-                                        </div>
-                                        <div class="nickName">
-                                            <span class="nickNameContent">푸딩</span>
-                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
-                                                <circle cx="12" cy="12" r="4"></circle>
-                                            </svg>
-                                            <span class="content">20일 전</span>
-                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
-                                                <circle cx="12" cy="12" r="4"></circle>
-                                            </svg>
-                                            <span class="content">조회수 197</span>
-                                        </div>
-                                    </div>
-                                </button>
-                            </div>
-                        </li>
-                        <button type="button" class="paidMember">
-                            <div class="paidMemberline">
-                                <div class="paidMemberText">
-                                    <!-- <div class="paidMemberBox">
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="memberPaid">
-                                          <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M4 12.9a3.6 3.6 0 0 1 3.3-3.588V7.4a4.7 4.7 0 0 1 9.4 0v1.912a3.6 3.6 0 0 1 3.3 3.587v4.8a3.6 3.6 0 0 1-3.6 3.6H7.6A3.6 3.6 0 0 1 4 17.7v-4.8Zm10.9-5.5v1.9H9.1V7.4a2.9 2.9 0 0 1 5.8 0Zm-2.1 7a.8.8 0 0 0-1.6 0v1.4a.8.8 0 0 0 1.6 0v-1.4Z">
-                                          </path>
-                                        </svg>
-                                        <span class="paidMemberButton">유료회원공개</span>
-                                      </div> -->
-                                    <h2 class="paidMemberHidden">쌀국수&팟타이</h2>
-                                    <p class="contentBox">새콤달콤 짭조름한 팟타이와 담백한 쌀국수 레시피</p>
-                                </div>
-                                <div class="hiddenImage">
-                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-                            <img alt="" src="/images/food/food22.png" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
-                        </span>
-                                    <!-- <div class="lockImageArea">
-                                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="lock">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                          d="M4 12.9a3.6 3.6 0 0 1 3.3-3.588V7.4a4.7 4.7 0 0 1 9.4 0v1.912a3.6 3.6 0 0 1 3.3 3.587v4.8a3.6 3.6 0 0 1-3.6 3.6H7.6A3.6 3.6 0 0 1 4 17.7v-4.8Zm10.9-5.5v1.9H9.1V7.4a2.9 2.9 0 0 1 5.8 0Zm-2.1 7a.8.8 0 0 0-1.6 0v1.4a.8.8 0 0 0 1.6 0v-1.4Z">
-                                        </path>
-                                      </svg>
-                                    </div> -->
-                                </div>
-                            </div>
-                            <div class="nickNameLine">
-                                <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">
-                                </div>
-                                <div class="nickName">
-                                    <span class="nickNameContent">푸딩</span>
-                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
-                                        <circle cx="12" cy="12" r="4"></circle>
-                                    </svg>
-                                    <span class="content">17일 전</span>
-                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
-                                        <circle cx="12" cy="12" r="4"></circle>
-                                    </svg>
-                                    <span class="content">조회수 97</span>
-                                </div>
-                            </div>
-                        </button>
+                        </th:block>
+                        <th:block th:unless="${#lists.size(memberId) != 0}">
+                        </th:block>
+<!--                        <li class="listBorder">-->
+<!--                            <div>-->
+<!--                                <button type="button" class="freeMember">-->
+<!--                                    <div class="freeMemberLine">-->
+<!--                                        <div class="freeMemberText">-->
+<!--                                            <h2 class="hiddenTitile">흔하지만 은근 맛을 내기 어려운 김치찌개</h2>-->
+<!--                                            <p class="contentBox">-->
+<!--                                                우리 일상에서 김치를 빼놓을 순 없죠!!! 마찬가지로 김치를 이용한 음식인 김치찌개 역시 자주-->
+<!--                                                접하게 되는 음식인데요~ <br>흔하지만 쉽게 감칠맛 나는 김치찌개를 끓이는 것이 은근히-->
+<!--                                                어렵습니다. <br>감칠맛은 있지만 조미료를 많이 사용하지 않은 김치찌개 레시피를 공유하려고 합니다.-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="nickNameLine">-->
+<!--                                        <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">-->
+<!--                                        </div>-->
+<!--                                        <div class="nickName">-->
+<!--                                            <span class="nickNameContent">푸딩</span>-->
+<!--                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">-->
+<!--                                                <circle cx="12" cy="12" r="4"></circle>-->
+<!--                                            </svg>-->
+<!--                                            <span class="content">14일 전</span>-->
+<!--                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">-->
+<!--                                                <circle cx="12" cy="12" r="4"></circle>-->
+<!--                                            </svg>-->
+<!--                                            <span class="content">조회수 303</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <li class="listBorder">-->
+<!--                            <div>-->
+<!--                                <button type="button" class="paidMember">-->
+<!--                                    <div class="paidMemberline">-->
+<!--                                        <div class="paidMemberText">-->
+<!--                                            &lt;!&ndash; <div class="paidMemberBox">-->
+<!--                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="memberPaid">-->
+<!--                                              <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                                d="M4 12.9a3.6 3.6 0 0 1 3.3-3.588V7.4a4.7 4.7 0 0 1 9.4 0v1.912a3.6 3.6 0 0 1 3.3 3.587v4.8a3.6 3.6 0 0 1-3.6 3.6H7.6A3.6 3.6 0 0 1 4 17.7v-4.8Zm10.9-5.5v1.9H9.1V7.4a2.9 2.9 0 0 1 5.8 0Zm-2.1 7a.8.8 0 0 0-1.6 0v1.4a.8.8 0 0 0 1.6 0v-1.4Z">-->
+<!--                                              </path>-->
+<!--                                            </svg>-->
+<!--                                            <span class="paidMemberButton">유료회원공개</span>-->
+<!--                                          </div> &ndash;&gt;-->
+<!--                                            <h2 class="paidMemberHidden">쌀국수&팟타이</h2>-->
+<!--                                            <p class="contentBox">새콤달콤 짭조름한 팟타이와 담백한 쌀국수 레시피</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="hiddenImage">-->
+<!--                          <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">-->
+<!--                              <img alt="" src="/images/food/food22.png" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">-->
+<!--                          </span>-->
+<!--                                            &lt;!&ndash; <div class="lockImageArea">-->
+<!--                                              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="lock">-->
+<!--                                                <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                                  d="M4 12.9a3.6 3.6 0 0 1 3.3-3.588V7.4a4.7 4.7 0 0 1 9.4 0v1.912a3.6 3.6 0 0 1 3.3 3.587v4.8a3.6 3.6 0 0 1-3.6 3.6H7.6A3.6 3.6 0 0 1 4 17.7v-4.8Zm10.9-5.5v1.9H9.1V7.4a2.9 2.9 0 0 1 5.8 0Zm-2.1 7a.8.8 0 0 0-1.6 0v1.4a.8.8 0 0 0 1.6 0v-1.4Z">-->
+<!--                                                </path>-->
+<!--                                              </svg>-->
+<!--                                            </div> &ndash;&gt;-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="nickNameLine">-->
+<!--                                        <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">-->
+<!--                                        </div>-->
+<!--                                        <div class="nickName">-->
+<!--                                            <span class="nickNameContent">푸딩</span>-->
+<!--                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">-->
+<!--                                                <circle cx="12" cy="12" r="4"></circle>-->
+<!--                                            </svg>-->
+<!--                                            <span class="content">17일 전</span>-->
+<!--                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">-->
+<!--                                                <circle cx="12" cy="12" r="4"></circle>-->
+<!--                                            </svg>-->
+<!--                                            <span class="content">조회수 97</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <li class="listBorder">-->
+<!--                            <div>-->
+<!--                                <button type="button" class="freeMember">-->
+<!--                                    <div class="freeMemberLine">-->
+<!--                                        <div class="freeMemberText">-->
+<!--                                            <h2 class="hiddenTitile">흔하지만 은근 맛을 내기 어려운 김치찌개</h2>-->
+<!--                                            <p class="contentBox">-->
+<!--                                                우리 일상에서 김치를 빼놓을 순 없죠!!! 마찬가지로 김치를 이용한 음식인 김치찌개 역시 자주-->
+<!--                                                접하게 되는 음식인데요~ <br>흔하지만 쉽게 감칠맛 나는 김치찌개를 끓이는 것이 은근히-->
+<!--                                                어렵습니다. <br>감칠맛은 있지만 조미료를 많이 사용하지 않은 김치찌개 레시피를 공유하려고 합니다.-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="nickNameLine">-->
+<!--                                        <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">-->
+<!--                                        </div>-->
+<!--                                        <div class="nickName">-->
+<!--                                            <span class="nickNameContent">푸딩</span>-->
+<!--                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">-->
+<!--                                                <circle cx="12" cy="12" r="4"></circle>-->
+<!--                                            </svg>-->
+<!--                                            <span class="content">20일 전</span>-->
+<!--                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">-->
+<!--                                                <circle cx="12" cy="12" r="4"></circle>-->
+<!--                                            </svg>-->
+<!--                                            <span class="content">조회수 197</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <button type="button" class="paidMember">-->
+<!--                            <div class="paidMemberline">-->
+<!--                                <div class="paidMemberText">-->
+<!--                                    &lt;!&ndash; <div class="paidMemberBox">-->
+<!--                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="memberPaid">-->
+<!--                                          <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                            d="M4 12.9a3.6 3.6 0 0 1 3.3-3.588V7.4a4.7 4.7 0 0 1 9.4 0v1.912a3.6 3.6 0 0 1 3.3 3.587v4.8a3.6 3.6 0 0 1-3.6 3.6H7.6A3.6 3.6 0 0 1 4 17.7v-4.8Zm10.9-5.5v1.9H9.1V7.4a2.9 2.9 0 0 1 5.8 0Zm-2.1 7a.8.8 0 0 0-1.6 0v1.4a.8.8 0 0 0 1.6 0v-1.4Z">-->
+<!--                                          </path>-->
+<!--                                        </svg>-->
+<!--                                        <span class="paidMemberButton">유료회원공개</span>-->
+<!--                                      </div> &ndash;&gt;-->
+<!--                                    <h2 class="paidMemberHidden">쌀국수&팟타이</h2>-->
+<!--                                    <p class="contentBox">새콤달콤 짭조름한 팟타이와 담백한 쌀국수 레시피</p>-->
+<!--                                </div>-->
+<!--                                <div class="hiddenImage">-->
+<!--                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">-->
+<!--                            <img alt="" src="/images/food/food22.png" decoding="async" data-nimg="fill" class="mosaicImage" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">-->
+<!--                        </span>-->
+<!--                                    &lt;!&ndash; <div class="lockImageArea">-->
+<!--                                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="lock">-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                          d="M4 12.9a3.6 3.6 0 0 1 3.3-3.588V7.4a4.7 4.7 0 0 1 9.4 0v1.912a3.6 3.6 0 0 1 3.3 3.587v4.8a3.6 3.6 0 0 1-3.6 3.6H7.6A3.6 3.6 0 0 1 4 17.7v-4.8Zm10.9-5.5v1.9H9.1V7.4a2.9 2.9 0 0 1 5.8 0Zm-2.1 7a.8.8 0 0 0-1.6 0v1.4a.8.8 0 0 0 1.6 0v-1.4Z">-->
+<!--                                        </path>-->
+<!--                                      </svg>-->
+<!--                                    </div> &ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="nickNameLine">-->
+<!--                                <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">-->
+<!--                                </div>-->
+<!--                                <div class="nickName">-->
+<!--                                    <span class="nickNameContent">푸딩</span>-->
+<!--                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">-->
+<!--                                        <circle cx="12" cy="12" r="4"></circle>-->
+<!--                                    </svg>-->
+<!--                                    <span class="content">17일 전</span>-->
+<!--                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">-->
+<!--                                        <circle cx="12" cy="12" r="4"></circle>-->
+<!--                                    </svg>-->
+<!--                                    <span class="content">조회수 97</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </button>-->
                     </div>
                 </ul>
                 <div class="borderLine"></div>
             </ul>
+            </th:block>
         </div>
         <div class="socialMediaBox">
             <h4 class="socialMediaTextLine">소셜 미디어</h4>
@@ -411,7 +419,7 @@
 </body>
     <script th:inline="javascript">
         const memberId=[[${memberId}]];
-        console.log(memberId);
+        console.log(memberId[0].id);
         const member = [[${session.member}]];
         if (member!==null) {
         const navLogin = document.querySelector(".loginImg");
@@ -437,6 +445,13 @@
         window.location.href = "http://localhost:10000/member/login";
     })
     }
+        const postButton=document.querySelector(".postButton");
+        postButton.addEventListener("click",()=>{
+            const memberId=[[${memberId}]];
+
+            const id=memberId[0].id;
+            window.location.href="http://localhost:10000/member/mainPost?id="+id;
+        })
 </script>
 <script src="/js/main/introHeaderLogin.js"></script>
 </html>
