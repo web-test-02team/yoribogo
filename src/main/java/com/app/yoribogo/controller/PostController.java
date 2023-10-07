@@ -25,9 +25,6 @@ public class PostController {
     @GetMapping("write")
     public void goToWrite() {;}
 
-    @GetMapping("recipelist")
-    public void goToRecipeList() {;}
-
     @GetMapping("reviewlist")
 
     public void goToReviewList(Model model) {
@@ -35,7 +32,7 @@ public class PostController {
         List<PostDTO> posts=postService.getByReview();
         model.addAttribute("posts",posts);
 
-        }
+    }
 
 
 }

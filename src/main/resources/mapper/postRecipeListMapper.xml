@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.yoribogo.mapper.PostRecipeListMapper">
+    <select id="selectByRecipeListFree" resultType="postDTO">
+        SELECT P.POST_TITLE, P.POST_CONTENT, P.POST_LIKE_COUNT, P.POST_COMMENT_COUNT,
+               '무료' AS CATEGORY_B_NAME, M.MEMBER_NAME
+        FROM TBL_POST P
+                JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
+                JOIN TBL_CATEGORY_C CC ON P.CATEGORY_C_ID = CC.ID
+                JOIN TBL_CATEGORY_B CB ON CC.CATEGORY_B_ID = CB.ID AND CB.CATEGORY_B_NAME = '무료'
+                JOIN TBL_CATEGORY_A CA ON CB.CATEGORY_A_ID = CA.ID
+        ORDER BY P.POST_DATE DESC
+    </select>
+
+    <select id="selectByRecipeList" resultType="postDTO">
+        SELECT P.POST_TITLE, P.POST_CONTENT, P.POST_LIKE_COUNT, P.POST_COMMENT_COUNT,
+               '유료' AS CATEGORY_B_NAME, M.MEMBER_NAME
+        FROM TBL_POST P
+                 JOIN TBL_MEMBER M ON P.MEMBER_ID = M.ID
+                 JOIN TBL_CATEGORY_C CC ON P.CATEGORY_C_ID = CC.ID
+                 JOIN TBL_CATEGORY_B CB ON CC.CATEGORY_B_ID = CB.ID AND CB.CATEGORY_B_NAME = '유료'
+                 JOIN TBL_CATEGORY_A CA ON CB.CATEGORY_A_ID = CA.ID
+        ORDER BY P.POST_DATE DESC
+    </select>
+
+<!--    <update id="updatePostHits">-->
+<!--        UPDATE TBL_POST P-->
+<!--        SET POST_HITS= POST_HITS + 1-->
+<!--        WHERE P.ID=#{id}-->
+<!--    </update>-->
+</mapper>
