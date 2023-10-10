@@ -76,6 +76,4 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
     });
 });
-const viewNumber=document.querySelector(".viewNumber");
-const listBorder=document.querySelectorAll(".listBorder");
-viewNumber.innerText=listBorder.length;
+

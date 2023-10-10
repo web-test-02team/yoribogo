@@ -67,4 +67,12 @@ public class MemberDAO {
     public Optional<MemberVO> selectById (Long id){
         return memberMapper.selectIdJoin(id);
     }
+    public void  increaseLikeCount(Long id){
+        memberMapper.increaseLikeCount(id);
+    }
+
+    public void decreaseLikeCount(Long id){
+        memberMapper.decreaseLikeCount(id);
+    }
+
 }
