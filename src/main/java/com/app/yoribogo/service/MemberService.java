@@ -38,4 +38,8 @@ public interface MemberService {
     public void updateComment(Long oldMemberId,Long newMemberId);
 
     public List<MemberDTO> findByMember(Long id);
+
+    public Optional<MemberVO> selectById(Long id);
+
+    public void  toggleLikeStatus(Long id);
 }

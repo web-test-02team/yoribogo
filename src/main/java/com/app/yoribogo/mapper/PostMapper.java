@@ -1,7 +1,6 @@
 package com.app.yoribogo.mapper;
 
 import com.app.yoribogo.domain.PostDTO;
-import com.app.yoribogo.domain.PostVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

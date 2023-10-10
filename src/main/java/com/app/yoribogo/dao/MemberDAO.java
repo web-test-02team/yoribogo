@@ -60,7 +60,19 @@ public class MemberDAO {
     public void updateComment(Long oldMemberId,Long newMemberId){
         memberMapper.updateComment(oldMemberId,newMemberId);
     }
-    public List<MemberDTO> findByMember(Long memberId){
-        return memberMapper.select(memberId);
+    public List<MemberDTO> findByMember(Long id){
+        return memberMapper.select(id);
     }
+
+    public Optional<MemberVO> selectById (Long id){
+        return memberMapper.selectIdJoin(id);
+    }
+    public void  increaseLikeCount(Long id){
+        memberMapper.increaseLikeCount(id);
+    }
+
+    public void decreaseLikeCount(Long id){
+        memberMapper.decreaseLikeCount(id);
+    }
+
 }

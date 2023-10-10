@@ -32,72 +32,96 @@ closeBTN.addEventListener("click", () => {
 // const kakaoBtn=document.querySelector(".kakaoBtn");
 
 //하트 댓글
-const likeButtons = document.querySelectorAll(".likeBTN");
+// const likeButtons = document.querySelectorAll(".likeBTN");
+//
+// const likeButtons = document.querySelectorAll(".likeButton");
 
-likeButtons.forEach((likeBTN) => {
-    const likeImageNone = likeBTN.querySelector(".likeImageNone");
-    const likeImageYes = likeBTN.querySelector(".likeImageYes");
-    const likeCount = likeBTN.querySelector(".likeCount");
-    let count = 0;
+// likeButtons.forEach((likeBTN) => {
+//     const likeImageNone = likeBTN.querySelector(".likeImageNone");
+//     const likeImageYes = likeBTN.querySelector(".likeImageYes");
+//     const likeCount = likeBTN.querySelector(".likeCount");
+//     let count = 0;
+//     let isLiked = false;
+//
+//     likeBTN.addEventListener("click", () => {
+//         if (isLiked) {
+//             likeImageNone.style.display = 'block';
+//             likeImageYes.style.display = 'none';
+//             count--;
+//         } else {
+//             likeImageNone.style.display = 'none';
+//             likeImageYes.style.display = 'block';
+//             count++;
+//         }
+//         likeCount.textContent = count;
+//         isLiked = !isLiked; // 좋아요 상태를 토글합니다.
+//
+//         // 여기서 서버에 좋아요 업데이트 요청을 보낼 수 있습니다.
+//         // 예를 들어, fetch API를 사용하여 서버에 업데이트 요청을 보내면 됩니다.
+//         fetch('/member/like', {
+//             method: 'POST',
+//             body: JSON.stringify({ postId: postId }), // postId 등을 전달
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             // 서버 응답 처리
+//         })
+//         .catch(error => {
+//             // 오류 처리
+//         });
+//     });
+// });
 
-    likeBTN.addEventListener("click", () => {
-        if (likeImageNone.style.display === 'none') {
-            likeImageNone.style.display = 'block';
-            likeImageYes.style.display = 'none';
-            if (count > 0) {
-                count--;
-            }
-            likeCount.textContent = count;
-        } else {
-            likeImageNone.style.display = 'none';
-            likeImageYes.style.display = 'block';
-            count++;
-            likeCount.textContent = count;
-        }
-    });
-});
 
-//공유 창
 
-// 모든 viweType 버튼과 clickView 요소를 선택합니다.
-const viweTypeButtons = document.querySelectorAll(".viweType");
-const clickViewDivs = document.querySelectorAll(".clickView");
 
-// 모든 viweType 버튼에 대한 클릭 이벤트 핸들러를 등록합니다.
-viweTypeButtons.forEach(button => {
-    button.addEventListener("click", function(event) {
-        // 클릭한 viweType 버튼의 data-target 속성 값을 가져옵니다.
-        const targetId = button.dataset.target;
 
-        // 가져온 targetId를 사용하여 clickView 요소를 찾습니다.
-        const targetElement = document.getElementById(targetId);
 
-        // 다른 모든 clickView 요소를 숨깁니다.
-        clickViewDivs.forEach(div => {
-            if (div !== targetElement) {
-                div.style.display = "none";
-            }
-        });
 
-        // 클릭한 요소가 이미 보이는 상태라면 닫습니다.
-        if (targetElement.style.display === "block") {
-            targetElement.style.display = "none";
-        } else {
-            targetElement.style.display = "block";
-        }
+    //공유 창
 
-        // 이벤트 버블링을 중지합니다.
-        event.stopPropagation();
-    });
-});
-
-// 전체 문서에 클릭 이벤트 핸들러를 등록합니다.
-document.addEventListener("click", function() {
-    // 모든 clickView 요소를 숨깁니다.
-    clickViewDivs.forEach(div => {
-        div.style.display = "none";
-    });
-});
+// // 모든 viweType 버튼과 clickView 요소를 선택합니다.
+// const viweTypeButtons = document.querySelectorAll(".viweType");
+// const clickViewDivs = document.querySelectorAll(".clickView");
+//
+// // 모든 viweType 버튼에 대한 클릭 이벤트 핸들러를 등록합니다.
+// viweTypeButtons.forEach(button => {
+//     button.addEventListener("click", function(event) {
+//         // 클릭한 viweType 버튼의 data-target 속성 값을 가져옵니다.
+//         const targetId = button.dataset.target;
+//
+//         // 가져온 targetId를 사용하여 clickView 요소를 찾습니다.
+//         const targetElement = document.getElementById(targetId);
+//
+//         // 다른 모든 clickView 요소를 숨깁니다.
+//         clickViewDivs.forEach(div => {
+//             if (div !== targetElement) {
+//                 div.style.display = "none";
+//             }
+//         });
+//
+//         // 클릭한 요소가 이미 보이는 상태라면 닫습니다.
+//         if (targetElement.style.display === "block") {
+//             targetElement.style.display = "none";
+//         } else {
+//             targetElement.style.display = "block";
+//         }
+//
+//         // 이벤트 버블링을 중지합니다.
+//         event.stopPropagation();
+//     });
+// });
+//
+// // 전체 문서에 클릭 이벤트 핸들러를 등록합니다.
+// document.addEventListener("click", function() {
+//     // 모든 clickView 요소를 숨깁니다.
+//     clickViewDivs.forEach(div => {
+//         div.style.display = "none";
+//     });
+// });
 
 //댓글창으로 이동 !!
 //const replyBTN = document.querySelector(".replyBTN")
@@ -127,13 +151,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
     });
 });
-const introButton=document.querySelector(".introButton");
-introButton.addEventListener("click",()=>{
-    window.location.href="http://localhost:10000/member/introMain";
-})
+
 const viewBtns=document.querySelectorAll(".viewBtn");
 viewBtns.forEach((viewBtn)=>{
     viewBtn.addEventListener("click",()=>{
         sharingDIV.style.display = "block";
     });
 });
+const h3Element = document.querySelector("h3.h3None");
+h3Element.classList.add("h3None");

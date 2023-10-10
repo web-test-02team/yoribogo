@@ -21,7 +21,7 @@
         </select>
 
         <select id="selectByEmail" resultType="memberVO">
-                SELECT ID, MEMBER_EMAIL, MEMBER_PASSWORD
+                SELECT ID, MEMBER_EMAIL, MEMBER_PASSWORD,MEMBER_Name
                 FROM TBL_MEMBER
                 WHERE MEMBER_EMAIL = #{memberEmail}
         </select>
@@ -56,7 +56,7 @@
         </update>
 
         <select id="kakaEmail" resultType="memberVO">
-                SELECT ID,MEMBER_KAKAO_EMAIL ,MEMBER_EMAIL FROM TBL_MEMBER
+                SELECT MEMBER_KAKAO_EMAIL ,MEMBER_EMAIL FROM TBL_MEMBER
         </select>
 
         <update id="updateALL">
@@ -84,12 +84,32 @@
         </update>
 
         <select id="select" resultType="memberDTO">
-                SELECT M.ID, P.ID, P.POST_TITLE, P.POST_CONTENT, P.POST_COMMENT_COUNT, M.MEMBER_NAME, M.MEMBER_ONE_LINE_INTRO, M.MEMBER_BACKGROUND_PATH, M.MEMBER_INTRODUCTION, M.MEMBER_BACKGROUND_NAME, M.MEMBER_PROFILE_NAME, M.MEMBER_PROFILE_PATH,P.POST_HITS,P.POST_DATE,M.MEMBER_EMAIL
+                SELECT M.ID,P.ID AS POST_ID ,P.POST_TITLE, P.POST_CONTENT, P.POST_COMMENT_COUNT, M.MEMBER_NAME, M.MEMBER_ONE_LINE_INTRO, M.MEMBER_BACKGROUND_PATH, M.MEMBER_INTRODUCTION, M.MEMBER_BACKGROUND_NAME, M.MEMBER_PROFILE_NAME, M.MEMBER_PROFILE_PATH,P.POST_HITS,P.POST_DATE,M.MEMBER_EMAIL,P.POST_LIKE_COUNT,
+                PF.POST_FILE_UUID,PF.POST_FILE_NAME,PF.POST_FILE_PATH,C.CATEGORY_C_NAME,B.CATEGORY_B_NAME
                 FROM TBL_MEMBER M
                 JOIN TBL_POST P ON M.ID = P.MEMBER_ID
-                WHERE M.ID = #{memberId}
-                ORDER BY P.ID DESC
+                JOIN TBL_POST_FILE PF ON P.ID = PF.POST_ID
+                JOIN TBL_CATEGORY_C C ON P.CATEGORY_C_ID = C.ID
+                JOIN TBL_CATEGORY_B B ON C.CATEGORY_B_ID =B.ID
+                WHERE M.ID = #{id}
+                ORDER BY P.POST_DATE DESC
         </select>
 
+        <select id="selectIdJoin" resultType="memberVO">
+                SELECT ID, MEMBER_EMAIL,MEMBER_KAKAO_EMAIL,MEMBER_PASSWORD, MEMBER_NAME,  MEMBER_KAKAO_PROFILE_URL,MEMBER_PROFILE_NAME,MEMBER_PROFILE_PATH,MEMBER_LOGIN_CODE,MEMBER_BACKGROUND_PATH,MEMBER_ONE_LINE_INTRO,MEMBER_INTRODUCTION
+                FROM TBL_MEMBER
+                WHERE ID=#{id}
+        </select>
+
+        <update id="increaseLikeCount" parameterType="map">
+                UPDATE TBL_POST
+                SET POST_LIKE_COUNT = POST_LIKE_COUNT + 1
+                WHERE ID = #{id}
+        </update>
+        <update id="decreaseLikeCount" parameterType="map">
+                UPDATE TBL_POST
+                SET POST_LIKE_COUNT = POST_LIKE_COUNT - 1
+                WHERE ID = #{id}
+        </update>
 
 </mapper>
