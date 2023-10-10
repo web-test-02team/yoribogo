@@ -18,28 +18,15 @@
                     <div class="surfaceInner">
                         <div class="flexCol">
                             <div class="margin12">
-                                <img
-                                        alt="프로필 이미지"
-                                        src="/images/post/basicsImage.png"
-                                        decoding="async"
-                                        data-nimg="fill"
-                                        class="rounded-full"
-                                        style="
-
-
-                              box-sizing: border-box;
-                              border: none;
-                              margin: auto;
-                              display: block;
-                              width: 40px;
-                              height: 40px;
-                               object-position: center center;
-
-                            "
-                                />
+                                <button class="profileImageBTN" type="button" style="width: 68px; height: 68px;">
+                                    <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                        <img th:src="@{${session.member.memberProfileName != null ? '/file/display?fileName=' + session.member.memberProfilePath  + '/t_' + session.member.memberProfileName : (session.member.memberKakaoProfileUrl != null ? session.member.memberKakaoProfileUrl : '/images/post/basicsImage.png')}}" alt="프로필 이미지" decoding="async" data-nimg="fill" class="rounded-full">
+                                    </span>
+                                    <span class="profileImageSpan"></span>
+                                </button>
                             </div>
-                            <h2 class="userName">다인</h2>
-                            <a href="">
+                            <h2 th:text="${session.member.memberName}" class="userName"></h2>
+                            <a href="/member/introMain">
                                 <button type="button" class="myPageButton">
                                     <div class="myPageButtonInner">
                                         <div>내 페이지</div>
@@ -63,37 +50,37 @@
                     <!-- 사이드바 시작 -->
                     <ul class="surfaceUl">
                         <li class="surfaceUlLists">
-                            <a class="aList" href="">
+                            <a class="aList" href="/mypage/myrecipe">
                                 <img class="svg4" src="/images/myPage/2.png" />
                                 <span class="surfaceCategory">내가 만든 레시피</span>
                             </a>
                         </li>
                         <li class="surfaceUlLists">
-                            <a class="aList" href="">
+                            <a class="aList" href="/mypage/mypurchase">
                                 <img class="svg5" src="/images/myPage/1.png" />
                                 <span class="surfaceCategory">내가 구매한 레시피</span>
                             </a>
                         </li>
                         <li id="here" class="surfaceUlLists">
-                            <a class="aList" href="">
+                            <a class="aList" href="/mypage/myfavorite">
                                 <img class="svg5" src="/images/myPage/6.png" />
                                 <span class="surfaceCategory">내가 찜한 레시피</span>
                             </a>
                         </li>
                         <li class="surfaceUlLists">
-                            <a class="aList" href="">
+                            <a class="aList" href="/mypage/myreview">
                                 <img class="svg5" src="/images/myPage/3.png" />
                                 <span class="surfaceCategory">내가 작성한 후기</span>
                             </a>
                         </li>
                         <li class="surfaceUlLists">
-                            <a class="aList" href="">
+                            <a class="aList" href="/mypage/othersreview">
                                 <img class="svg5" src="/images/myPage/5.png" />
                                 <span class="surfaceCategory">내가 받은 후기</span>
                             </a>
                         </li>
                         <li class="surfaceUlLists">
-                            <a class="aList" href="">
+                            <a class="aList" href="/mypage/mycomment">
                                 <img class="svg5" src="/images/myPage/4.png" />
                                 <span class="surfaceCategory">내가 작성한 댓글</span>
                             </a>
