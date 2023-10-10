@@ -132,6 +132,7 @@ deleteBTN.addEventListener("click", () => {
 
 replyDeleteCancelBTN.addEventListener("click", () => {
     replyDeleteDIV.style.display = 'none';
+
 })
 
 replyDeleteAgreeBTN.addEventListener("click", () => {
@@ -147,4 +148,7 @@ postToolBTN.addEventListener("click", () => {
     }else {
         modifyAndDeleteWrap.style.display = "none";
     }
+
+
+    g
 })
