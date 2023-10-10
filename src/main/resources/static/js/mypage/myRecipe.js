@@ -5,27 +5,22 @@ const confirmBtn = document.querySelector(".confirmBtn");
 const recipeLists = document.querySelectorAll(".recipeList");
 const cancelLists = document.querySelectorAll(".cancelList");
 
-
 // 게시완료와 임시완료
 const uploadCompleteBtn = document.getElementById("uploadCompleteBar");
 const saveDraftBtn = document.getElementById("saveDraftBar");
 const uploadCompleteUl = document.getElementById("uploadCompleteUl");
 const saveDraftUl = document.getElementById("saveDraftUl");
+
 // 임시로 페이징 버튼 숨김
 const uploadUnderBar = document.getElementById("uploadUnderBar");
 const saveUnderBar = document.getElementById("saveUnderBar");
-
-
-
-
 
 const spanCount = document.querySelector(".spanCount");
 const postNumber = document.querySelector(".postNumberP");
 const cancelNumber = document.querySelector(".cancelNumberP");
 const noData = document.querySelector(".noDataDisplay");
-const noDataDraft = document.querySelector("#noDataDraft");
 
-// 게시글 개수에 따른 숫자 바꾸기
+// 작성 완료 게시글 개수에 따른 숫자 바꾸기
 function updateRecipeCount() {
     const newRecipeLists = document.querySelectorAll(".recipeList");
     const newCount = newRecipeLists.length;
@@ -33,7 +28,7 @@ function updateRecipeCount() {
     spanCount.textContent = newCount;
     postNumber.textContent = newCount;
 
-    // 게시글 개수에 따라 noData 요소 표시 여부 업데이트
+    // 작성 완료 게시글 개수에 따라 noData 요소 표시 여부 업데이트
     if (newCount === 0) {
         noData.style.display = "block";
     } else {
@@ -45,18 +40,28 @@ function updateRecipeCount() {
 // 초기 업데이트 수행
 updateRecipeCount();
 
+// 임시저장 게시글 개수에 따른 숫자 바꾸기
 function updateCancelCount() {
     const newCancelLists = document.querySelectorAll(".cancelList");
     const newCancelCount = newCancelLists.length;
 
     spanCount.textContent = newCancelCount;
     cancelNumber.textContent = newCancelCount;
+
+    // 임시저장 게시글 개수에 따라 noData 요소 표시 여부 업데이트
+    if (newCount === 0) {
+        noData.style.display = "block";
+    } else {
+        noData.style.display = "none";
+    }
 }
 
+// 게시글 삭제 버튼 클릭시 모달창 활성화
 deleteBtns.forEach((btn, index) => {
     btn.addEventListener("click", () => {
         modalDiv.style.display = "block";
 
+        // 모달창의 확인버튼 클릭 시 인덱스 태그 삭제 후 모달창 닫기
         confirmBtn.addEventListener("click", () => {
             console.log(recipeLists[index]);
             recipeLists[index].remove();
@@ -67,14 +72,12 @@ deleteBtns.forEach((btn, index) => {
     });
 });
 
+// 모달창의 취소버튼 클릭시 모달창 닫힘
 cancelBtn.addEventListener("click", () => {
     modalDiv.style.display = "none";
 });
 
-cancelBtn.addEventListener("click", () => {
-    modalDiv.style.display = "none";
-});
-
+// 임시저장 카테고리 클릭 시 전환
 saveDraftBtn.addEventListener("click", () => {
     saveDraftBtn.style.color = "#1d1d1e";
     uploadCompleteBtn.style.color = "#b9b9bb";
@@ -83,6 +86,7 @@ saveDraftBtn.addEventListener("click", () => {
     uploadCompleteUl.style.display = "none";
     saveDraftUl.style.display = "block";
     spanCount.textContent = cancelLists.length;
+
 
     deleteBtns.forEach((btn, index) => {
         btn.addEventListener("click", () => {
@@ -103,6 +107,7 @@ saveDraftBtn.addEventListener("click", () => {
     });
 
 });
+
 uploadCompleteBtn.addEventListener("click", () => {
     spanCount.textContent = recipeLists.length;
     saveDraftBtn.style.color = "#b9b9bb";
@@ -112,6 +117,7 @@ uploadCompleteBtn.addEventListener("click", () => {
     uploadCompleteUl.style.display = "block";
     saveDraftUl.style.display = "none";
 });
+
 // 프로필모달
 const profileModal = document.getElementsByClassName("profileModalWrapper")[0];
 const profileBtn = document.getElementsByClassName("profileBtn")[0];
@@ -154,14 +160,14 @@ const orderSpan = document.querySelector("#orderSpan");
 const categoryBtns = document.querySelectorAll(".categoryBtns");
 const shareBtns = document.querySelectorAll(".shareBtns");
 const orderBtns = document.querySelectorAll(".orderBtns");
-const categorySvg = document.querySelector(".svgCategory")
-const shareSvg = document.querySelector(".svgShare")
-const timeSvg = document.querySelector(".svgTime")
+const categorySvg = document.querySelector(".svgCategory");
+const shareSvg = document.querySelector(".svgShare");
+const timeSvg = document.querySelector(".svgTime");
 let isShowCategory = false;
 let isShowShare = false;
 let isShowOrder = false;
 
-
+// 카테고리 전체 클릭 시 테두리, 모달창, 화살표 변경 이벤트
 categoryBtn.addEventListener("click", () => {
     if (!isShowCategory) {
         rangeCategory.style.display = "block";
@@ -184,9 +190,11 @@ categoryBtn.addEventListener("click", () => {
     }
 });
 
+let buttonText = null;
+
 categoryBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-        const buttonText = btn.textContent.trim();
+        buttonText = btn.textContent.trim();
         categorySpan.textContent = buttonText;
         rangeCategory.style.display = "none";
         categoryBtn.style.borderColor="rgba(0, 0, 0, 0.1)";
@@ -199,7 +207,7 @@ categoryBtns.forEach((btn) => {
     });
 });
 
-// 전역 이벤트 리스너 추가
+//
 document.addEventListener("click", (event) => {
     const target = event.target;
 
@@ -218,9 +226,6 @@ document.addEventListener("click", (event) => {
         `;
     }
 });
-
-
-
 
 shareBtn.addEventListener("click", () => {
     if (!isShowShare) {

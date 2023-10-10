@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yoribogo.mapper.MypageMapper">
+
+    <select id="selectMyRecipeAll" resultType="myRecipeDTO">
+        SELECT ID, POST_TITLE, POST_CONTENT, POST_DATE, POST_HITS, P2.POST_LIKE_COUNT, P2.POST_COMMENT_COUNT, MEMBER_ID, P2.CATEGORY_C_NAME, P2.CATEGORY_B_NAME, P2.CATEGORY_A_NAME, POST_STATUS
+        FROM
+            (
+                SELECT ROWNUM R, ID, POST_TITLE, POST_CONTENT, POST_DATE, POST_HITS, P1.POST_LIKE_COUNT, P1.POST_COMMENT_COUNT, MEMBER_ID, P1.CATEGORY_C_NAME, P1.CATEGORY_B_NAME, P1.CATEGORY_A_NAME, POST_STATUS
+                FROM
+                    (
+                        SELECT ID, POST_TITLE, POST_CONTENT, POST_DATE, POST_HITS,
+                               (SELECT COUNT(L.ID) FROM TBL_LIKE L WHERE L.POST_ID = P.ID) AS POST_LIKE_COUNT,
+                               (SELECT COUNT(C.ID) FROM TBL_COMMENT C WHERE C.POST_ID = P.ID) AS POST_COMMENT_COUNT,
+                               MEMBER_ID, C_C.CATEGORY_C_NAME, C_B.CATEGORY_B_NAME, C_A.CATEGORY_A_NAME, POST_STATUS
+                        FROM TBL_POST P
+                        LEFT JOIN TBL_CATEGORY_C C_C ON P.CATEGORY_C_ID = C_C.ID
+                        LEFT JOIN TBL_CATEGORY_B C_B ON C_C.CATEGORY_B_ID = C_B.ID
+                        LEFT JOIN TBL_CATEGORY_A C_A ON C_B.CATEGORY_A_ID = C_A.ID AND C_A.CATEGORY_A_NAME = '레시피'
+                        WHERE MEMBER_ID = #{memberId}
+                        ORDER BY
+                            <choose>
+                                <when test="search.order == 'popular'">
+                                    POST_HITS
+                                </when>
+                            </choose>
+                            <choose>
+                                <when test="search.order == 'like'">
+                                    POST_LIKE_COUNT
+                                </when>
+                            </choose>
+                            <choose>
+                                <when test="search.order == 'new'">
+                                    ID
+                                </when>
+                            </choose>
+                        DESC
+                    ) P1
+    <![CDATA[
+                WHERE ROWNUM <= #{pagination.endRow}
+            ) P2
+        WHERE P2.R >= #{pagination.startRow}
+    ]]>
+    </select>
+
+    <select id="selectTotal" resultType="int">
+        SELECT COUNT(ID)
+        FROM TBL_POST P
+        LEFT JOIN TBL_CATEGORY_C C_C ON P.CATEGORY_C_ID = C_C.ID
+        LEFT JOIN TBL_CATEGORY_B C_B ON C_C.CATEGORY_B_ID = C_B.ID
+        LEFT JOIN TBL_CATEGORY_A C_A ON C_B.CATEGORY_A_ID = C_A.ID AND C_A.CATEGORY_A_NAME = '레시피'
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+
     <update id="update">
         UPDATE TBL_MEMBER
         <set>
