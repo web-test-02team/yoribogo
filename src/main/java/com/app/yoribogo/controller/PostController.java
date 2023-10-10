@@ -39,10 +39,10 @@ public class PostController {
     }
 
 
-    @GetMapping("recipelist")
-    public void goToRecipeList() {
-        ;
-    }
+//    @GetMapping("recipelist")
+//    public void goToRecipeList() {
+//        ;
+//    }
 
 
     @GetMapping("reviewlist")
