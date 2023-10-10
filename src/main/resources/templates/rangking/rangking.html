@@ -16,20 +16,21 @@
                 <div class="mt-[32px]">
                     <div>
                         <ul class="mainUl">
-                            <li th:each="post : ${posts}" th:object="${post}">
+                            <li th:each="post : ${posts}">
                                 <div>
                                     <button type="button" class="ulBtn">
                                         <div class="relative">
                                             <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
                                                <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px;"></span>
+<!--                                                <img alt="food image" th:src="@{'/images/food/' + ${post.postFilePath}}" decoding="async" data-nimg="responsive" class="rounded" sizes="100vw" srcset="" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">-->
                                                   <img alt="food image" src="/images/food/agliooliopasta.png" decoding="async" data-nimg="responsive" class="rounded" sizes="100vw" srcset="" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
                                                <noscript></noscript>
                                             </span>
                                             <div class="fix"></div>
                                         </div>
-                                        <h2 class="fontBold" th:text="*{memberName}"></h2>
-                                        <p class="fontSm" th:text="*{postTitle}"></p>
-                                        <p class="fontMd" th:text="*{postContent}"></p>
+                                        <h2 class="fontBold" th:text="${post.memberName}"></h2>
+                                        <p class="fontSm" th:text="${post.categoryBName}"></p>
+                                        <p class="fontMd" th:text="${post.postTitle}"></p>
                                     </button>
                                 </div>
                             </li>

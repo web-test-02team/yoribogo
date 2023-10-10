@@ -19,8 +19,6 @@ import java.util.List;
 @RequestMapping("/post/*")
 public class PostController {
    private final PostService postService;
-    @GetMapping("read")
-    public void goToRead() {;}
 
     @GetMapping("write")
     public void goToWrite() {;}

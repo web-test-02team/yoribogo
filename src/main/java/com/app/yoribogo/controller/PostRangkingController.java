@@ -4,6 +4,7 @@ import com.app.yoribogo.domain.PostDTO;
 import com.app.yoribogo.domain.PostVO;
 import com.app.yoribogo.mapper.PostRangkingMapper;
 import com.app.yoribogo.service.PostRangkingService;
+import com.app.yoribogo.service.PostRecipeListService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -20,12 +21,15 @@ import java.util.List;
 public class PostRangkingController {
 
     private final PostRangkingService postRangkingService;
+    private final PostRecipeListService postRecipeListService;
 
     @GetMapping("rangking")
     public void goToRangking(Model model){
 
         List<PostDTO> posts = postRangkingService.getByRangking();
+        List<PostDTO> freeRecipes = postRecipeListService.getByFreeRecipeList();
         model.addAttribute("posts", posts);
+        model.addAttribute("freeRecipes", freeRecipes);
 
     }
 

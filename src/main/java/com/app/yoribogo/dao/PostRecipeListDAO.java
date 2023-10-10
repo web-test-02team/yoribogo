@@ -13,12 +13,15 @@ public class PostRecipeListDAO {
 
     private final PostRecipeListMapper postRecipeListMapper;
 
-    public List<PostDTO> postRecipeListFree(){
+    public List<PostDTO> postFreeRecipeList(){
 
-        return postRecipeListMapper.selectByRecipeListFree();
+        return postRecipeListMapper.selectByFreeRecipeList();
     }
 
-    public List<PostDTO> postRecipeList() {
-        return postRecipeListMapper.selectByRecipeList();
+    public List<PostDTO> postPaidRecipeList() {
+
+        return postRecipeListMapper.selectByPaidRecipeList();
     }
+
+
 }
