@@ -47,11 +47,11 @@ postWrite.addEventListener("click", () => {
 })
 // 메인 카테고리 클릭 시 메인 페이지로 이동
 mainPage.addEventListener("click", () => {
-    window.location.href = "";
+    window.location.href = "/";
 })
 // 레시피 카테고리 클릭 시 레시피 페이지로 이동
 recipePage.addEventListener("click", () => {
-    window.location.href = "";
+    window.location.href = "http://localhost:10000/post/recipelist";
 })
 // 필턴 클릭 시 필터 모달창 표시
 filterBtn.addEventListener("click", () => {

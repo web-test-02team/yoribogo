@@ -4,11 +4,13 @@ import com.app.yoribogo.domain.PostDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface PostMapper {
-    // 리뷰글 목록
-    public List<PostDTO> selectByReviewList();
-    // 조회수 증가
-    public void updatePostHits(int postId);
+    // 무료리뷰글 목록
+    public List<PostDTO> selectByFreeReviewList();
+
+    // 유료리뷰글 목록
+    public List<PostDTO> selectByPaidReviewList();
 }

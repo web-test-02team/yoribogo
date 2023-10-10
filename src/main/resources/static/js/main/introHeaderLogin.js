@@ -1,4 +1,5 @@
 // const content = document.querySelector('.textBoxHidden');
+// const content = document.querySelector('.textBoxHidden');
 
 // document.querySelector('.more').addEventListener('click', function() {
 //   if(content.style.display === 'none' || content.style.display === '') {

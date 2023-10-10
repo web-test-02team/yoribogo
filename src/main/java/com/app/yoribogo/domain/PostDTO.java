@@ -5,6 +5,9 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 @Data
 @ApiModel(value = "게시글 목록")
@@ -33,5 +36,7 @@ public class PostDTO {
     private String categoryCName;
     @ApiModelProperty(value = "카테고리B 이름", example = "무료", required = true)
     private String categoryBName;
+    private String categoryAName;
     private String postFilePath;
+
 }
