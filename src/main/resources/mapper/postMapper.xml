@@ -19,5 +19,4 @@
            SET POST_HITS= POST_HITS + 1
            WHERE P.ID=#{PostId}
     </update>
-
 </mapper>

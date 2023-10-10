@@ -11,13 +11,17 @@ spring:
       username: hr
       password: hr
 
-#multipart
+  #multipart
   servlet:
     multipart:
       enabled: true
       max-request-size: 40MB
       max-file-size: 40MB
       file-size-threshold: 100MB
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
   mail:
     host: smtp.gmail.com

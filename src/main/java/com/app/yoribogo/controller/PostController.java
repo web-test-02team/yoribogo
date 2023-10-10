@@ -19,14 +19,9 @@ import java.util.List;
 @RequestMapping("/post/*")
 public class PostController {
    private final PostService postService;
-    @GetMapping("read")
-    public void goToRead() {;}
 
     @GetMapping("write")
     public void goToWrite() {;}
-
-    @GetMapping("recipelist")
-    public void goToRecipeList() {;}
 
     @GetMapping("reviewlist")
 
@@ -35,7 +30,7 @@ public class PostController {
         List<PostDTO> posts=postService.getByReview();
         model.addAttribute("posts",posts);
 
-        }
+    }
 
 
 }

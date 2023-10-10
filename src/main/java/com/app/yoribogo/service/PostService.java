@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PostService {
     public List<PostDTO> getByReview() ;
+
 }
