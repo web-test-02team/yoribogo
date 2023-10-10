@@ -3,6 +3,9 @@ package com.app.yoribogo.domain;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 @Data
 public class PostDTO {
@@ -18,5 +21,7 @@ public class PostDTO {
     private String memberName;
     private String categoryCName;
     private String categoryBName;
+    private String categoryAName;
     private String postFilePath;
+
 }
