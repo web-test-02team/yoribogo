@@ -14,9 +14,9 @@
 <div>
   <div class="navBigImg">
       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-      <img th:if="${memberId[0].memberBackgroundPath != null}" th:src="${memberId[0].memberBackgroundPath}" alt="이미지"
-           style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 100%; height: 100%; object-fit: cover;">
-    <img th:if="${memberId[0].memberBackgroundPath == null}" src="/images/mainFood/cover_default.png" alt="기본 이미지"
+     <img th:if="${foundId.memberBackgroundPath != null}" th:src="${foundId.memberBackgroundPath}" alt="이미지"
+          style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 100%; height: 100%; object-fit: cover;">
+    <img th:if="${foundId.memberBackgroundPath == null}" src="/images/mainFood/cover_default.png" alt="기본 이미지"
          style="background-color: rgba(0, 0, 0, 0.2); width: 100%; height: 100%;">
       </span>
     <div class="hiddenDiv"></div>
@@ -26,24 +26,26 @@
       <div class="pixel">
         <div class="middleWrap">
           <!-- 프로필 사진 경로도!! -->
-          <div class="middleImg" th:style="'background: ' + (${memberId[0].memberBackgroundPath != null} ? 'url(' + ${memberId[0].memberBackgroundPath} + ') center center / cover no-repeat, rgb(255, 255, 255)' : 'url(/images/mainFood/avatar_default.png) center center / cover no-repeat, rgb(255, 255, 255);')"></div>
+          <div class="middleImg" th:style="${foundId.memberBackgroundPath != null ?
+        'background: url(' + foundId.memberBackgroundPath + ') center center / cover no-repeat, rgb(255, 255, 255)' :
+        'background: url(/images/mainFood/avatar_default.png) center center / cover no-repeat, rgb(255, 255, 255);'}"></div>
           <div class="middleContent">
-            <p class="bigGeul" th:text="${memberId[0].memberName}">생방송 요리보고!</p>
-            <div class="middleView">
+            <p class="bigGeul" th:text="${foundId.memberName}">생방송 요리보고!</p>
+<!--            <div class="middleView">-->
 <!--                <span class="viewCon">-->
 <!--                  <strong class="viewNumber">346</strong>-->
 <!--                  조회수-->
 <!--                </span>-->
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgTeum">
-                <circle cx="12" cy="12" r="4">
-                </circle>
-              </svg>
-              <span class="viewCon">
-                        <strong class="viewNumber">50</strong>
-                            포스트
-                    </span>
-            </div>
-            <p class="smallGeul" th:text="${sessionMember != null && sessionMember.size() > 0 ? sessionMember[0].memberOneLineIntro : (memberId != null && memberId.size() > 0 ? memberId[0].memberOneLineIntro : '')}">경계를 넘나드는 요리 사랑</p>
+<!--              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgTeum">-->
+<!--                <circle cx="12" cy="12" r="4">-->
+<!--                </circle>-->
+<!--              </svg>-->
+<!--              <span class="viewCon">-->
+<!--                        <strong class="viewNumber">50</strong>-->
+<!--                            포스트-->
+<!--                    </span>-->
+<!--            </div>-->
+            <p class="smallGeul" th:text="${foundId.memberOneLineIntro}"></p>
           </div>
           <div class="jjogjiWrap">
             <div>
@@ -85,19 +87,16 @@
     </div>
     <th:block th:if="${#lists.size(id) != 0}">
     <div class="not">
-      <div class="postList"  id="first">
+      <div class="postList" th:each="post,index :${id}" th:id="${index == 0} ? 'first' : null">
+        <div class="post" data-post-id="${post.postId}"  style="display: none;"></div>
         <div>
-          <th:block th:each="post,index :${id}">
           <div>
             <div class="postListContent">
               <div class="postTitleWrap">
                 <div class="postTitle">
                   <div>
                     <a href="">
-                      <div class="divImg" style="width: 34px;
-                        height: 34px;
-                        background: url(/images/mainFood/food19.png) center center / cover no-repeat, rgb(255, 255, 255);">
-                      </div>
+                        <div class="divImg" th:style="'width: 34px; height: 34px; background: url(' + (${post.memberProfilePath != null} ? post.memberProfilePath : '/images/mainFood/avatar_default.png') + ') center center / cover no-repeat, rgb(255, 255, 255);'"> </div>
                     </a>
                   </div>
                   <div>
@@ -169,9 +168,12 @@
               </div>
             </div>
           </div>
-          </th:block>
         </div>
       </div>
+  </main>
+<!--    <th:block th:if="${#lists.size(memberId) != 0}">-->
+<!--      <div>포스트가 없습니다.</div>-->
+<!--    </th:block>-->
 <!--      <div class="postList">-->
 <!--        <div>-->
 <!--          <div>-->
@@ -506,7 +508,6 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--    </div>-->
-</main>
 <!-- 모달창 -->
 <div class="sharingDIV" style="display: none;">
   <div class="sharingModalWrap">
@@ -562,15 +563,15 @@
   </div>
   <div class="sharingModalshadow"></div>
 </div>
-</div>
 </body>
 <script th:inline="javascript">
   const member = [[${session.member}]];
   if (member!==null) {
-    const navLogin = document.querySelector(".loginImg");
+    const loginImg = document.querySelector(".loginImg");
     const loginClick = document.querySelector(".loginClick");
-    navLogin.style.display='block';
-    navLogin.addEventListener("click", () => {
+    loginImg.style.display='block';
+    loginImg.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (loginClick.style.display == 'none') {
         loginClick.style.display = 'block';
       } else {
@@ -590,23 +591,115 @@
       window.location.href = "http://localhost:10000/member/login";
     })
   }
-</script>
-<script th:inline="javascript">
   const memberId=[[${memberId}]];
-  console.log(memberId)
+const foundId=[[${foundId}]];
+  const members=[[${id}]];
+  const id=foundId.id;
 
-  const id=[[${id}]];
   const introButton=document.querySelector(".introButton");
   introButton.addEventListener("click",()=>{
-    const memberId=[[${id}]];
-    const id=memberId[0].id;
-    window.location.href="http://localhost:10000/member/introMain?id="+id;
+    const idValue = id; // 전달할 ID 값
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/member/introMain';
+
+    const idInput = document.createElement('input');
+    idInput.type = 'hidden';
+    idInput.name = 'id'; // 이건 바꾸지말아주세요
+    idInput.value = idValue; // ID 값
+    form.appendChild(idInput);
+
+    document.body.appendChild(form);
+    form.submit();
   })
   // const viewNumber=document.querySelector(".viewNumber");
   // viewNumber.innerText= len;
   const len=memberId.length;
   const postGap=document.querySelector(".postGap");
   postGap.innerText='포스트 '+len;
+
+  const viweTypeButtons = document.querySelectorAll(".viweType");
+  const clickViewDivs = document.querySelectorAll(".clickView");
+
+  // 모든 viweType 버튼에 대한 클릭 이벤트 핸들러를 등록합니다.
+  viweTypeButtons.forEach(button => {
+      button.addEventListener("click", function(event) {
+          // 클릭한 viweType 버튼의 data-target 속성 값을 가져옵니다.
+          const targetId = button.dataset.target;
+
+          // 가져온 targetId를 사용하여 clickView 요소를 찾습니다.
+          const targetElement = document.getElementById(targetId);
+
+          // 다른 모든 clickView 요소를 숨깁니다.
+          clickViewDivs.forEach(div => {
+              if (div !== targetElement) {
+                  div.style.display = "none";
+              }
+          });
+
+          // 클릭한 요소가 이미 보이는 상태라면 닫습니다.
+          if (targetElement.style.display === "block") {
+              targetElement.style.display = "none";
+          } else {
+              targetElement.style.display = "block";
+          }
+
+          // 이벤트 버블링을 중지합니다.
+          event.stopPropagation();
+      });
+  });
+
+  // // 전체 문서에 클릭 이벤트 핸들러를 등록합니다.
+  document.addEventListener("click", function() {
+      // 모든 clickView 요소를 숨깁니다.
+      clickViewDivs.forEach(div => {
+          div.style.display = "none";
+      });
+  });
+  const likeButtons = document.querySelectorAll(".likeBTN");
+  const post =document.querySelectorAll(".post")
+  likeButtons.forEach((likeBTN) => {
+    const likeImageNone = likeBTN.querySelector(".likeImageNone");
+    const likeImageYes = likeBTN.querySelector(".likeImageYes");
+    const likeCount = likeBTN.querySelector(".likeCount");
+    const postId = post.getAttribute("data-post-id");
+    let count = 0;
+    let isLiked = false;
+    likeBTN.addEventListener("click", () => {
+      // 찾아진 post 요소를 가져오기
+      const post = likeBTN.closest(".post");
+      const postId = post.getAttribute("data-post-id");
+      if (isLiked) {
+        likeImageNone.style.display = 'block';
+        likeImageYes.style.display = 'none';
+        count--;
+      } else {
+        likeImageNone.style.display = 'none';
+        likeImageYes.style.display = 'block';
+        count++;
+      }
+      likeCount.textContent = count;
+      isLiked = !isLiked; // 좋아요 상태를 토글합니다.
+
+      // 여기서 서버에 좋아요 업데이트 요청을 보낼 수 있습니다.
+      // 예를 들어, fetch API를 사용하여 서버에 업데이트 요청을 보내면 됩니다.
+      fetch('/member/like', {
+        method: 'POST',
+        body: JSON.stringify({ postId: postId }), // postId 등을 전달
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+              .then(response => response.json())
+              .then(data => {
+                // 서버 응답 처리
+              })
+              .catch(error => {
+                // 오류 처리
+              });
+    });
+  });
 </script>
 <script src="/js/main/mainPost.js"></script>
 </html>

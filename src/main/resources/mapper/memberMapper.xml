@@ -96,9 +96,20 @@
         </select>
 
         <select id="selectIdJoin" resultType="memberVO">
-                SELECT ID, MEMBER_EMAIL,MEMBER_KAKAO_EMAIL,MEMBER_PASSWORD, MEMBER_NAME,  MEMBER_KAKAO_PROFILE_URL,MEMBER_PROFILE_NAME,MEMBER_PROFILE_PATH,MEMBER_LOGIN_CODE
+                SELECT ID, MEMBER_EMAIL,MEMBER_KAKAO_EMAIL,MEMBER_PASSWORD, MEMBER_NAME,  MEMBER_KAKAO_PROFILE_URL,MEMBER_PROFILE_NAME,MEMBER_PROFILE_PATH,MEMBER_LOGIN_CODE,MEMBER_BACKGROUND_PATH,MEMBER_ONE_LINE_INTRO,MEMBER_INTRODUCTION
                 FROM TBL_MEMBER
                 WHERE ID=#{id}
         </select>
+
+        <update id="increaseLikeCount" parameterType="map">
+                UPDATE TBL_POST
+                SET POST_LIKE_COUNT = POST_LIKE_COUNT + 1
+                WHERE ID = #{id}
+        </update>
+        <update id="decreaseLikeCount" parameterType="map">
+                UPDATE TBL_POST
+                SET POST_LIKE_COUNT = POST_LIKE_COUNT - 1
+                WHERE ID = #{id}
+        </update>
 
 </mapper>

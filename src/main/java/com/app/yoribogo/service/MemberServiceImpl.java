@@ -155,4 +155,16 @@ public class MemberServiceImpl implements MemberService {
     public Optional<MemberVO> selectById(Long id) {
         return memberDAO.selectById(id);
     }
+    @Override
+    public void  toggleLikeStatus(Long id){
+//        boolean isLiked = memberDAO.isLiked(id);
+//
+//        // 좋아요 상태 토글
+//        if (isLiked) {
+//            memberDAO.decreaseLikeCount(id);
+//        } else {
+//            memberDAO.increaseLikeCount(id);
+//        }
+    }
+
 }
