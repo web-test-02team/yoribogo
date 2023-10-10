@@ -41,4 +41,5 @@ public interface MemberService {
 
     public Optional<MemberVO> selectById(Long id);
 
+    public void  toggleLikeStatus(Long id);
 }

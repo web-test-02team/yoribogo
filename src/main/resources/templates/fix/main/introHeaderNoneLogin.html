@@ -14,7 +14,7 @@
             <div>
                 <div class="yoribogoLogo">
                     <!-- 로고 경로 바꾸주시면됩니다 -->
-                    <a href="">
+                    <a href="/">
                         <img src="/images/logo/yoribogo.png" alt="요리보고로고" class="navLogo" style="fill: #ffffff;">
                     </a>
                 </div>
@@ -33,7 +33,7 @@
                         </span>
                     </button>
                     <!-- 로그인 한후 이미지 클릭시 나오는거 리스트 -->
-                    <div class="loginClick" style=" display: none;">
+                    <div class="loginClick" style="display: none;">
                         <ul class="loginUl">
                             <!-- 로그인 정보를 가지고와야함 -->
                             <li class="loginLi">
@@ -43,15 +43,8 @@
                                     <span th:if="${session.member.memberEmail  == null and session.member.memberKakaoEmail != null}" th:text="${session.member.memberKakaoEmail}" class="fontEmail">카카오 이메일</span>
                                 </div>
                             </li>
-                            <!-- 이건 짜피 안보이는데 왜 넣어논지 모르겠어요 -->
-                            <li class="loginLi">
-                                <button type="button" class="loginClickButtonHidden">크리에이터 시작하기</button>
-                            </li>
                             <li class="loginLi">
                                 <button type="button" class="loginClickButton">마이 페이지</button>
-                            </li>
-                            <li class="loginLi">
-                                <button type="button" class="loginClickButton">내 포인트</button>
                             </li>
                             <li class="loginLi">
                                 <button type="button" class="loginClickButton">쪽지함</button>
@@ -84,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <h3 class="h3None anotherClass" style="display: none" th:text="${memberId[0].memberName}">생방송 요리보고!</h3>
+            <h3 class="h3None anotherClass" style="display: none" th:text="${foundId.memberName}">생방송 요리보고!</h3>
         </nav>
     </div>
 </div>

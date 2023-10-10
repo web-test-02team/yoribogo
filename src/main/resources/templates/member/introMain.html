@@ -13,9 +13,9 @@
 <div>
     <div class="navBigImg">
       <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
-     <img th:if="${memberId[0].memberBackgroundPath != null}" th:src="${memberId[0].memberBackgroundPath}" alt="이미지"
+     <img th:if="${foundId.memberBackgroundPath != null}" th:src="${foundId.memberBackgroundPath}" alt="이미지"
           style="position: absolute; inset: 0; box-sizing: border-box; padding: 0; border: none; margin: auto; display: block; width: 100%; height: 100%; object-fit: cover;">
-    <img th:if="${memberId[0].memberBackgroundPath == null}" src="/images/mainFood/cover_default.png" alt="기본 이미지"
+    <img th:if="${foundId.memberBackgroundPath == null}" src="/images/mainFood/cover_default.png" alt="기본 이미지"
      style="background-color: rgba(0, 0, 0, 0.2); width: 100%; height: 100%;">
       </span>
         <div class="hiddenDiv"></div>
@@ -25,24 +25,26 @@
             <div class="pixel">
                 <div class="middleWrap">
                     <!-- 프로필 사진 경로도!! -->
-                    <div class="middleImg" th:style="'background: ' + (${memberId[0].memberBackgroundPath != null} ? 'url(' + ${memberId[0].memberBackgroundPath} + ') center center / cover no-repeat, rgb(255, 255, 255)' : 'url(/images/mainFood/avatar_default.png) center center / cover no-repeat, rgb(255, 255, 255);')"></div>
+                    <div class="middleImg" th:style="${foundId.memberProfilePath != null ?
+        'background: url(' + foundId.memberProfilePath + ') center center / cover no-repeat, rgb(255, 255, 255)' :
+        'background: url(/images/mainFood/avatar_default.png) center center / cover no-repeat, rgb(255, 255, 255);'}"></div>
                     <div class="middleContent">
-                        <p class="bigGeul" th:text="${memberId[0].memberName}">생방송 요리보고!</p>
-                        <div class="middleView">
+                        <p class="bigGeul" th:text="${foundId.memberName}">생방송 요리보고!</p>
+<!--                        <div class="middleView">-->
+<!--&lt;!&ndash;                            <span class="viewCon">&ndash;&gt;-->
+<!--&lt;!&ndash;                              <strong class="viewNumber">346</strong>&ndash;&gt;-->
+<!--&lt;!&ndash;                              조회수&ndash;&gt;-->
+<!--&lt;!&ndash;                            </span>&ndash;&gt;-->
+<!--                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgTeum">-->
+<!--                                <circle cx="12" cy="12" r="4">-->
+<!--                                </circle>-->
+<!--                            </svg>-->
 <!--                            <span class="viewCon">-->
-<!--                              <strong class="viewNumber">346</strong>-->
-<!--                              조회수-->
+<!--                                <strong class="viewNumber">50</strong>-->
+<!--                            포스트-->
 <!--                            </span>-->
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="svgTeum">
-                                <circle cx="12" cy="12" r="4">
-                                </circle>
-                            </svg>
-                            <span class="viewCon">
-                                <strong class="viewNumber">50</strong>
-                            포스트
-                            </span>
-                        </div>
-                        <p class="smallGeul" th:text="${sessionMember != null && sessionMember.size() > 0 ? sessionMember[0].memberOneLineIntro : (memberId != null && memberId.size() > 0 ? memberId[0].memberOneLineIntro : '')}">생방송 요리보고!>경계를 넘나드는 요리 사랑</p>
+<!--                        </div>-->
+                        <p class="smallGeul" th:text="${foundId.memberOneLineIntro}"></p>
                     </div>
                     <div class="jjogjiWrap">
                         <div>
@@ -81,7 +83,7 @@
             <div>
                 <h4 class="todayChef">한줄 소개</h4>
                 <div class="textBox">
-                    <div class="textBoxHidden" th:text="${sessionMember != null && sessionMember.size() > 0 ? (sessionMember[0].memberIntroduction != null ? sessionMember[0].memberIntroduction : '소개글을 써주세요') : (memberId != null && memberId.size() > 0 ? (memberId[0].memberIntroduction != null ? memberId[0].memberIntroduction : '소개글을 써주세요') : '소개글을 써주세요')}">
+                    <div class="textBoxHidden" th:text="${foundId != null ? (foundId.memberIntroduction != null ? foundId.memberIntroduction : '소개글을 써주세요') : '소개글을 써주세요'}">
                         <p>
                            소개글을 써주세요 <br>
                         </p>
@@ -107,13 +109,13 @@
                 </div>
                 <button class="more">더보기</button>
             </div>
+            <th:block th:if="${#lists.size(memberId) != 0}">
             <h4 class="recentPost">
                 <div class="recentPostLine">
                     <span>최근 포스트</span>
-                    <a th:href="@{'/member/mainPost?id=' + ${memberId[0].id}}" class="viewAll">전체보기</a>
+                    <button type="button" class="viewAll">전체보기</button>
                 </div>
             </h4>
-            <th:block th:if="${#lists.size(memberId) != 0}">
             <ul class="listArea">
                 <ul class="postList">
                     <div class="line">
@@ -149,8 +151,7 @@
                                         </div>
                                     </div>
                                     <div class="nickNameLine">
-                                        <div class="mark" style="width: 18px; height: 18px; background: url(https://steadio.imgix.net/profiles/70b0588e-f2bc-4a18-8c0d-722c484731eb/profileImage/40b9552b-eb9d-493e-b6b1-6c2fcd990add.jpg?auto=format%2Ccompress&h=300&lossless=true&w=300) center center / cover no-repeat, rgb(255, 255, 255);">
-                                        </div>
+                                        <div class="mark" th:style="'width: 18px; height: 18px; background: url(' + (${post.memberProfilePath != null} ? post.memberProfilePath : '/images/mainFood/avatar_default.png') + ') center center / cover no-repeat, rgb(255, 255, 255);'"> </div>
                                         <div class="nickName">
                                             <span class="nickNameContent" th:text="*{post.memberName}">푸딩</span>
                                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="doc">
@@ -166,9 +167,7 @@
                                 </button>
                             </div>
                         </li>
-                        </th:block>
-                        <th:block th:unless="${#lists.size(memberId) != 0}">
-                        </th:block>
+                     </th:block>
 <!--                        <li class="listBorder">-->
 <!--                            <div>-->
 <!--                                <button type="button" class="freeMember">-->
@@ -357,7 +356,9 @@
         </div>
     </div>
 </main>
-
+<!--<th:block th:if="${#lists.isEmpty(memberId)}">-->
+<!--    <div>포스트가 없습니다.</div>-->
+<!--</th:block>-->
 <!-- 모달창 -->
 <div class="sharingDIV" style="display: none;">
     <div class="sharingModalWrap">
@@ -418,14 +419,16 @@
 </div>
 </body>
     <script th:inline="javascript">
-        const memberId=[[${memberId}]];
-        console.log(memberId[0].id);
+        const foundId=[[${foundId}]];
+        const id=foundId.id;
+
         const member = [[${session.member}]];
         if (member!==null) {
-        const navLogin = document.querySelector(".loginImg");
+        const loginImg = document.querySelector(".loginImg");
         const loginClick = document.querySelector(".loginClick");
-        navLogin.style.display='block';
-        navLogin.addEventListener("click", () => {
+            loginImg.style.display='block';
+            loginImg.addEventListener("click", (event) => {
+                event.stopPropagation();
         if (loginClick.style.display == 'none') {
         loginClick.style.display = 'block';
     } else {
@@ -445,12 +448,39 @@
         window.location.href = "http://localhost:10000/member/login";
     })
     }
-        const postButton=document.querySelector(".postButton");
+        const postButton =document.querySelector(".postButton");
         postButton.addEventListener("click",()=>{
-            const memberId=[[${memberId}]];
+            const idValue = id; // 전달할 ID 값
 
-            const id=memberId[0].id;
-            window.location.href="http://localhost:10000/member/mainPost?id="+id;
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/member/mainPost';
+
+            const idInput = document.createElement('input');
+            idInput.type = 'hidden';
+            idInput.name = 'id'; // 이건 바꾸지말아주세요
+            idInput.value = idValue; // ID 값
+            form.appendChild(idInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        })
+        const viewAll =document.querySelector(".viewAll");
+        viewAll.addEventListener("click",()=>{
+            const idValue = id; // 전달할 ID 값
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/member/mainPost';
+
+            const idInput = document.createElement('input');
+            idInput.type = 'hidden';
+            idInput.name = 'id'; // 이건 바꾸지말아주세요
+            idInput.value = idValue; // ID 값
+            form.appendChild(idInput);
+
+            document.body.appendChild(form);
+            form.submit();
         })
 </script>
 <script src="/js/main/introHeaderLogin.js"></script>

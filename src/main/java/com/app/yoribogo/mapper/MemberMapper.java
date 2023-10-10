@@ -52,4 +52,9 @@ public interface MemberMapper {
 
     //회원정보 조회
     public Optional<MemberVO> selectIdJoin(Long id);
+
+    //좋아요
+    public void  increaseLikeCount(Long id);
+
+    public void decreaseLikeCount(Long id);
 }
