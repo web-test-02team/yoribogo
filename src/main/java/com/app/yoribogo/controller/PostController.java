@@ -22,30 +22,29 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/post/*")
 public class PostController {
-<<<<<<< HEAD
+
     private final PostService postService;
 
     @GetMapping(value = "read")
     public void goToRead() {
         ;
     }
-=======
-   private final PostService postService;
->>>>>>> 870ea3318898f6b70f9e511410bb32c67582c9dc
+
+
+
 
     @GetMapping("write")
     public void goToWrite() {
         ;
     }
 
-<<<<<<< HEAD
+
     @GetMapping("recipelist")
     public void goToRecipeList() {
         ;
     }
 
-=======
->>>>>>> 870ea3318898f6b70f9e511410bb32c67582c9dc
+
     @GetMapping("reviewlist")
 
     public void goToReviewList(Model model) {
