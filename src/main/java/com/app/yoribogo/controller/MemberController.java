@@ -98,12 +98,17 @@ public class MemberController {
     }
 
     @GetMapping("findPasswordSend")
-    public void goToFindPasswordSend(HttpServletRequest request, @RequestParam(name = "token", required = false) String token) {
+    public String goToFindPasswordSend(HttpServletRequest request, @RequestParam(name = "token", required = false) String token) {
         String foundEmail = TokenManager.getEmailFromToken(token); // 토큰을 사용하여 이메일을 찾음
         HttpSession session = request.getSession();
+        if(foundEmail==null){
+                return "member/expiredLink";
+        }
         session.setAttribute("foundEmail", foundEmail);
+        return "member/findPasswordSend";
     }
-
+    @GetMapping("expiredLink")
+    public void gotoExpiredLink(){;}
     @PostMapping("findPasswordSend")
     public RedirectView changePassword(HttpServletRequest request, @RequestParam(name = "newPassword") String newPassword) {
         HttpSession session = request.getSession();

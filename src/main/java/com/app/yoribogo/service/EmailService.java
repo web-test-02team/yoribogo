@@ -49,6 +49,8 @@ public class EmailService {
                     "비밀번호 재설정 링크" +
                     "</a>" +
                     "</div>" +
+                   "<p style=\"font-weight: 400; font-size: 14px; line-height: 20px; text-align: center; color: #333334;\">비밀번호 재설정 링크는 1시간 동안 유효합니다." +
+                   "</p>"+
                     "</div>" +
                     "</div>" +
                     "</div>" +
