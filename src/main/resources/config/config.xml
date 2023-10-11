@@ -20,6 +20,6 @@
         <typeAlias type="com.app.yoribogo.domain.TagsVO" alias="tagsVO" />
         <typeAlias type="com.app.yoribogo.domain.PostDTO" alias="postDTO" />
         <typeAlias type="com.app.yoribogo.domain.MemberDTO" alias="memberDTO" />
-        <typeAlias type="com.app.yoribogo.domain.MyRacipeDTO" alias="myRacipeDTO" />
+        <typeAlias type="com.app.yoribogo.domain.MyRecipeDTO" alias="myRecipeDTO" />
     </typeAliases>
 </configuration>

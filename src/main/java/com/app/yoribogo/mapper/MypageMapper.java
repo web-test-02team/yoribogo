@@ -12,7 +12,7 @@ public interface MypageMapper {
     public void update(MemberVO memberVO);
 
 //    내가 작성한 레시피 목록 조회
-    public void selectAll(@Param("pagination") Pagination pagination, @Param("search") Search search, Long id);
+    public List<MyRecipeDTO> selectAll(@Param("pagination") Pagination pagination, @Param("search") Search search, Long id);
 
 //    내가 작성한 레시피 전체 개수
     public int selectTotal(Long id);
