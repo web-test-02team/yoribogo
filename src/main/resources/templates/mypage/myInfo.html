@@ -26,7 +26,7 @@
                                 </button>
                             </div>
                             <h2 th:text="${session.member.memberName}" class="userName"></h2>
-                            <a href="/member/introMain">
+<!--                            <a href="/member/introMain">-->
                                 <button type="button" class="myPageButton">
                                     <div class="myPageButtonInner">
                                         <div>내 페이지</div>
@@ -36,7 +36,7 @@
                                         </svg>
                                     </div>
                                 </button>
-                            </a>
+<!--                            </a>-->
                         </div>
                     </div>
                     <ul class="surfaceUl">
@@ -251,6 +251,24 @@
     }else {
         document.querySelector(".backgroundSpan").style.display = "block";
     }
+    const id=[[${session.member.id}]];
+    const myPageButton =document.querySelector(".myPageButton");
+    myPageButton.addEventListener("click",()=>{
+        const idValue = id; // 전달할 ID 값
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '/member/introMain';
+
+        const idInput = document.createElement('input');
+        idInput.type = 'hidden';
+        idInput.name = 'id'; // 이건 바꾸지말아주세요
+        idInput.value = idValue; // ID 값
+        form.appendChild(idInput);
+
+        document.body.appendChild(form);
+        form.submit();
+        })
 </script>
 <script src="/js/mypage/myInfo.js"></script>
 </html>
