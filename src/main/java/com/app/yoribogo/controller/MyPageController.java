@@ -65,8 +65,12 @@ public class MyPageController {
     public void goToMyPurchase(){;}
 
     @GetMapping("myrecipe")
-    public void goToMyRecipe(Pagination pagination, Search search, Model model){
-        pagination.setTotal();
+    public void goToMyRecipe(Pagination pagination, Search search, Model model, HttpSession session){
+        Long memberId = ((MemberVO)session.getAttribute("member")).getId();
+        pagination.setTotal(mypageService.getByMemberIdTotal(memberId));
+        pagination.progress();
+
+        model.addAttribute("myRecipes", mypageService.getByMemberIdForRecipe(pagination, search, memberId));
     }
 
     @GetMapping("myreview")

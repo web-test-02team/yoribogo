@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class MyRacipeDTO {
+public class MyRecipeDTO {
     private Long id;
     private String postTitle;
     private String postContent;

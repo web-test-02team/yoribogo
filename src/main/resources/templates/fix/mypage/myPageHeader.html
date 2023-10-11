@@ -41,7 +41,7 @@
                         ><img
                                 alt="프로필 이미지"
                                 sizes="100vw"
-                                src="/images/post/basicsImage.png"
+                                th:src="@{${session.member.memberProfileName != null ? '/file/display?fileName=' + session.member.memberProfilePath  + '/t_' + session.member.memberProfileName : (session.member.memberKakaoProfileUrl != null ? session.member.memberKakaoProfileUrl : '/images/post/basicsImage.png')}}"
                                 decoding="async"
                                 data-nimg="fill"
                                 class="rounded-full"
